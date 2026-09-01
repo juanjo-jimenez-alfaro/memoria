@@ -2,7 +2,7 @@
 
 Marketplace con el plugin `metodo`: el método de trabajo y documentación por proyecto.
 
-Siete skills que escriben y mantienen una estructura de carpetas compartida en Drive, con sesiones, decisiones y entregables en Markdown.
+Once skills que escriben y mantienen una estructura de carpetas compartida en Drive, con sesiones, decisiones y entregables en Markdown, para que la carpeta sirva de memoria que la IA lee antes de ayudar a cualquiera.
 
 ## Instalación
 
@@ -26,21 +26,31 @@ En una organización de Claude Team o Enterprise, el propietario puede distribui
 
 | Skill | Para qué |
 |---|---|
-| `convenciones` | Contrato base: estructura, cabeceras, estados, qué es público |
+| `convenciones` | Contrato base: estructura, cabeceras, estados, cómo se lee, qué es público |
+| `estilo` | Normas de redacción, siempre activas |
 | `sesion` | Abrir y cerrar sesión de trabajo sobre un proyecto |
 | `proyecto-nuevo` | Crear el paquete completo de un proyecto |
 | `entregable` | Crear o actualizar un entregable |
 | `revisar` | Revisar, detectar desfase y publicar |
 | `donde-va` | Colocar material que llega en el sitio correcto |
-| `estilo` | Normas de redacción, siempre activas |
+| `consulta` | Responder qué sabe ya la organización, sin escribir nada |
+| `area-nueva` | Crear un área con su `area.md` y anotarla en `guia.md` |
+| `organizacion-nueva` | Montar la raíz completa de una organización |
+| `migrar` | Adoptar una carpeta que venía de otra estructura, sin borrar los originales |
 
-## Cómo se usa con un cliente
+El plugin trae además las cuatro plantillas del método (brief, comparativo, reporte de decisión, handoff) y el archivo `metodo.md` generado.
 
-Cada cliente tiene una raíz sincronizada en Drive, autocontenida, con `guia.md`, `metodo/` y `empresa/`. La carpeta `metodo/` lleva los mismos siete archivos que este plugin, en Markdown legible, para que funcionen también con Gemini o para quien abra la carpeta sin IA delante.
+## Cómo se usa con una organización
 
-El número de versión vive en `convenciones.md`. Al abrir sesión se compara con la versión del cliente y se avisa si se quedó atrás.
+Cada organización tiene una raíz sincronizada en Drive, autocontenida, con `guia.md`, `metodo.md` y `empresa/`, y una carpeta por área. La monta la skill `organizacion-nueva`.
+
+`guia.md` es para personas: qué es la carpeta, qué áreas hay, el texto para pegar en las instrucciones de un proyecto de Cowork y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: reúne el contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
+
+El número de versión vive en el plugin y en la primera línea de `metodo.md`. Al abrir sesión se comparan y se avisa si la raíz se quedó atrás; ponerla al día es regenerar `metodo.md` con `plugins/metodo/build-metodo.sh` y copiarlo a la raíz.
 
 ## Versiones
+
+**1.2** · Desaparece la carpeta `metodo/` de la raíz; en su lugar hay un `metodo.md` generado desde el plugin y un `guia.md` para personas, con el texto para Cowork y el párrafo para programadores. `area.md` tiene estructura fija y su bloque Proyectos es el índice del área, escrito por las skills. Sección nueva en el contrato sobre cómo se lee la raíz por niveles. Formato único de decisiones con `Afecta a` entre áreas: al abrir sesión se barren las decisiones de toda la raíz y al cerrar se recuerda avisar. `empresa/sistemas.md`, `fuentes/enlaces.md` opcional, nota junto a archivos sensibles y permisos en Drive. Cuatro skills nuevas: `consulta`, `migrar`, `area-nueva` y `organizacion-nueva`, con las cuatro plantillas. En estilo, umbral de guiones largos y cifras con fecha o fuente.
 
 **1.1** · Desaparece la carpeta `borrador/`, que colisionaba con `estado: borrador`. Un entregable a medias vive en `entregables/` con ese estado, y el material sin clasificar en `fuentes/`. El dueño pasa a ser bloqueante al crear un proyecto.
 

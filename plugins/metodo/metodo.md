@@ -1,6 +1,7 @@
----
-name: convenciones
-description: Contrato base del metodo de trabajo: estructura de carpetas, cabecera de los archivos, estados, como se lee la raiz y que es publico. Consultala antes de crear o modificar cualquier archivo dentro de la estructura de una organizacion, y cuando pregunten como se organiza algo, donde va, que significa un estado o quien puede escribir donde.
+# Método de trabajo · versión 1.2 · generado desde el plugin, no se edita a mano
+
+Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin `metodo`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz.
+
 ---
 
 # Convenciones
@@ -268,3 +269,95 @@ Nunca se lee todo. El camino va por niveles y se para en el primero que responde
 **Otros modelos.** Gemini u otro modelo sin plugin leen `metodo.md`. Contiene este contrato, el estilo y el índice de skills, así que saben qué reglas seguir aunque no puedan ejecutarlas como skills.
 
 **Programadores.** El `CLAUDE.md` de un repositorio enlaza la carpeta del proyecto en la raíz (`area/proyecto`). Las decisiones de código que dependen de un diseño se anclan en `decisiones.md` y en los entregables vigentes de ese proyecto, no en comentarios del código. Para saber qué se decidió antes de escribir código, usan la skill `consulta`.
+
+---
+
+# Estilo
+
+Estilo de todo lo que se escribe, firma o comparte en esta estructura:
+
+> **Ejecutivo y al grano: el hecho relevante desde el inicio, sin rodeos ni expresiones que no aporten de manera directa.**
+
+Este archivo es la fuente canónica del estilo. Si una plantilla de `empresa/plantillas/` lo contradice, manda este archivo.
+
+## Cuándo se aplica
+
+Siempre, sin que nadie la invoque, en cualquier redacción o revisión. Y de forma explícita cuando alguien pide que suene menos a IA, más ejecutivo, más al grano, o que le quiten los rodeos.
+
+## Las dos preguntas que resuelven casi todo
+
+1. **¿La primera frase ya dice el hecho, o lo anuncia?** Si lo anuncia, empieza por el hecho.
+2. **¿Puedo borrar esta palabra y no se pierde información?** Entonces sobra.
+
+## Siete patrones a evitar
+
+**1. Metadiscurso, frases que anuncian en vez de decir.** El patrón que más suena a IA: construye expectativa antes de entregar contenido.
+
+- Mal: *"El punto central es que el motor propio sale más barato."* · *"Y el hallazgo que reordena la pregunta: no existe API fiscal mexicana."* · *"Lo que conviene tener claro:"* · *"para una lectura equilibrada"*
+- Bien: *"El motor propio sale 5× más barato."* · *"No existe API fiscal mexicana en el mercado."*
+
+**2. Guiones largos como muletilla.** Cuando el guion sustituye a dos puntos, coma o punto y coma, usa la puntuación normal. Resérvalos para incisos que funcionan como paréntesis.
+
+- Mal: *"La decisión es clara — modernizar el motor."*
+- Bien: *"La decisión es clara: modernizar el motor."*
+- Bien, inciso legítimo: *"El motor —heredado de 2007— sigue en producción."*
+
+El umbral: más de un guion largo cada 500 palabras en un entregable es muletilla, aunque cada uno por separado parezca defendible. Un entregable de 1.500 palabras con siete guiones largos tiene que bajar a tres como mucho.
+
+- Mal: un brief de 600 palabras con cinco guiones largos, todos correctos como incisos. Son demasiados para lo que dice el texto.
+- Bien: el mismo brief con uno, y los otros cuatro convertidos en dos puntos, paréntesis o frases separadas.
+
+**3. Negaciones en espejo.** *"No es X, es Y."* Legítimas solo cuando corrigen una expectativa falsa que el lector traía. Si no la traía, di Y directamente.
+
+- Mal: *"No es un problema de producto, es un problema de go-to-market."* (si nadie dijo que fuera de producto)
+- Bien: *"El problema es de go-to-market."*
+
+**4. Rodeos en las conclusiones.** La conclusión es lo que menos tolera preámbulo.
+
+- Mal: *"La postura de fondo es modernizar."* → Bien: *"Modernizar."*
+
+**5. Negritas como subrayado nervioso.** Una negrita destaca; cinco no destacan ninguna. En documentos internos ayudan a escanear; en un documento para terceros, tres por párrafo cansan.
+
+**6. Signos que no se leen en voz alta en español.** Si no puedes leer el signo en voz alta, escribe la palabra. El caso cerrado es el signo de sección, que no aparece en ningún documento.
+
+- Mal: el signo de sección pegado a un número o a un nombre, como abreviatura de "sección"
+- Bien: *"ver la sección 4.1"* · *"secciones 2 y 3"* · *"de la sección 8"* · *"sección Nómina"*
+- Se conservan `%`, `·`, `→`, el `#` de un ticket, y cualquier signo que sea parte de un identificador citado literalmente.
+
+**7. Cifras sueltas.** Toda cifra en un entregable lleva fecha o fuente en el mismo párrafo. Una cifra sin ninguna de las dos no se puede comprobar ni saber si sigue valiendo, y el lector de dentro de seis meses no tiene a quién preguntar.
+
+- Mal: *"El 70% del volumen son órdenes pequeñas."*
+- Bien: *"El 70% del volumen son órdenes pequeñas (export de órdenes de 2025, `fuentes/ordenes-2025.csv`)."* · *"A agosto de 2026, el 70% del volumen son órdenes pequeñas."*
+
+La fecha basta cuando el dato es de la propia organización y está en una fuente ya citada en la cabecera. La fuente hace falta cuando el dato viene de fuera.
+
+## Alcance
+
+- **Entregables y cualquier texto que salga del proyecto:** los siete patrones, sin excepción.
+- **Registros** (`sesiones.md`, `decisiones.md`): pueden ser más extensos, porque su función es dejar constancia del razonamiento. El metadiscurso y los rodeos sobran igual, y una cifra en `Por qué` también lleva su fecha o su fuente.
+
+## Al revisar un texto existente
+
+1. Señala los pasajes concretos y propón la reescritura. No reescribas el documento entero en silencio.
+2. Cuenta los guiones largos antes y después, y compáralos con el umbral de uno cada 500 palabras. Es la medida más rápida de si el texto mejoró.
+3. Busca cada cifra y comprueba que tenga fecha o fuente al lado.
+4. No toques las citas textuales de terceros ni los nombres propios de documentos y decisiones.
+5. Corregir el estilo de un entregable de otro proyecto o de otra área es tocar contenido ajeno, no forma. Se propone al dueño, no se aplica.
+
+---
+
+# Skills del plugin
+
+Lo que hace cada una, en una línea. Con el plugin instalado se activan solas por las frases que menciona cada descripción.
+
+- **convenciones**: Contrato base del metodo de trabajo: estructura de carpetas, cabecera de los archivos, estados, como se lee la raiz y que es publico. Consultala antes de crear o modificar cualquier archivo dentro de la estructura de una organizacion, y cuando pregunten como se organiza algo, donde va, que significa un estado o quien puede escribir donde.
+- **estilo**: Normas de estilo de redaccion. Aplicala por defecto al redactar o revisar cualquier texto que se vaya a firmar o compartir, sin que la invoquen, y cuando pidan 'que suene menos a IA', 'mas ejecutivo', 'mas al grano' o 'revisa el estilo'.
+- **sesion**: Abre y cierra sesiones de trabajo sobre un proyecto. Usala cuando digan 'abre sesion', 'retomamos X', 'en que quedamos con...', 'cierra la sesion', 'guarda lo de hoy' o 'terminamos'.
+- **proyecto-nuevo**: Crea el paquete completo de un proyecto nuevo. Usala cuando digan 'nuevo proyecto', 'arranca un proyecto para...', 'necesito documentar esto como proyecto', o cuando se trabaje en algo que todavia no tiene carpeta.
+- **entregable**: Crea o actualiza un entregable de un proyecto. Usala cuando pidan 'prepara el documento de...', 'necesito un documento con...', 'documenta lo que decidimos sobre...', o 'actualiza el entregable X'.
+- **revisar**: Revisa un entregable, detecta lo que quedo desfasado y publica de en-revision a vigente. Usala con 'revisa X', 'esto esta listo?', 'que esta desactualizado?', 'pasalo a vigente' o 'ya lo aprobo...'.
+- **donde-va**: Coloca cualquier material que llegue en el sitio correcto de la estructura. Usala cuando pregunten 'donde guardo esto?', peguen un documento o un enlace sin decir donde va, o aparezca un archivo suelto en la raiz.
+- **consulta**: Responde preguntas sobre lo que la organizacion ya sabe, leyendo solo la superficie publica de la raiz y sin escribir nada. Usala cuando pregunten 'que sabemos de X?', 'alguien ya trabajo esto?', 'que se decidio sobre...?', 'hay algo hecho sobre...?' o 'quien lleva...?'.
+- **area-nueva**: Crea un area nueva en la raiz con su area.md y la anota en guia.md. Usala cuando digan 'nueva area', 'crea el area de...', 'necesitamos una carpeta para el equipo de...' o cuando un proyecto nuevo no tenga area donde vivir.
+- **organizacion-nueva**: Monta la raiz completa de una organizacion nueva: guia.md, metodo.md, empresa/ con sus cuatro archivos y plantillas, y la primera area si la hay. Usala cuando digan 'monta la carpeta de...', 'nueva organizacion', 'arranca el metodo para este cliente', 'crea la raiz' o cuando una carpeta conectada este vacia.
+- **migrar**: Adopta una carpeta que sigue otra estructura y la trae al metodo sin borrar los originales. Usala cuando digan 'migra esta carpeta', 'trae esto al metodo', 'adopta lo que hay en...', 'convierte estos documentos a la estructura' o cuando aparezca una carpeta con ADR, logs de sesion o carpetas numeradas.
