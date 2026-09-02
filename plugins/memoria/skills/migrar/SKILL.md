@@ -29,7 +29,7 @@ Migrar es una tarea larga. Se hace por proyecto, no toda la carpeta de golpe, y 
 
 **4. Sesiones.** Todos los logs de sesión del origen, estén en un archivo por sesión o en una carpeta, se consolidan en un solo `sesiones.md` del proyecto. Cada log pasa a una entrada con encabezado `## AAAA-MM-DD`, tomada del nombre del archivo o de su contenido, y el cuerpo viejo se conserva debajo tal cual, con sus encabezados bajados a `###` para que no compitan con las fechas. Las entradas van de la más reciente a la más antigua. No se resume ni se reescribe lo que decían: la regla de histórico permite convertir este registro porque nadie lo ha consumido todavía, pero convertir es cambiar el formato, no el contenido.
 
-**5. Entregables.** Los documentos que otra persona leería para construir encima pasan a `entregables/` con cabecera del método. `estado: en-revision` si en el origen estaban dados por buenos, `borrador` si no. `basado_en` se rellena con lo que se pueda rastrear; si no hay forma de saber de dónde salió el documento, se deja `[]` y `revisar` lo pedirá antes de publicar. Si el documento del origen tenía un responsable distinto del dueño del proyecto, se dice en la primera línea del cuerpo. Nada queda `vigente` al migrar: publicar lo pide el dueño del proyecto después.
+**5. Entregables.** Los documentos que otra persona leería para construir encima pasan a `entregables/` con cabecera del método. `estado: en-revision` si en el origen estaban dados por buenos, `borrador` si no. `basado_en` se rellena con lo que se pueda rastrear; si no hay forma de saber de dónde salió el documento, se deja `[]` y `revisar` lo pedirá antes de publicar. Si el documento del origen tenía un responsable distinto del dueño del proyecto, se dice en la primera línea del cuerpo. Entran `vigente` solo si quien migra era el dueño del material en el origen y lo pide de forma explícita; en ese caso `sesiones.md` deja constancia de que se publicaron al migrar por esa razón. Si no, publicar lo pide el dueño del proyecto después.
 
 **6. Documentos largos.** Un documento de contexto largo del origen (`00-contexto.md`, un README de cuarenta pantallas) no se trae entero como entregable. Se extraen de él las cifras con su fecha y los pendientes abiertos: los del proyecto van a `Estado actual` y `Siguientes pasos` de `proyecto.md`; los del área van a `Prioridades ahora` de `area.md`, y ahí solo si el dueño del área lo aprueba. El documento entero se guarda en `fuentes/` como material adoptado, por si hace falta volver a él.
 
@@ -61,7 +61,7 @@ Si la migración se hace por proyectos, el reporte se da al cerrar cada uno.
 - Migrar sin enseñar antes el inventario y el mapeo
 - Crear un proyecto sin dueño con nombre y apellido
 - Resumir o reescribir el contenido de un log de sesión al consolidarlo. Se cambia el formato, no lo que decía
-- Dejar un entregable migrado en `vigente`
+- Dejar un entregable migrado en `vigente` sin que el dueño del origen lo haya pedido
 - Traer a `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
 - Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Traer `AGENTS.md`, índices manuales, prefijos numéricos o cualquier cosa de la lista de lo que no existe en `convenciones`
