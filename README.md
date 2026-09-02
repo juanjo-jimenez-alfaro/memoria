@@ -9,7 +9,7 @@ Nueve skills que escriben y mantienen una estructura de carpetas compartida en D
 En Claude Code, Claude Desktop o Cowork:
 
 ```
-/plugin marketplace add <usuario>/<repo>
+/plugin marketplace add juanjo-jimenez-alfaro/memoria
 /plugin install memoria@memoria-marketplace
 ```
 
