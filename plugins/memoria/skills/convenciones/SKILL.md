@@ -116,6 +116,8 @@ Los tres archivos de la raíz del proyecto y las dos carpetas existen siempre, a
 
 No hay carpeta de borradores. Un entregable a medias vive en `entregables/` con `estado: borrador`, y lo que todavía no es nada vive en la conversación hasta que merezca ser un archivo.
 
+No hay carpeta aparte para binarios. Una presentación hecha directo en PowerPoint o Keynote, una hoja de cálculo hecha en Excel o Numbers, un PDF que nadie generó desde texto: si es el producto del proyecto, va a `entregables/` con nombre en minúsculas y guiones, igual que cualquier otro entregable; si es material de entrada, a `fuentes/`. No lleva cabecera propia porque el formato no la admite; su estado y de qué se construyó se anotan en `proyecto.md` o en la entrada de `decisiones.md` que lo produjo. El lugar donde vive la raíz de la organización (Drive, iCloud) ya previsualiza estos formatos, así que no hace falta sacarlos de la estructura para poder verlos.
+
 ### Estructura de `proyecto.md`
 
 Fija, porque varias skills escriben en ella:

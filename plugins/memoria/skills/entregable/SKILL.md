@@ -59,6 +59,8 @@ Un entregable a medias vive en `entregables/` con `estado: borrador`, no en otra
 
 **Formatos finales** (PPTX, HTML, PDF): se generan desde el `.md` y se guardan junto a él, con el mismo nombre. El `.md` sigue siendo la fuente de verdad y el derivado se regenera cuando cambia. Un derivado editado a mano deja de ser un entregable y pasa a ser un problema.
 
+**Binarios nativos** (una presentación armada directo en PowerPoint o Keynote, una hoja de cálculo armada en Excel o Numbers, sin ningún `.md` detrás): van igual a `entregables/`, con el mismo nombre en minúsculas y guiones. No llevo cabecera dentro del archivo porque el formato no la admite; anoto su estado y de qué se construyó en `proyecto.md` o en la entrada de `decisiones.md` que lo produjo. No hay carpeta aparte para binarios: donde vive la raíz ya los previsualiza.
+
 ## Qué respondo al terminar
 
 Dónde quedó, en qué estado, y qué le falta para poder pasar a revisión. Dos o tres líneas.
