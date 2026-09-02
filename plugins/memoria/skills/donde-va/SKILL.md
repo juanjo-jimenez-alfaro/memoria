@@ -69,6 +69,7 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 - Guardar un documento de terceros en `entregables/` tal cual, sin convertirlo
 - Poner número de fase, fecha o versión en el nombre
 - Dar tres opciones y dejar que el usuario elija. Si dudo, pregunto una cosa y decido
+- Colocar en la raíz de una organización un hecho que viene de otra raíz u organización conectada en la misma sesión
 
 ## Ejemplo completo
 

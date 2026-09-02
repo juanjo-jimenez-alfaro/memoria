@@ -65,6 +65,7 @@ Si la migración se hace por proyectos, el reporte se da al cerrar cada uno.
 - Traer a `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
 - Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Traer `AGENTS.md`, índices manuales, prefijos numéricos o cualquier cosa de la lista de lo que no existe en `convenciones`
+- Traer a esta raíz contenido sustantivo de otra raíz u organización conectada en la misma sesión, aunque sea para comparar estructura
 - Rellenar un hueco con lo que parece probable. "No consta" es una respuesta válida en un reporte de migración
 - Inventar una fecha para una entrada cuya fecha no se puede saber. Se usa la fecha del archivo y se marca como aproximada
 

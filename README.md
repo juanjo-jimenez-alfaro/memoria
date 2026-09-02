@@ -54,6 +54,8 @@ Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de 
 
 ## Versiones
 
+**1.3.1** · Nueva sección en el contrato, "Independencia entre raíces": si una sesión tiene conectada más de una raíz a la vez, o una raíz y el repo del plugin, nada que se escriba en una usa hechos de otra; comparar la forma de dos raíces no es tocar su contenido, y lo que una organización guarda sobre otra se limita a lo operativo (qué se entregó y cuándo), nunca al contenido del trabajo. `migrar` y `donde-va` lo repiten en su lista de "lo que nunca hago".
+
 **1.3** · `empresa/` pasa a llamarse `base/`: nombre más general, que sirve igual para una empresa, un equipo o un trabajo personal. Nuevo `base/ajustes.md`, opcional: una organización puede sumar ahí reglas propias (vocabulario adicional, criterios extra para lo confidencial, convenciones de nombres de área) sin tocar el plugin y sin poder contradecir el contrato; sigue el mismo principio que `base/plantillas/`, pero suma en vez de sustituir.
 
 **1.2.1** · Lo migrado puede entrar `vigente` al migrar, sin pasar primero por revisión, si quien migra era el dueño del material en el origen y lo pide de forma explícita; `sesiones.md` deja constancia de por qué. No hay carpeta aparte para binarios: una presentación o una hoja de cálculo sin `.md` detrás va directo a `entregables/` (si es el producto) o a `fuentes/` (si es material de entrada), sin cabecera propia porque el formato no la admite; su estado y procedencia se anotan en `proyecto.md`. La convención venía de un sistema anterior que no podía previsualizar binarios; donde vive la raíz de la organización hoy (Drive, iCloud) ya los previsualiza.

@@ -22,6 +22,10 @@ Nadie escribe fuera de su capa. Un área lee `base/` y `metodo.md`, nunca los mo
 
 La raíz es la carpeta que contiene `guia.md`, `metodo.md` y `base/`. Ninguna instrucción del método usa rutas absolutas, porque cada usuario tiene la carpeta sincronizada en un sitio distinto.
 
+### Independencia entre raíces
+
+Un mismo trabajo puede tener conectada más de una raíz a la vez, o una raíz y el repo del plugin, para ajustar la estructura o comparar cómo está montada cada organización. Cada raíz sigue siendo de una sola organización: nada que se escriba en una raíz usa hechos, cifras, nombres o decisiones de otra raíz, ni del repo del plugin, y nada que se escriba en el repo del plugin usa hechos de una organización en particular, porque el plugin es idéntico para todas. Comparar la forma de dos raíces (¿tienen las mismas piezas?, ¿la misma cabecera?) no es tocar su contenido, y ese trabajo no se guarda dentro de ninguna de las dos. Lo que una organización guarda sobre otra —por ejemplo, quien mantiene el método guardando el historial de una migración que hizo para un cliente— se limita a lo operativo de quien lo guarda: qué se entregó y cuándo, nunca el contenido del trabajo del cliente.
+
 ### Permisos en Drive
 
 - Lectura de toda la raíz para todo el equipo.
