@@ -55,7 +55,7 @@ Un reporte de tres bloques, y nada más:
 
 Si la migración se hace por proyectos, el reporte se da al cerrar cada uno.
 
-El reporte se guarda como entregable en la raíz de la organización que se migró, nunca en la de quien la migró: es de ella, y es lo que su dueño necesita para confirmar lo recuperado. Si quien migra mantiene el método, en su propia raíz anota solo qué entregó y cuándo.
+El reporte se guarda como entregable en la raíz de quien migró, en su proyecto de la relación con esa organización. En la raíz de la organización migrada no entra: cuenta el trabajo del proveedor y habla del sistema de origen, que su equipo no usó. Lo que sí entra allá, y en el proyecto donde se usa, son las decisiones recuperadas pendientes de confirmar y las filas de material confidencial que quedó fuera de alcance.
 
 ## Lo que nunca hago
 
@@ -68,7 +68,7 @@ El reporte se guarda como entregable en la raíz de la organización que se migr
 - Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Traer `AGENTS.md`, índices manuales, prefijos numéricos o cualquier cosa de la lista de lo que no existe en `convenciones`
 - Traer a esta raíz contenido sustantivo de otra raíz u organización conectada en la misma sesión, aunque sea para comparar estructura
-- Guardar el reporte de la migración en la raíz de quien migró en vez de en la de la organización migrada
+- Dejar en la raíz migrada rastro del sistema de origen: sus rutas, sus nombres de carpeta, su vocabulario o el reporte de la migración
 - Rellenar un hueco con lo que parece probable. "No consta" es una respuesta válida en un reporte de migración
 - Inventar una fecha para una entrada cuya fecha no se puede saber. Se usa la fecha del archivo y se marca como aproximada
 

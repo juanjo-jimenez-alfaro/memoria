@@ -144,7 +144,7 @@ No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta s
 
 Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` con acceso solo a los dueños de área, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
-Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización, para el registro de la relación: qué se entregó, cuándo y con qué versión. Ahí no entra nada del contenido del trabajo de la organización.
+Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización: ahí va el registro de la relación —qué se entregó, cuándo y con qué versión— y, si hubo migración, su reporte. Del contenido del trabajo de la organización no entra nada.
 
 ---
 
