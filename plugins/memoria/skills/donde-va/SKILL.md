@@ -23,11 +23,13 @@ También cuando aparece un archivo suelto en la raíz o en una carpeta que no le
 
 Se para en la primera que dé un sí.
 
-**1. ¿Es un enlace?** Va a `fuentes/enlaces.md` del proyecto, una línea con el enlace y qué es. Si el archivo no existe, se crea con su título. No se guarda una copia de la página como archivo salvo que el usuario lo pida.
+**1. ¿Es un enlace?** Va a `fuentes/enlaces.md` del proyecto, una fila con qué es, el enlace y qué tener presente. Si el archivo no existe, se crea con su tabla. No se guarda una copia de la página como archivo salvo que el usuario lo pida.
 
 **2. ¿Es material crudo que no hizo el equipo del proyecto?** Exports, PDFs de terceros, transcripciones, correos, capturas. Va a `fuentes/` del proyecto, con un nombre legible. Las fuentes no se editan nunca.
 
-Si contiene datos personales, facturación o contratos, se guarda junto con una nota `.md` con el mismo nombre base (`nomina-2026.xlsx` y `nomina-2026.md`) que dice qué contiene, de quién viene y qué no se puede hacer con él: no se cita en entregables, no se copia fuera de `fuentes/`, no se comparte fuera del área. La nota la escribo yo antes de dar por colocado el archivo.
+Antes de guardarlo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios, o cualquier cosa que no todos deban ver. Si los trae, lo digo y propongo llevarlo a la unidad confidencial de la organización; el usuario decide si es confidencial o no. Si lo es, el archivo va a la unidad confidencial y en `fuentes/enlaces.md` del proyecto queda una fila con qué es, su liga y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
+
+Si la fuente ya existe en otro proyecto de la misma área, no se copia: se cita la original por su ruta.
 
 **3. ¿Es algo que otra persona va a leer para construir encima?** Va a `entregables/`, y entonces no se guarda tal cual: se convierte en un entregable con su cabecera, con la skill `entregable`.
 
@@ -43,7 +45,7 @@ No hay carpeta de borradores. Lo que no es material ni entregable ni decisión s
 
 Dos salidas, y ninguna es dejarlo suelto:
 
-- Si el material sugiere un trabajo que va a durar, se propone crear el proyecto con la skill `proyecto-nuevo`
+- Si el material sugiere un trabajo que va a durar, se propone crear el proyecto con la skill `nuevo`
 - Si es contexto general de la empresa, va por la vía de la pregunta 5
 
 Nada se queda en la raíz ni en la carpeta del área. Un archivo huérfano hoy es un archivo que nadie encuentra en tres meses.
@@ -59,7 +61,9 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 - Crear una carpeta nueva para acomodar algo que no encaja. Si no encaja, es la pregunta 6
 - Dejar algo en la raíz o en la carpeta de un área
 - Escribir directamente en `empresa/`
-- Guardar un archivo con datos personales, facturación o contratos sin su nota `.md` al lado
+- Guardar en `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
+- Mover algo a la unidad confidencial sin que el usuario lo confirme
+- Copiar a `fuentes/` una fuente que ya existe en otro proyecto del área
 - Mover archivos de un área que no es la del usuario
 - Colocar material en un proyecto ajeno sin avisar a su dueño
 - Guardar un documento de terceros en `entregables/` tal cual, sin convertirlo
@@ -82,7 +86,13 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 
 **Respuesta:**
 
-> Va a `compras/automatizacion-ordenes/fuentes/sueldos-equipo-compras.xlsx`, y al lado escribo `sueldos-equipo-compras.md`: qué contiene, que lo pasó Recursos Humanos el 1 de septiembre, y que no se cita en ningún entregable ni sale de `fuentes/`. Para el cálculo del tope uso el total agregado, sin nombres.
+> Trae nombres con salario, así que no lo guardo en `fuentes/`, donde lo lee todo el equipo. Propongo llevarlo a `Acme · Confidencial` y dejar en `compras/automatizacion-ordenes/fuentes/enlaces.md` una fila: qué es, su liga, que lo pasó Recursos Humanos el 1 de septiembre y que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
+
+**Usuario:** sí
+
+**Respuesta:**
+
+> Hecho. Para el cálculo del tope uso el total agregado, sin nombres.
 
 ---
 

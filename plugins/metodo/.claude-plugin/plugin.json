@@ -1,9 +1,0 @@
-{
-  "name": "metodo",
-  "description": "Metodo de trabajo y documentacion por proyecto: estructura de carpetas compartida, sesiones, decisiones y entregables en Markdown escritos por la IA.",
-  "version": "1.2.0",
-  "author": {
-    "name": "Juanjo"
-  },
-  "license": "MIT"
-}

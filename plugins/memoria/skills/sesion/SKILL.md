@@ -32,7 +32,7 @@ Por el camino de lectura de `convenciones`, en este orden:
 5. `<area>/<proyecto>/proyecto.md`
 6. `decisiones.md` del proyecto, las 5 entradas más recientes
 7. `sesiones.md`, las 3 entradas más recientes
-8. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, dueño, actualizado
+8. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado
 9. Las líneas `Afecta a:` de todos los `decisiones.md` de la raíz, buscando `area/proyecto` del proyecto activo. Solo esas líneas y el encabezado de su entrada, nada más del archivo
 
 No leo `fuentes/` al abrir. Se lee cuando el trabajo del día lo pida. `empresa/sistemas.md` se lee si el trabajo toca un sistema.
@@ -48,7 +48,7 @@ Tres bloques, en este orden y sin encabezados largos.
 - La versión de la primera línea de `metodo.md` es anterior a la del plugin. La raíz se quedó atrás y hay que regenerar `metodo.md`
 - Alguna decisión de otro proyecto de la raíz nombra este proyecto en `Afecta a:`. Se cita la entrada con su fecha, quién decidió y de qué proyecto viene
 - `empresa/contexto.md` lleva más de 90 días sin actualizarse
-- Algún entregable tiene en `construido_a_partir_de` un archivo cuya fecha `actualizado` es posterior a la suya, y por tanto puede estar desfasado
+- Algún entregable tiene en `basado_en` un archivo cuya fecha `actualizado` es posterior a la suya, y por tanto puede estar desfasado
 - Algún entregable lleva más de 30 días en `borrador` o `en-revision`
 
 Si no hay avisos, no se menciona que no los hay.
@@ -94,13 +94,15 @@ Si `Afecta a` nombra un proyecto de otra área, se dice al usuario a quién tien
 
 **4. Bloque `Proyectos` de `area.md`.** Se reescribe la línea de este proyecto y, debajo, una línea por cada entregable `vigente` con su fecha `actualizado`. Solo esa parte del bloque; las líneas de los demás proyectos no se tocan. `Prioridades ahora` solo se reescribe si el dueño lo pide en esta sesión.
 
-**5. Cabeceras de lo que se tocó.** Se actualiza `actualizado` en cada archivo modificado y se añade a `construido_a_partir_de` cualquier fuente nueva que se haya usado.
+**5. Cabeceras de lo que se tocó.** Se actualiza `actualizado` en cada archivo modificado y se añade a `basado_en` cualquier fuente nueva que se haya usado.
 
-**6. Rotación.** Si `sesiones.md` supera las 1.500 líneas o cambia el año, se renombra con el año (`sesiones-2026.md`) y se abre uno nuevo. Sin preguntar.
+**6. Lo que entró en `fuentes/`.** Si durante la sesión se guardó algo en `fuentes/` sin haber pasado por la pregunta de si es confidencial, se pregunta ahora: si trae datos personales, facturación, contratos, credenciales o cualquier cosa que no todos deban ver, se propone llevarlo a la unidad confidencial y dejar su fila en `fuentes/enlaces.md`. El usuario decide; nada se mueve sin que lo confirme.
+
+**7. Rotación.** Si `sesiones.md` supera las 1.500 líneas o cambia el año, se renombra con el año (`sesiones-2026.md`) y se abre uno nuevo. Sin preguntar.
 
 ## Qué respondo al terminar
 
-Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. Si hay que avisar a otra área, se dice a quién. Nada más. El resumen largo ya está en los archivos.
+Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. Si hay que avisar a otra área, se dice a quién. Si quedó algo en `fuentes/` pendiente de decidir si es confidencial, se dice. Nada más. El resumen largo ya está en los archivos.
 
 ---
 
@@ -109,10 +111,11 @@ Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. 
 - Escribir algo al abrir sesión
 - Editar una entrada existente de `sesiones.md` o `decisiones.md`, ni para corregir una errata
 - Registrar una decisión que el usuario no confirmó en esta sesión
-- Cambiar el `estado` de un entregable a `vigente`. Eso lo pide el dueño de forma explícita
+- Cambiar el `estado` de un entregable a `vigente`. Eso lo pide el dueño del proyecto de forma explícita
 - Tocar archivos fuera del proyecto activo, salvo la línea de este proyecto en el bloque `Proyectos` de su `area.md`
 - Escribir en `empresa/`, en `metodo.md` o en la carpeta de otra área
-- Leer `sesiones.md` o `fuentes/` de otro proyecto
+- Leer `sesiones.md`, `fuentes/` o la unidad confidencial de otra área
+- Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Rellenar un pendiente con una suposición. Si no sé si algo quedó cerrado, pregunto
 
 ---

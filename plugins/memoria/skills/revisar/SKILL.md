@@ -23,17 +23,17 @@ Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar
 
 1. El entregable completo, con su cabecera
 2. `decisiones.md` completo del proyecto
-3. Cada archivo listado en `construido_a_partir_de`, con su fecha `actualizado`
+3. Cada archivo listado en `basado_en`, con su fecha `actualizado`
 4. La skill `estilo`
-5. La plantilla de `empresa/plantillas/`, si el documento sigue una
+5. La plantilla que siga el documento: la de `empresa/plantillas/` si la organización tiene la suya, si no la del plugin, en `plantillas/` dentro de la skill `nuevo`
 
 ## Las cinco comprobaciones
 
-**1. Trazabilidad.** Cada afirmación no obvia sale de un archivo citado. Se listan las que no salen de ninguno. Si `construido_a_partir_de` está vacía (`[]`), se dice desde la primera línea: el documento no se puede publicar así.
+**1. Trazabilidad.** Cada afirmación no obvia sale de un archivo citado. Se listan las que no salen de ninguno. Si `basado_en` está vacía (`[]`), se dice desde la primera línea: el documento no se puede publicar así. Si cita una fuente de otra área o un archivo de la unidad confidencial, también es bloqueante: de otra área solo se citan entregables vigentes y decisiones, y lo confidencial se cita por su fila de `enlaces.md`.
 
 **2. Coherencia con las decisiones.** Nada en el documento contradice una entrada de `decisiones.md`, ni siquiera de hace meses.
 
-**3. Frescura.** Ningún archivo de `construido_a_partir_de` tiene una fecha `actualizado` posterior a la del entregable. Si la tiene, se dice qué cambió aguas arriba.
+**3. Frescura.** Ningún archivo de `basado_en` tiene una fecha `actualizado` posterior a la del entregable. Si la tiene, se dice qué cambió aguas arriba.
 
 **4. Huecos.** Los huecos declarados en el documento siguen abiertos, o ya hay material para cerrarlos.
 
@@ -43,7 +43,7 @@ Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar
 
 Los hallazgos separados en dos grupos, nunca mezclados:
 
-**Bloqueantes**, que impiden publicar: contradicciones con decisiones, afirmaciones sin fuente, `construido_a_partir_de` vacía, huecos abiertos, fuentes desfasadas.
+**Bloqueantes**, que impiden publicar: contradicciones con decisiones, afirmaciones sin fuente, `basado_en` vacía, huecos abiertos, fuentes desfasadas.
 
 **Mejoras**, que no impiden nada: estilo, estructura, extensión.
 
@@ -63,9 +63,9 @@ Se devuelve una tabla ordenada por lo que más gente consume:
 |---|---|---|---|
 | compras/…/flujo-aprobacion.md | vigente | 12 | `decisiones.md` cambió después |
 | compras/…/mapa-proceso.md | en-revision | 41 | Parado esperando al dueño |
-| compras/…/modelo-datos.md | vigente | 8 | `construido_a_partir_de` vacía |
+| compras/…/modelo-datos.md | vigente | 8 | `basado_en` vacía |
 
-Cuatro cosas se marcan siempre: entregables `vigente` con una fuente más reciente que ellos, entregables con más de 30 días en `borrador` o `en-revision`, entregables `vigente` que citan un archivo `reemplazado`, y entregables `vigente` con `construido_a_partir_de` vacía.
+Cuatro cosas se marcan siempre: entregables `vigente` con una fuente más reciente que ellos, entregables con más de 30 días en `borrador` o `en-revision`, entregables `vigente` que citan un archivo `reemplazado`, y entregables `vigente` con `basado_en` vacía.
 
 No se toca ningún archivo durante un barrido.
 
@@ -78,9 +78,9 @@ Pasar de `en-revision` a `vigente`. Es el único momento en que un documento se 
 ## Requisitos
 
 1. La revisión se pasó y no quedan hallazgos bloqueantes
-2. No hay huecos abiertos, o el dueño los acepta de forma explícita y quedan escritos en el documento
-3. `construido_a_partir_de` no está vacía. Si el documento es material adoptado y no hay forma de reconstruir sus fuentes, el dueño acepta el hueco de forma explícita y queda escrito en el documento, en una línea bajo el título: de dónde viene y por qué no hay trazabilidad
-4. **El dueño lo pide en esta conversación.** No basta con que el trabajo esté acabado
+2. No hay huecos abiertos, o el dueño del proyecto los acepta de forma explícita y quedan escritos en el documento
+3. `basado_en` no está vacía. Si el documento es material adoptado y no hay forma de reconstruir sus fuentes, el dueño del proyecto acepta el hueco de forma explícita y queda escrito en el documento, en una línea bajo el título: de dónde viene y por qué no hay trazabilidad
+4. **El dueño del proyecto lo pide en esta conversación.** Es quien figura en `Quién participa` de `proyecto.md`. No basta con que el trabajo esté acabado
 
 Si falta cualquiera de los cuatro, se dice cuál falta y no se publica.
 
@@ -101,8 +101,8 @@ Se avisa de quién consume este entregable, según el campo `Consumen esto` de `
 
 ## Lo que nunca hago
 
-- Publicar sin que el dueño lo pida de forma explícita
-- Publicar con `construido_a_partir_de` vacía sin que el dueño acepte el hueco y quede escrito
+- Publicar sin que el dueño del proyecto lo pida de forma explícita
+- Publicar con `basado_en` vacía sin que el dueño acepte el hueco y quede escrito
 - Reescribir un entregable durante una revisión sin aprobación previa
 - Tratar un hallazgo de estilo como bloqueante
 - Marcar algo como desfasado sin haber comparado fechas reales
@@ -133,4 +133,4 @@ Se avisa de quién consume este entregable, según el campo `Consumen esto` de `
 
 **Respuesta:**
 
-> No lo publico todavía. Ana tiene que pedirlo ella en esta conversación, y además sigue abierto el hueco de quién aprueba entre 5.000 y 20.000 MXN. Si Ana acepta publicarlo con el hueco, lo dejo escrito en el documento y entonces sí pasa a vigente.
+> No lo publico todavía. Ana es la dueña del proyecto según `proyecto.md` y tiene que pedirlo ella en esta conversación, y además sigue abierto el hueco de quién aprueba entre 5.000 y 20.000 MXN. Si Ana acepta publicarlo con el hueco, lo dejo escrito en el documento y entonces sí pasa a vigente.

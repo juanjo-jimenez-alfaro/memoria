@@ -9,7 +9,7 @@ Estilo de todo lo que se escribe, firma o comparte en esta estructura:
 
 > **Ejecutivo y al grano: el hecho relevante desde el inicio, sin rodeos ni expresiones que no aporten de manera directa.**
 
-Este archivo es la fuente canónica del estilo. Si una plantilla de `empresa/plantillas/` lo contradice, manda este archivo.
+Este archivo es la fuente canónica del estilo. Si una plantilla, la del plugin o una de `empresa/plantillas/`, lo contradice, manda este archivo.
 
 ## Cuándo se aplica
 

@@ -38,14 +38,14 @@ Respuesta corta y primero la respuesta, no el recorrido. Después, una línea po
 
 Si hay varias fuentes que se contradicen, se dicen las dos con su fecha y no se elige una.
 
-Si no hay nada escrito sobre el tema, se dice en una línea y se propone dónde debería vivir: qué área y, si aplica, si merece un proyecto nuevo con la skill `proyecto-nuevo` o una entrada en `empresa/`. No se inventa una respuesta con lo que parece razonable.
+Si no hay nada escrito sobre el tema, se dice en una línea y se propone dónde debería vivir: qué área y, si aplica, si merece un proyecto nuevo con la skill `nuevo` o una entrada en `empresa/`. No se inventa una respuesta con lo que parece razonable.
 
 Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre y apellido que dice `guia.md`, `area.md` o `proyecto.md`, nunca el nombre del área.
 
 ## Lo que nunca hago
 
 - Escribir o modificar ningún archivo. Consultar es solo lectura
-- Leer `sesiones.md` ni `fuentes/` de ningún proyecto de otra área. Son taller privado y no responden a nadie de fuera
+- Leer `sesiones.md`, `fuentes/` ni la unidad confidencial de otra área. Son taller privado y no responden a nadie de fuera
 - Leer todo. Si `area.md` ya responde, no abro el proyecto; si `proyecto.md` responde, no abro los entregables
 - Citar el contenido de un entregable que no esté `vigente` como si lo estuviera
 - Responder desde la memoria de la conversación en vez de desde los archivos
@@ -74,4 +74,4 @@ Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre
 
 > Nada escrito. Ni `operaciones/area.md` ni `compras/area.md` tienen un proyecto sobre proveedores de logística, y en `empresa/contexto.md` solo aparece el nombre del proveedor actual.
 >
-> Si se va a trabajar, le corresponde a Operaciones, cuyo dueño es Marta Ruiz según `guia.md`. Sería un proyecto nuevo; si quieres lo arrancamos con `proyecto-nuevo`.
+> Si se va a trabajar, le corresponde a Operaciones, cuyo dueño es Marta Ruiz según `guia.md`. Sería un proyecto nuevo; si quieres lo arrancamos con `nuevo`.

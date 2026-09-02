@@ -23,17 +23,19 @@ Migrar es una tarea larga. Se hace por proyecto, no toda la carpeta de golpe, y 
 
 **1. Inventario.** Una tabla de todo lo que hay en el origen: ruta, qué es en una línea, fecha del último cambio, y a qué se va a convertir (registro, entregable, fuente, contexto de empresa, no se trae). Se enseña al usuario y se corrige con él antes de mover nada. Un archivo que el usuario no reconoce se pregunta, no se adivina.
 
-**2. Mapeo a proyectos.** Cada grupo de archivos del origen se asigna a un proyecto del método, existente o nuevo. Un proyecto nuevo se crea con la skill `proyecto-nuevo`, con su dueño con nombre y apellido, que es bloqueante también aquí. Si el origen mezclaba dos trabajos en una carpeta, salen dos proyectos. Si el origen tenía un cuarto nivel de carpetas, ahí había dos proyectos.
+**2. Mapeo a proyectos.** Cada grupo de archivos del origen se asigna a un proyecto del método, existente o nuevo. Un proyecto nuevo se crea con la skill `nuevo`, con su dueño con nombre y apellido, que es bloqueante también aquí. Si el origen mezclaba dos trabajos en una carpeta, salen dos proyectos. Si el origen tenía un cuarto nivel de carpetas, ahí había dos proyectos.
 
 **3. Decisiones.** Cada ADR o archivo de decisión del origen pasa a ser una entrada de `decisiones.md` con el formato del método: fecha, título en una frase, quién decidió, por qué, qué se descartó, a qué afecta. Si el ADR traía análisis (opciones comparadas, tablas, cifras), el análisis no cabe en la entrada: se convierte en un entregable del proyecto, normalmente con la plantilla `reporte-de-decision.md`, y la entrada lo cita en `Afecta a`. Si el ADR no dice quién decidió, se pregunta; si nadie lo sabe, se escribe "no consta" y queda como hueco en el reporte.
 
 **4. Sesiones.** Todos los logs de sesión del origen, estén en un archivo por sesión o en una carpeta, se consolidan en un solo `sesiones.md` del proyecto. Cada log pasa a una entrada con encabezado `## AAAA-MM-DD`, tomada del nombre del archivo o de su contenido, y el cuerpo viejo se conserva debajo tal cual, con sus encabezados bajados a `###` para que no compitan con las fechas. Las entradas van de la más reciente a la más antigua. No se resume ni se reescribe lo que decían: la regla de histórico permite convertir este registro porque nadie lo ha consumido todavía, pero convertir es cambiar el formato, no el contenido.
 
-**5. Entregables.** Los documentos que otra persona leería para construir encima pasan a `entregables/` con cabecera del método. `estado: en-revision` si en el origen estaban dados por buenos, `borrador` si no. `construido_a_partir_de` se rellena con lo que se pueda rastrear; si no hay forma de saber de dónde salió el documento, se deja `[]` y `revisar` lo pedirá antes de publicar. Nada queda `vigente` al migrar: publicar lo pide el dueño después.
+**5. Entregables.** Los documentos que otra persona leería para construir encima pasan a `entregables/` con cabecera del método. `estado: en-revision` si en el origen estaban dados por buenos, `borrador` si no. `basado_en` se rellena con lo que se pueda rastrear; si no hay forma de saber de dónde salió el documento, se deja `[]` y `revisar` lo pedirá antes de publicar. Si el documento del origen tenía un responsable distinto del dueño del proyecto, se dice en la primera línea del cuerpo. Nada queda `vigente` al migrar: publicar lo pide el dueño del proyecto después.
 
 **6. Documentos largos.** Un documento de contexto largo del origen (`00-contexto.md`, un README de cuarenta pantallas) no se trae entero como entregable. Se extraen de él las cifras con su fecha y los pendientes abiertos: los del proyecto van a `Estado actual` y `Siguientes pasos` de `proyecto.md`; los del área van a `Prioridades ahora` de `area.md`, y ahí solo si el dueño del área lo aprueba. El documento entero se guarda en `fuentes/` como material adoptado, por si hace falta volver a él.
 
-**7. Fuentes.** Exports, PDFs, transcripciones, correos, capturas: a `fuentes/` con nombre en minúsculas y guiones. Los enlaces sueltos, a `fuentes/enlaces.md`. Cualquier archivo con datos personales, facturación o contratos lleva su nota `.md` con el mismo nombre base: qué contiene, de dónde viene y qué no se puede hacer con él. Sin la nota, el archivo no se trae.
+**7. Fuentes.** Exports, PDFs, transcripciones, correos, capturas: a `fuentes/` con nombre en minúsculas y guiones. Los enlaces sueltos, a `fuentes/enlaces.md`, una fila cada uno. Si una fuente ya está en otro proyecto de la misma área, no se duplica: se cita la original.
+
+Antes de traer cada archivo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios. Los que los traen se listan al usuario en un bloque aparte del inventario, con la propuesta de llevarlos a la unidad confidencial y dejar su fila en `fuentes/enlaces.md`. El usuario decide archivo por archivo. Ninguno va a `fuentes/` ni a la unidad confidencial sin esa confirmación; mientras no la haya, se quedan en el origen y constan como pendientes en el reporte.
 
 **8. Nombres y enlaces.** Todo lo que se trae se renombra a la convención: sin prefijos numéricos, sin fechas, sin versiones, sin números de fase. Después se recorren los archivos traídos y se reescribe cada enlace interno para que apunte a la ruta nueva. Un enlace que apuntaba a algo que no se trajo se sustituye por una frase que dice a qué apuntaba y que quedó en el origen. Los enlaces wiki `[[asi]]` se convierten en enlaces normales.
 
@@ -49,7 +51,7 @@ Un reporte de tres bloques, y nada más:
 
 **Qué se dejó.** La lista del paso 9, con el motivo de cada uno.
 
-**Qué quedó como hueco.** Decisiones sin quién decidió, entregables con `construido_a_partir_de` vacía, cifras sin fecha, enlaces que apuntaban a algo que no existe, dueños por confirmar. Cada hueco con la ruta donde está marcado.
+**Qué quedó como hueco.** Decisiones sin quién decidió, entregables con `basado_en` vacía, cifras sin fecha, enlaces que apuntaban a algo que no existe, dueños por confirmar. Cada hueco con la ruta donde está marcado.
 
 Si la migración se hace por proyectos, el reporte se da al cerrar cada uno.
 
@@ -60,7 +62,8 @@ Si la migración se hace por proyectos, el reporte se da al cerrar cada uno.
 - Crear un proyecto sin dueño con nombre y apellido
 - Resumir o reescribir el contenido de un log de sesión al consolidarlo. Se cambia el formato, no lo que decía
 - Dejar un entregable migrado en `vigente`
-- Traer un archivo con datos personales, facturación o contratos sin su nota al lado
+- Traer a `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
+- Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Traer `AGENTS.md`, índices manuales, prefijos numéricos o cualquier cosa de la lista de lo que no existe en `convenciones`
 - Rellenar un hueco con lo que parece probable. "No consta" es una respuesta válida en un reporte de migración
 - Inventar una fecha para una entrada cuya fecha no se puede saber. Se usa la fecha del archivo y se marca como aproximada
@@ -79,16 +82,17 @@ Si la migración se hace por proyectos, el reporte se da al cerrar cada uno.
 > | `decisiones/ADR-001.md` a `ADR-004.md` | Cuatro decisiones, dos con tabla comparativa | Cuatro entradas en `decisiones.md`; las dos tablas, a un entregable `comparativo-topes-aprobacion.md` |
 > | `sesiones/2026-03-12.md` … `2026-08-14.md` | Once logs | Un `sesiones.md` con once entradas |
 > | `entregables/flujo-aprobacion-v3-FINAL.md` | El flujo, dado por bueno | `entregables/flujo-aprobacion.md`, en revisión |
-> | `insumos/export-ordenes.csv`, `insumos/nomina-compras.xlsx` | Export y nómina | `fuentes/`, la nómina con nota al lado |
+> | `insumos/export-ordenes.csv` | Export de órdenes | `fuentes/` |
+> | `insumos/nomina-compras.xlsx` | Nómina con nombres y salarios | Parece confidencial: propongo la unidad confidencial y su fila en `enlaces.md` |
 > | `AGENTS.md`, `indice.md`, `plantilla-adr.md` | Instrucciones, índice manual, plantilla | No se traen |
 >
-> El destino es `compras/automatizacion-ordenes/`, que no existe. ¿La dueña es Ana Pérez? Sin eso no creo el proyecto.
+> El destino es `compras/automatizacion-ordenes/`, que no existe. ¿La dueña es Ana Pérez? Sin eso no creo el proyecto. ¿Y la nómina la tratamos como confidencial?
 
-**Usuario:** sí, Ana. Adelante
+**Usuario:** sí, Ana. Y sí, la nómina es confidencial. Adelante
 
 **Respuesta al terminar:**
 
-> **Qué se trajo.** Cuatro entradas en `decisiones.md` (2026-03-12, 04-02, 06-20, 08-14), con el análisis de las dos últimas en `entregables/comparativo-topes-aprobacion.md`, en revisión. Once entradas en `sesiones.md`. `entregables/flujo-aprobacion.md`, en revisión, con `construido_a_partir_de` apuntando al export y a la entrevista. Cinco archivos en `fuentes/`, incluida `nomina-compras.xlsx` con su nota. Estado actual y cuatro pendientes en `proyecto.md`, sacados del contexto original.
+> **Qué se trajo.** Cuatro entradas en `decisiones.md` (2026-03-12, 04-02, 06-20, 08-14), con el análisis de las dos últimas en `entregables/comparativo-topes-aprobacion.md`, en revisión. Once entradas en `sesiones.md`. `entregables/flujo-aprobacion.md`, en revisión, con `basado_en` apuntando al export y a la entrevista. Cuatro archivos en `fuentes/`. `nomina-compras.xlsx` en `Acme · Confidencial`, con su fila en `fuentes/enlaces.md`. Estado actual y cuatro pendientes en `proyecto.md`, sacados del contexto original.
 >
 > **Qué se dejó.** `AGENTS.md`: lo sustituyen las skills y `guia.md`. `indice.md`: lo sustituye el bloque Proyectos de `compras/area.md`. `plantilla-adr.md`: el formato de decisión es el del método. Dos borradores de `insumos/` que nadie reconoce, con el nombre `sin-titulo`. El origen sigue intacto en `viejo/`.
 >

@@ -1,8 +1,7 @@
 ---
 estado: borrador
-dueno: Nombre Apellido
 actualizado: AAAA-MM-DD
-construido_a_partir_de: []
+basado_en: []
 ---
 
 # [Título del brief: el tema en una frase]

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Genera plugins/metodo/metodo.md a partir de las skills del plugin.
+# Genera plugins/memoria/metodo.md a partir de las skills del plugin memoria.
 # metodo.md es el contrato legible que se copia a la raíz de cada organización.
 # Nadie lo edita a mano: se vuelve a ejecutar este script y se vuelve a copiar.
 set -euo pipefail
@@ -29,13 +29,13 @@ descripcion() {
   sed -n 's/^description: *//p' "$1" | head -n 1
 }
 
-# Orden del índice: contrato y estilo primero, después el ciclo de trabajo, al final las de montaje
-INDICE="convenciones estilo sesion proyecto-nuevo entregable revisar donde-va consulta area-nueva organizacion-nueva migrar"
+# Orden del índice: contrato y estilo primero, después el ciclo de trabajo, al final la migración
+INDICE="convenciones estilo sesion nuevo entregable revisar donde-va consulta migrar"
 
 {
-  echo "# Método de trabajo · versión $VERSION · generado desde el plugin, no se edita a mano"
+  echo "# Método de trabajo · versión $VERSION · generado desde el plugin memoria, no se edita a mano"
   echo
-  echo "Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin \`metodo\`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz."
+  echo "Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin \`memoria\`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz."
   echo
   echo "---"
   echo
