@@ -299,17 +299,27 @@ Nunca se lee todo. El camino va por niveles y se para en el primero que responde
 
 ## 12. Cowork y programadores
 
-**Cowork.** El uso principal del método es Claude Cowork con la raíz conectada y el plugin instalado. `guia.md` trae el texto estándar para pegar en las instrucciones de un proyecto de Cowork, cinco líneas que no nombran skills porque Claude las elige solo:
+**Cowork.** El uso principal del método es Claude Cowork con la raíz conectada y el plugin instalado. El montaje tiene tres reglas.
+
+**Un proyecto por persona**, nombrado por su área. Es lo que hace que la línea del área en las instrucciones signifique algo y que el aviso de «esto le toca a otra área» tenga a quién señalar.
+
+**Se conecta la raíz completa, nunca la carpeta de un área.** `guia.md`, `metodo.md` y `base/` viven en la raíz; la lectura en cascada cruza áreas; `consulta` busca en lo que produjo cualquier área y `sesion` avisa de las decisiones de otras que afectan al proyecto. Conectada solo un área, el método se rompe en la primera llamada. Conectar de más no abre ningún riesgo: quién puede escribir dónde lo fijan los permisos de la carpeta compartida y la línea del área en las instrucciones, no el alcance de la conexión.
+
+**La unidad confidencial no se conecta por defecto**, solo en la sesión que la necesita y solo por quien tiene acceso a ella.
+
+El texto para pegar en las instrucciones del proyecto no nombra skills, porque Claude las elige solo:
 
 ```
-Esta carpeta es la memoria de la organización y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
-Lee `guia.md` al empezar.
-Trabajo en el área `<area>`. No escribas en `base/` ni en la carpeta de otra área.
+Esta carpeta es una memoria de trabajo y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
+Lee `guia.md` al empezar, y `base/ajustes.md` si existe.
+Escribe solo donde te haya dicho que trabajo, y en ningún otro sitio de esta carpeta; si no te lo he dicho, pregúntamelo antes de escribir nada. Si algo le toca a otra área, dímelo y yo se lo pido a su dueño.
 No des por aprobado ningún documento ni edites lo ya registrado en decisiones o sesiones.
-Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver.
+Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver. Si algo parece confidencial, avísame y propón moverlo; no lo muevas tú.
 ```
 
-La skill `nuevo` escribe ese texto en `guia.md` al montar la raíz.
+El bloque es idéntico en cualquier organización: no nombra a ninguna, no lleva huecos que rellenar y nada de una raíz concreta entra en él. Lo propio de una raíz vive en `base/ajustes.md`, que la segunda línea manda leer. Debajo del bloque cada persona añade una línea suya diciendo dónde escribe —su área, sus áreas o `base/`—; esa línea es de ella, no del método. Si falta, la IA pregunta antes de escribir en vez de suponer.
+
+La skill `nuevo` escribe todo esto en `guia.md` como una receta de cinco pasos —crear el proyecto con el nombre del área, instalar el plugin desde el marketplace, conectar la raíz, pegar el texto y comprobar con «abre sesión en...»— para que cada persona lo monte sola sin preguntarle a nadie.
 
 **Otros modelos.** Gemini u otro modelo sin plugin leen `metodo.md`. Contiene este contrato, el estilo y el índice de skills, así que saben qué reglas seguir aunque no puedan ejecutarlas como skills.
 

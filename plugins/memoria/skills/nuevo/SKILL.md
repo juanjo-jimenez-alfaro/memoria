@@ -82,14 +82,43 @@ La primera línea de `metodo.md` dice la versión. Si al abrir sesión la IA avi
 carpeta se quedó atrás, [responsable de contexto] vuelve a copiar `metodo.md` desde el plugin.
 
 ## Cómo conectarla a un proyecto de Cowork
-Crea un proyecto en Cowork, conecta esta carpeta e instala el plugin `memoria`.
-Pega este texto en las instrucciones del proyecto, cambiando el área:
+Una vez, cada quien, y son cinco minutos.
 
-    Esta carpeta es la memoria de la organización y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
-    Lee `guia.md` al empezar.
-    Trabajo en el área `<area>`. No escribas en `base/` ni en la carpeta de otra área.
+**1. Crea tu proyecto.** En Claude, proyecto nuevo, con el nombre de tu área:
+"[Organización] · [tu área]". Uno por persona, no uno para todos: es lo que hace que la
+IA sepa qué puedes tocar y a quién avisar cuando algo le toca a otra área.
+
+**2. Instala el plugin.** Escríbele estas dos líneas, una y luego la otra:
+
+    /plugin marketplace add juanjo-jimenez-alfaro/memoria
+    /plugin install memoria@memoria-marketplace
+
+Si la organización ya lo distribuye a todos, ya lo tienes y te saltas este paso.
+
+**3. Conecta la carpeta.** En el selector de carpetas del proyecto elige **esta carpeta
+completa**, la que tiene dentro `guia.md` y `metodo.md`. No elijas la carpeta de tu área:
+`guia.md`, `metodo.md` y `base/` viven aquí arriba, y la IA necesita poder mirar en
+cualquier área para decirte qué se sabe ya y qué decisión de otra te afecta. Conectar de
+más no deja escribir de más; eso lo fijan los permisos de la carpeta y la línea que
+añades en el paso 4. La unidad confidencial no se conecta: solo en la sesión que la
+necesite, y solo si tienes acceso.
+
+**4. Pega las instrucciones.** En las instrucciones del proyecto, este texto tal cual:
+
+    Esta carpeta es una memoria de trabajo y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
+    Lee `guia.md` al empezar, y `base/ajustes.md` si existe.
+    Escribe solo donde te haya dicho que trabajo, y en ningún otro sitio de esta carpeta; si no te lo he dicho, pregúntamelo antes de escribir nada. Si algo le toca a otra área, dímelo y yo se lo pido a su dueño.
     No des por aprobado ningún documento ni edites lo ya registrado en decisiones o sesiones.
-    Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver.
+    Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver. Si algo parece confidencial, avísame y propón moverlo; no lo muevas tú.
+
+Ese bloque es igual en cualquier organización: no lo cambies. Debajo añade **una línea
+tuya** diciendo dónde escribes: «Trabajo en el área `comercial`.», «Trabajo en las áreas
+`comercial` y `producto`.» o «Respondo por `base/`, el contexto común.» Si no la pones,
+la IA te lo preguntará antes de escribir nada.
+
+**5. Compruébalo.** Escribe «abre sesión en [un proyecto de tu área]». Tiene que ponerte
+al día del proyecto y proponerte en qué trabajar. Si avisa de que la carpeta se quedó
+atrás de versión, dile al responsable de contexto que vuelva a copiar `metodo.md`.
 
 ## Si usas otro modelo
 Gemini u otro modelo sin el plugin: pídele que lea `metodo.md` al empezar. Contiene las

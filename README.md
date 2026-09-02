@@ -42,7 +42,7 @@ El plugin trae además las cuatro plantillas del método (brief, comparativo, re
 
 Cada organización tiene una raíz sincronizada en Drive, autocontenida, con `guia.md`, `metodo.md` y `base/`, y una carpeta por área. La monta la skill `nuevo`.
 
-`guia.md` es para personas: qué es la carpeta, quién escribe dónde, qué áreas hay, cómo se avisa entre áreas, cuándo se revisa cada cosa, el texto para pegar en las instrucciones de un proyecto de Cowork y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: reúne el contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
+`guia.md` es para personas: qué es la carpeta, quién escribe dónde, qué áreas hay, cómo se avisa entre áreas, cuándo se revisa cada cosa, cómo conectarla a Cowork con el texto para pegar en las instrucciones del proyecto, y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: reúne el contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
 
 El número de versión vive en el plugin y en la primera línea de `metodo.md`. Al abrir sesión se comparan y se avisa si la raíz se quedó atrás; ponerla al día es regenerar `metodo.md` con `plugins/memoria/build-metodo.sh` y copiarlo a la raíz.
 
@@ -53,6 +53,8 @@ Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna car
 Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a la unidad confidencial. El usuario decide, y nada se mueve sin su confirmación.
 
 ## Versiones
+
+**1.3.4** · Se cierra cómo se conecta una raíz a Claude, que el método daba por sabido. `guia.md` trae ahora una receta de cinco pasos que cada persona ejecuta sola: crear su proyecto con el nombre de su área, instalar el plugin desde el marketplace, conectar la carpeta, pegar las instrucciones y comprobar con «abre sesión en…». Dos reglas nuevas: **un proyecto por persona**, y **se conecta la raíz completa, nunca la carpeta de un área** —`guia.md`, `metodo.md` y `base/` viven en la raíz, la lectura en cascada cruza áreas, y `consulta` y `sesion` necesitan verlas todas—; quién escribe dónde lo fijan los permisos de la carpeta compartida y la línea del área, no el alcance de la conexión. La unidad confidencial no se conecta salvo en la sesión que la necesite. El texto para pegar pasa a ser **portable sin cambios**: no nombra organización, no lleva huecos que rellenar y no dice nada propio de una raíz, porque eso vive en `base/ajustes.md`, que el propio texto manda leer. Dónde escribe cada quien va en una línea aparte que añade la persona; si falta, se pregunta antes de escribir en vez de suponer.
 
 **1.3.3** · Se corrige a quién pertenece el registro de una migración, que 1.3.2 había puesto del lado equivocado. Es de quien migra y va a su raíz, en el proyecto de la relación con esa organización: cuenta el trabajo del proveedor y habla de un sistema de origen que el equipo que estrena el método no usó nunca. En la raíz de la organización entra solo lo que su equipo necesita para operar, y donde se usa: las decisiones recuperadas en el `decisiones.md` de su proyecto, y el material confidencial pendiente en su `fuentes/enlaces.md`. Su raíz no guarda rastro del sistema de origen, ni en rutas ni en vocabulario. `migrar` lo suma a "lo que nunca hago".
 
