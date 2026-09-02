@@ -26,6 +26,8 @@ La raíz es la carpeta que contiene `guia.md`, `metodo.md` y `base/`. Ninguna in
 
 Un mismo trabajo puede tener conectada más de una raíz a la vez, o una raíz y el repo del plugin, para ajustar la estructura o comparar cómo está montada cada organización. Cada raíz sigue siendo de una sola organización: nada que se escriba en una raíz usa hechos, cifras, nombres o decisiones de otra raíz, ni del repo del plugin, y nada que se escriba en el repo del plugin usa hechos de una organización en particular, porque el plugin es idéntico para todas. Comparar la forma de dos raíces (¿tienen las mismas piezas?, ¿la misma cabecera?) no es tocar su contenido, y ese trabajo no se guarda dentro de ninguna de las dos. Lo que una organización guarda sobre otra —por ejemplo, quien mantiene el método guardando el historial de una migración que hizo para un cliente— se limita a lo operativo de quien lo guarda: qué se entregó y cuándo, nunca el contenido del trabajo del cliente.
 
+Eso fija dónde vive cada cosa cuando una organización adopta el método. Las auditorías, los planes de migración y los manifiestos son de la organización, porque son los documentos que su dueño necesita para confirmar lo recuperado y para saber qué falta: van a su raíz, como un proyecto dentro de un área que ya cruce áreas y que ya sea de su dueño. En la raíz de quien mantiene el método queda un proyecto por organización, con el nombre de la organización y no del trabajo, y dentro solo el registro de la relación: qué se entregó, cuándo, con qué versión del método y qué falta. Sin sus cifras, sus sistemas ni sus decisiones de negocio, y sin entregables propios: el registro es su `proyecto.md`.
+
 ### Permisos en Drive
 
 - Lectura de toda la raíz para todo el equipo.

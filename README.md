@@ -54,6 +54,8 @@ Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de 
 
 ## Versiones
 
+**1.3.2** · El contrato dice ahora dónde vive la adopción del método por una organización, que "Independencia entre raíces" dejaba sin resolver: las auditorías, los planes de migración y los manifiestos son de la organización y van a su raíz, como proyecto dentro de un área que ya cruce áreas y que ya sea de su dueño; en la raíz de quien mantiene el método queda un proyecto por organización, nombrado por la organización y no por el trabajo, con solo el registro de la relación (qué se entregó, cuándo, con qué versión, qué falta) y sin entregables propios. `migrar` dice dónde se guarda el reporte y `nuevo` recuerda abrir el proyecto de la relación; los dos lo repiten en su lista de "lo que nunca hago".
+
 **1.3.1** · Nueva sección en el contrato, "Independencia entre raíces": si una sesión tiene conectada más de una raíz a la vez, o una raíz y el repo del plugin, nada que se escriba en una usa hechos de otra; comparar la forma de dos raíces no es tocar su contenido, y lo que una organización guarda sobre otra se limita a lo operativo (qué se entregó y cuándo), nunca al contenido del trabajo. `migrar` y `donde-va` lo repiten en su lista de "lo que nunca hago".
 
 **1.3** · `empresa/` pasa a llamarse `base/`: nombre más general, que sirve igual para una empresa, un equipo o un trabajo personal. Nuevo `base/ajustes.md`, opcional: una organización puede sumar ahí reglas propias (vocabulario adicional, criterios extra para lo confidencial, convenciones de nombres de área) sin tocar el plugin y sin poder contradecir el contrato; sigue el mismo principio que `base/plantillas/`, pero suma en vez de sustituir.

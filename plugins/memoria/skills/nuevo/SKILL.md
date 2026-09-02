@@ -144,6 +144,8 @@ No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta s
 
 Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` con acceso solo a los dueños de área, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
+Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización, para el registro de la relación: qué se entregó, cuándo y con qué versión. Ahí no entra nada del contenido del trabajo de la organización.
+
 ---
 
 # Nivel 2. El área
@@ -250,6 +252,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 - Crear un proyecto en un área que no es la del dueño
 - Tocar de `area.md` o de `guia.md` algo que no sea la línea nueva
 - Duplicar un proyecto o un área existente sin avisar antes
+- Guardar en la raíz de quien mantiene el método algo del contenido del trabajo de la organización que se acaba de montar
 
 ## Ejemplo completo
 
