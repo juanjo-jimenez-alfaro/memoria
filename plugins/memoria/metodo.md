@@ -1,4 +1,4 @@
-# Método de trabajo · versión 1.2 · generado desde el plugin memoria, no se edita a mano
+# Método de trabajo · versión 1.3 · generado desde el plugin memoria, no se edita a mano
 
 Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin `memoria`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz.
 
@@ -8,25 +8,25 @@ Este archivo reúne el contrato del método, las normas de estilo y el índice d
 
 Contrato base del método. El resto de skills del plugin referencian este documento en lugar de repetir sus reglas. Si una skill contradice algo de aquí, manda este documento.
 
-Versión del método: **1.2**
+Versión del método: **1.3**
 
 ## 1. Las tres capas de propiedad
 
 | Capa | Quién escribe | Qué contiene |
 |---|---|---|
 | El plugin y `metodo.md` | Solo el responsable del método | Cómo se trabaja. Idéntico en todas las organizaciones |
-| `empresa/` | Un único responsable de contexto | Quién es la organización, cómo se organiza, qué sistemas usa |
+| `base/` | Un único responsable de contexto | Quién es la organización, cómo se organiza, qué sistemas usa |
 | Cada área | El dueño del área | El trabajo real |
 
-Nadie escribe fuera de su capa. Un área lee `empresa/` y `metodo.md`, nunca los modifica. Las skills escriben en nombre de quien las usa y respetan las mismas capas.
+Nadie escribe fuera de su capa. Un área lee `base/` y `metodo.md`, nunca los modifica. Las skills escriben en nombre de quien las usa y respetan las mismas capas.
 
-La raíz es la carpeta que contiene `guia.md`, `metodo.md` y `empresa/`. Ninguna instrucción del método usa rutas absolutas, porque cada usuario tiene la carpeta sincronizada en un sitio distinto.
+La raíz es la carpeta que contiene `guia.md`, `metodo.md` y `base/`. Ninguna instrucción del método usa rutas absolutas, porque cada usuario tiene la carpeta sincronizada en un sitio distinto.
 
 ### Permisos en Drive
 
 - Lectura de toda la raíz para todo el equipo.
 - Escritura en la carpeta de un área solo para su dueño y las personas que él designe.
-- `empresa/` la escribe únicamente el responsable de contexto.
+- `base/` la escribe únicamente el responsable de contexto.
 - Dentro de la raíz no se restringe ninguna carpeta. Lo que no deba leer todo el equipo no entra en la raíz.
 
 ### La unidad confidencial
@@ -45,11 +45,12 @@ La unidad confidencial se lee igual que `fuentes/`: es taller privado del proyec
 RAIZ/
   guia.md
   metodo.md
-  empresa/
+  base/
     contexto.md
     glosario.md
     sistemas.md
-    plantillas/         (solo si la organización personaliza las del plugin)
+    ajustes.md           (opcional: reglas propias que se suman al contrato, nunca lo contradicen)
+    plantillas/          (solo si la organización personaliza las del plugin)
   <area>/
     area.md
     <proyecto>/
@@ -65,16 +66,19 @@ Tres niveles como máximo: área, proyecto, carpeta del proyecto. Un cuarto nive
 
 `guia.md` es para personas: qué es esta carpeta, cómo se organiza y quién escribe dónde, qué áreas hay y quién responde por cada una, cómo se avisa entre áreas, cuándo se revisa cada cosa, cómo conectarla a un proyecto de Cowork y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: lleva este contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
 
-### Los archivos de `empresa/`
+### Los archivos de `base/`
 
 | Archivo | Qué contiene |
 |---|---|
 | `contexto.md` | Quién es la organización, criterios transversales, qué datos son sensibles |
 | `glosario.md` | Vocabulario de la casa: siglas, nombres internos, qué significa cada cosa |
 | `sistemas.md` | Una tabla con cuatro columnas: sistema, para qué, quién da acceso, antes de usarlo |
+| `ajustes.md` | Opcional. Reglas propias de la organización que se suman a este contrato: vocabulario adicional, criterios extra para lo confidencial, convenciones de nombres de área. Nunca puede contradecir lo que dice este documento |
 | `plantillas/` | Solo si la organización quiere sus propias versiones de brief, comparativo, reporte de decisión o handoff. Si existe una, manda sobre la del plugin |
 
-Las cuatro plantillas del método viven en el plugin, dentro de la skill `nuevo`. `empresa/plantillas/` no se crea por defecto.
+Las cuatro plantillas del método viven en el plugin, dentro de la skill `nuevo`. `base/plantillas/` no se crea por defecto.
+
+`base/ajustes.md` sigue el mismo principio que `base/plantillas/`: es la otra forma en que una organización adapta el método sin tocar el plugin. La diferencia es que una plantilla sustituye y `ajustes.md` solo añade: reglas que este contrato no puede prever porque son propias de una organización, como un tipo de dato adicional que cuenta como confidencial, una convención de nombres para las áreas o vocabulario que conviene fijar antes de que cada quien lo escriba distinto. No puede cambiar ni contradecir nada de lo que dice esta lista; si algo en `ajustes.md` lo hace, manda esta lista y se avisa a quien mantiene `base/`. Tampoco se crea por defecto: solo si la organización lo pide.
 
 ### Estructura de `area.md`
 
@@ -212,7 +216,7 @@ Todo `.md` empieza con estas tres claves y ninguna más, salvo `guia.md` y `meto
 estado: vigente
 actualizado: 2026-08-29
 basado_en:
-  - empresa/contexto.md
+  - base/contexto.md
   - compras/automatizacion-ordenes/fuentes/entrevista-ana.md
 ---
 ```
@@ -230,7 +234,7 @@ El paso a `vigente` lo pide siempre el dueño del proyecto de forma explícita y
 
 **actualizado**: fecha en formato `AAAA-MM-DD`, la del último cambio de contenido real.
 
-**basado_en**: rutas relativas a la raíz de todo lo que se usó para escribir el archivo. Es lo que permite detectar que un entregable quedó desactualizado cuando cambia algo aguas arriba. Es obligatoria en los entregables y la escribe la skill, no la persona. Para material adoptado sin trazabilidad se permite la lista vacía `[]`, y `revisar` la pide completa antes de publicar. Los registros, las fuentes y los archivos de `empresa/` no llevan esta clave.
+**basado_en**: rutas relativas a la raíz de todo lo que se usó para escribir el archivo. Es lo que permite detectar que un entregable quedó desactualizado cuando cambia algo aguas arriba. Es obligatoria en los entregables y la escribe la skill, no la persona. Para material adoptado sin trazabilidad se permite la lista vacía `[]`, y `revisar` la pide completa antes de publicar. Los registros, las fuentes y los archivos de `base/` no llevan esta clave.
 
 No hay clave de dueño. El dueño vive en `area.md` y en `proyecto.md`, en `Quién participa`. Si un documento concreto tiene otro responsable, lo dice la primera línea de su cuerpo.
 
@@ -279,12 +283,12 @@ El método se actualiza publicando una versión nueva del plugin. La versión vi
 Nunca se lee todo. El camino va por niveles y se para en el primero que responde:
 
 1. `guia.md`: la lista de áreas y quién responde por cada una
-2. `empresa/contexto.md` y `empresa/glosario.md`
+2. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md`, si existe
 3. `area.md` de las áreas pertinentes. Su bloque `Proyectos` es el índice: dice qué proyectos hay y qué entregables vigentes tiene cada uno
 4. Solo entonces, del proyecto que toque: `proyecto.md`, `decisiones.md` completo y las cabeceras de `entregables/`
 5. El cuerpo de un entregable, solo si hace falta
 
-`empresa/sistemas.md` se lee cuando el trabajo toca un sistema. `sesiones.md`, `fuentes/` y la unidad confidencial de otra área no se leen nunca para responder a otra área.
+`base/sistemas.md` se lee cuando el trabajo toca un sistema. `sesiones.md`, `fuentes/` y la unidad confidencial de otra área no se leen nunca para responder a otra área.
 
 ## 12. Cowork y programadores
 
@@ -293,7 +297,7 @@ Nunca se lee todo. El camino va por niveles y se para en el primero que responde
 ```
 Esta carpeta es la memoria de la organización y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
 Lee `guia.md` al empezar.
-Trabajo en el área `<area>`. No escribas en `empresa/` ni en la carpeta de otra área.
+Trabajo en el área `<area>`. No escribas en `base/` ni en la carpeta de otra área.
 No des por aprobado ningún documento ni edites lo ya registrado en decisiones o sesiones.
 Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver.
 ```
@@ -312,7 +316,7 @@ Estilo de todo lo que se escribe, firma o comparte en esta estructura:
 
 > **Ejecutivo y al grano: el hecho relevante desde el inicio, sin rodeos ni expresiones que no aporten de manera directa.**
 
-Este archivo es la fuente canónica del estilo. Si una plantilla, la del plugin o una de `empresa/plantillas/`, lo contradice, manda este archivo.
+Este archivo es la fuente canónica del estilo. Si una plantilla, la del plugin o una de `base/plantillas/`, lo contradice, manda este archivo.
 
 ## Cuándo se aplica
 

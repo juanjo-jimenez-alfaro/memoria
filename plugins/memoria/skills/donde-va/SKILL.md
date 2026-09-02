@@ -35,7 +35,7 @@ Si la fuente ya existe en otro proyecto de la misma área, no se copia: se cita 
 
 **4. ¿Es un compromiso que cambia lo que se va a construir?** No es un archivo, es una entrada en `decisiones.md`. Se propone la entrada y se pide confirmación antes de registrarla.
 
-**5. ¿Es contexto de la empresa y no de un proyecto?** Organigrama, sistemas, políticas, vocabulario. Va a `empresa/`, que no se toca. Se prepara el texto y se le pasa al responsable de contexto para que lo incorpore. Si es un sistema, el texto va en el formato de la tabla de `sistemas.md`: sistema, para qué, quién da acceso, antes de usarlo.
+**5. ¿Es contexto de la organización y no de un proyecto?** Organigrama, sistemas, políticas, vocabulario. Va a `base/`, que no se toca. Se prepara el texto y se le pasa al responsable de contexto para que lo incorpore. Si es un sistema, el texto va en el formato de la tabla de `sistemas.md`: sistema, para qué, quién da acceso, antes de usarlo.
 
 **6. Ninguna de las anteriores.** Va a `fuentes/` del proyecto más probable, con una línea diciendo qué es y que está sin clasificar. Se decide más adelante, cuando esté claro.
 
@@ -46,7 +46,7 @@ No hay carpeta de borradores. Lo que no es material ni entregable ni decisión s
 Dos salidas, y ninguna es dejarlo suelto:
 
 - Si el material sugiere un trabajo que va a durar, se propone crear el proyecto con la skill `nuevo`
-- Si es contexto general de la empresa, va por la vía de la pregunta 5
+- Si es contexto general de la organización, va por la vía de la pregunta 5
 
 Nada se queda en la raíz ni en la carpeta del área. Un archivo huérfano hoy es un archivo que nadie encuentra en tres meses.
 
@@ -60,7 +60,7 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 
 - Crear una carpeta nueva para acomodar algo que no encaja. Si no encaja, es la pregunta 6
 - Dejar algo en la raíz o en la carpeta de un área
-- Escribir directamente en `empresa/`
+- Escribir directamente en `base/`
 - Guardar en `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
 - Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Copiar a `fuentes/` una fuente que ya existe en otro proyecto del área
@@ -100,6 +100,6 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 
 **Respuesta:**
 
-> Eso es contexto de empresa, no de proyecto, así que va a `empresa/contexto.md` y esa carpeta no la toco yo.
+> Eso es contexto de la organización, no de proyecto, así que va a `base/contexto.md` y esa carpeta no la toco yo.
 >
 > Te preparo el párrafo redactado para que se lo pases a quien mantiene el contexto. También conviene, porque `contexto.md` lleva 104 días sin actualizarse.

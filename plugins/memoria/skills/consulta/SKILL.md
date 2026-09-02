@@ -20,11 +20,11 @@ No es abrir sesión. Si la pregunta es sobre el proyecto en el que el usuario va
 Por el camino de lectura de `convenciones`, y me paro en el primer nivel que responde:
 
 1. `guia.md`: qué áreas hay y quién responde por cada una
-2. `empresa/glosario.md`, para entender los términos de la pregunta, y `empresa/contexto.md` si la pregunta es sobre la organización
+2. `base/glosario.md`, para entender los términos de la pregunta; `base/contexto.md` si la pregunta es sobre la organización; `base/ajustes.md`, si existe
 3. `area.md` de las áreas pertinentes, su bloque `Proyectos`. Casi siempre esto ya dice si existe algo y dónde
 4. Solo si hace falta, del proyecto que toque: `proyecto.md`, `decisiones.md` completo y las cabeceras de `entregables/`
 5. El cuerpo de un entregable `vigente`, solo si la pregunta pide el contenido y no basta con saber que existe
-6. `empresa/sistemas.md`, si la pregunta es sobre un sistema
+6. `base/sistemas.md`, si la pregunta es sobre un sistema
 
 Un entregable en `borrador` o `en-revision` se menciona si existe, con su estado, pero no se cita su contenido como si fuera verdad de la organización.
 
@@ -38,7 +38,7 @@ Respuesta corta y primero la respuesta, no el recorrido. Después, una línea po
 
 Si hay varias fuentes que se contradicen, se dicen las dos con su fecha y no se elige una.
 
-Si no hay nada escrito sobre el tema, se dice en una línea y se propone dónde debería vivir: qué área y, si aplica, si merece un proyecto nuevo con la skill `nuevo` o una entrada en `empresa/`. No se inventa una respuesta con lo que parece razonable.
+Si no hay nada escrito sobre el tema, se dice en una línea y se propone dónde debería vivir: qué área y, si aplica, si merece un proyecto nuevo con la skill `nuevo` o una entrada en `base/`. No se inventa una respuesta con lo que parece razonable.
 
 Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre y apellido que dice `guia.md`, `area.md` o `proyecto.md`, nunca el nombre del área.
 
@@ -72,6 +72,6 @@ Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre
 
 **Respuesta:**
 
-> Nada escrito. Ni `operaciones/area.md` ni `compras/area.md` tienen un proyecto sobre proveedores de logística, y en `empresa/contexto.md` solo aparece el nombre del proveedor actual.
+> Nada escrito. Ni `operaciones/area.md` ni `compras/area.md` tienen un proyecto sobre proveedores de logística, y en `base/contexto.md` solo aparece el nombre del proveedor actual.
 >
 > Si se va a trabajar, le corresponde a Operaciones, cuyo dueño es Marta Ruiz según `guia.md`. Sería un proyecto nuevo; si quieres lo arrancamos con `nuevo`.

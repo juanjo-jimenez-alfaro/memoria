@@ -40,7 +40,7 @@ El plugin trae además las cuatro plantillas del método (brief, comparativo, re
 
 ## Cómo se usa con una organización
 
-Cada organización tiene una raíz sincronizada en Drive, autocontenida, con `guia.md`, `metodo.md` y `empresa/`, y una carpeta por área. La monta la skill `nuevo`.
+Cada organización tiene una raíz sincronizada en Drive, autocontenida, con `guia.md`, `metodo.md` y `base/`, y una carpeta por área. La monta la skill `nuevo`.
 
 `guia.md` es para personas: qué es la carpeta, quién escribe dónde, qué áreas hay, cómo se avisa entre áreas, cuándo se revisa cada cosa, el texto para pegar en las instrucciones de un proyecto de Cowork y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: reúne el contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
 
@@ -53,6 +53,8 @@ Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna car
 Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a la unidad confidencial. El usuario decide, y nada se mueve sin su confirmación.
 
 ## Versiones
+
+**1.3** · `empresa/` pasa a llamarse `base/`: nombre más general, que sirve igual para una empresa, un equipo o un trabajo personal. Nuevo `base/ajustes.md`, opcional: una organización puede sumar ahí reglas propias (vocabulario adicional, criterios extra para lo confidencial, convenciones de nombres de área) sin tocar el plugin y sin poder contradecir el contrato; sigue el mismo principio que `base/plantillas/`, pero suma en vez de sustituir.
 
 **1.2.1** · Lo migrado puede entrar `vigente` al migrar, sin pasar primero por revisión, si quien migra era el dueño del material en el origen y lo pide de forma explícita; `sesiones.md` deja constancia de por qué. No hay carpeta aparte para binarios: una presentación o una hoja de cálculo sin `.md` detrás va directo a `entregables/` (si es el producto) o a `fuentes/` (si es material de entrada), sin cabecera propia porque el formato no la admite; su estado y procedencia se anotan en `proyecto.md`. La convención venía de un sistema anterior que no podía previsualizar binarios; donde vive la raíz de la organización hoy (Drive, iCloud) ya los previsualiza.
 

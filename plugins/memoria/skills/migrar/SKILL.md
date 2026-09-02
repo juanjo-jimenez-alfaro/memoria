@@ -16,12 +16,12 @@ Migrar es una tarea larga. Se hace por proyecto, no toda la carpeta de golpe, y 
 ## Qué leo antes de escribir nada
 
 1. `guia.md` y `<area>/area.md` de destino: qué proyectos ya existen, para no duplicar
-2. `empresa/glosario.md`, para nombrar las cosas como las llama la casa
+2. `base/glosario.md` y `base/ajustes.md` si existe, para nombrar las cosas como las llama la casa y con las reglas propias de la organización
 3. La carpeta origen entera, pero por capas: primero la lista de archivos con tamaño y fecha, después los índices o archivos de contexto que traiga (`README`, `00-contexto`, `AGENTS.md`), y solo al final el cuerpo de cada documento
 
 ## Los pasos
 
-**1. Inventario.** Una tabla de todo lo que hay en el origen: ruta, qué es en una línea, fecha del último cambio, y a qué se va a convertir (registro, entregable, fuente, contexto de empresa, no se trae). Se enseña al usuario y se corrige con él antes de mover nada. Un archivo que el usuario no reconoce se pregunta, no se adivina.
+**1. Inventario.** Una tabla de todo lo que hay en el origen: ruta, qué es en una línea, fecha del último cambio, y a qué se va a convertir (registro, entregable, fuente, contexto de la organización, no se trae). Se enseña al usuario y se corrige con él antes de mover nada. Un archivo que el usuario no reconoce se pregunta, no se adivina.
 
 **2. Mapeo a proyectos.** Cada grupo de archivos del origen se asigna a un proyecto del método, existente o nuevo. Un proyecto nuevo se crea con la skill `nuevo`, con su dueño con nombre y apellido, que es bloqueante también aquí. Si el origen mezclaba dos trabajos en una carpeta, salen dos proyectos. Si el origen tenía un cuarto nivel de carpetas, ahí había dos proyectos.
 

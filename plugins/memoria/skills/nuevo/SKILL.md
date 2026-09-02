@@ -17,7 +17,7 @@ También cuando una conversación de trabajo lleva veinte minutos sobre algo que
 
 1. La carpeta conectada: si tiene `guia.md`. Si no lo tiene, falta la raíz y se empieza por el nivel 1. Si tiene documentos de otra estructura, se para y se propone `migrar` después de montar la raíz
 2. `guia.md`: qué áreas hay y quién responde por cada una. Si el área del dueño no está, falta el área y se pasa por el nivel 2
-3. `empresa/contexto.md` y `empresa/glosario.md`
+3. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md` si existe
 4. `<area>/area.md`, su bloque `Proyectos`: qué proyectos hay ya y qué entregables vigentes tienen
 
 Si el proyecto se parece a uno existente, se dice antes de crear nada. Dos proyectos sobre el mismo tema son la forma más rápida de romper el sistema. Lo mismo con un área parecida a otra.
@@ -33,7 +33,7 @@ Solo si la carpeta no tiene `guia.md`. Se hace una vez por organización.
 ## Las cuatro preguntas
 
 1. ¿Cómo se llama la organización?
-2. ¿Quién es el responsable de contexto, la persona que mantiene `empresa/`? Nombre y apellido. Bloqueante
+2. ¿Quién es el responsable de contexto, la persona que mantiene `base/`? Nombre y apellido. Bloqueante
 3. ¿Qué sistemas usan a diario? Nombre y para qué, aunque sea una lista rápida
 4. ¿Hay ya una primera área con la que empezar, y quién es su dueño?
 
@@ -51,7 +51,7 @@ Las reglas completas están en `metodo.md`. No hace falta leerlas para empezar: 
 el plugin `memoria` cuando trabajas con Claude.
 
 ## Cómo se organiza y quién escribe dónde
-`empresa/` es quién somos y qué usamos. Lo escribe solo [responsable de contexto].
+`base/` es quién somos y qué usamos. Lo escribe solo [responsable de contexto].
 Cada carpeta de área es de su dueño; nadie más escribe en ella. Dentro, cada proyecto
 tiene su carpeta con `proyecto.md`, `decisiones.md`, `sesiones.md`, `entregables/` y `fuentes/`.
 Toda la carpeta la lee todo el equipo. Lo que no deba leer todo el equipo no entra aquí.
@@ -72,7 +72,7 @@ La carpeta no notifica a nadie. Cuando una decisión afecta a otra área, queda 
 te muestra las decisiones de otras áreas que afectan a tu proyecto.
 
 ## Cuándo se revisa cada cosa
-`empresa/contexto.md` al menos cada 90 días; la IA avisa si se pasa. Un entregable que
+`base/contexto.md` al menos cada 90 días; la IA avisa si se pasa. Un entregable que
 lleva más de 30 días en borrador o en revisión aparece como aviso al abrir sesión.
 Un registro que pasa de 1.500 líneas o cambia de año se archiva con el año en el nombre.
 Un archivo suelto en la raíz o en la carpeta de un área se coloca o se quita; nunca se queda.
@@ -87,7 +87,7 @@ Pega este texto en las instrucciones del proyecto, cambiando el área:
 
     Esta carpeta es la memoria de la organización y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
     Lee `guia.md` al empezar.
-    Trabajo en el área `<area>`. No escribas en `empresa/` ni en la carpeta de otra área.
+    Trabajo en el área `<area>`. No escribas en `base/` ni en la carpeta de otra área.
     No des por aprobado ningún documento ni edites lo ya registrado en decisiones o sesiones.
     Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver.
 
@@ -104,7 +104,7 @@ código. Antes de decidir algo que ya pudo decidir otra área, pregunta qué se 
 
 **2. `metodo.md`.** Copia exacta del `metodo.md` del plugin, que está en la raíz de la carpeta del plugin, dos niveles por encima de esta skill. No se edita ni una línea: su primera línea lleva la versión del método y es lo que `sesion` compara al abrir.
 
-**3. `empresa/contexto.md`.** Esqueleto con las secciones y cada una con su hueco marcado, para que el responsable de contexto las rellene con la IA en su primera sesión:
+**3. `base/contexto.md`.** Esqueleto con las secciones y cada una con su hueco marcado, para que el responsable de contexto las rellene con la IA en su primera sesión:
 
 ```markdown
 ---
@@ -127,9 +127,9 @@ actualizado: AAAA-MM-DD
 [Hueco: qué tipos de datos van a la unidad confidencial, qué no se cita en entregables, qué no se comparte fuera del área]
 ```
 
-**4. `empresa/glosario.md`.** Cabecera, título y una lista vacía con el formato `término: qué significa`. Si el usuario dio siglas o nombres internos al responder, se meten ya.
+**4. `base/glosario.md`.** Cabecera, título y una lista vacía con el formato `término: qué significa`. Si el usuario dio siglas o nombres internos al responder, se meten ya.
 
-**5. `empresa/sistemas.md`.** Cabecera, título y la tabla con sus cuatro columnas, con las filas de la pregunta 3 si las hubo:
+**5. `base/sistemas.md`.** Cabecera, título y la tabla con sus cuatro columnas, con las filas de la pregunta 3 si las hubo:
 
 ```markdown
 | Sistema | Para qué | Quién da acceso | Antes de usarlo |
@@ -138,11 +138,11 @@ actualizado: AAAA-MM-DD
 
 **6. La primera área**, si la hay, por el nivel 2. Si no la hay, la lista de áreas de `guia.md` queda con una línea que dice que todavía no hay ninguna.
 
-No se crea `empresa/plantillas/`: las plantillas viven en el plugin, junto a esta skill. Solo se crea si la organización quiere las suyas, y entonces manda sobre la del plugin.
+No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta skill. Solo se crea si la organización quiere las suyas, y entonces manda sobre la del plugin. Tampoco se crea `base/ajustes.md`: solo si la organización tiene reglas propias que sumar al contrato, nunca para contradecirlo.
 
 ## Qué respondo al terminar
 
-Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `empresa/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` con acceso solo a los dueños de área, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
+Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` con acceso solo a los dueños de área, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
 ---
 
@@ -242,7 +242,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 - Crear un área sin decir antes que es una decisión organizativa
 - Montar la raíz encima de una carpeta con documentos sin avisar de que después toca `migrar`
 - Editar `metodo.md` al copiarlo
-- Crear `empresa/plantillas/`, una carpeta `metodo/`, un `AGENTS.md`, un índice a mano o una carpeta de borradores
+- Crear `base/plantillas/` o `base/ajustes.md` sin que la organización lo pida, una carpeta `metodo/`, un `AGENTS.md`, un índice a mano o una carpeta de borradores
 - Rellenar `contexto.md` con lo que parece razonable para una organización de ese tipo
 - Crear un cuarto nivel de carpeta, entregables vacíos "para ir rellenando" o `fuentes/enlaces.md` sin filas
 - Guardar en `fuentes/` un archivo con indicios de información confidencial sin preguntar antes
@@ -288,7 +288,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 > La carpeta conectada no tiene `guia.md`, así que monto la raíz desde cero. Cuatro preguntas:
 >
 > 1. ¿El nombre es Acme, o tiene otro nombre completo?
-> 2. ¿Quién va a mantener `empresa/`, la parte de quién es Acme y qué usa?
+> 2. ¿Quién va a mantener `base/`, la parte de quién es Acme y qué usa?
 > 3. ¿Qué sistemas usan a diario?
 > 4. ¿Hay una primera área con la que empezar, y quién es su dueño?
 
@@ -296,6 +296,6 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 **Respuesta:**
 
-> Montada la raíz de Acme Distribución: `guia.md` con el texto para Cowork, `metodo.md` en versión 1.2, `empresa/` con contexto, glosario y sistemas (tres filas, con "quién da acceso" como hueco), y `compras/` con Ana Pérez como dueña.
+> Montada la raíz de Acme Distribución: `guia.md` con el texto para Cowork, `metodo.md` en versión 1.3, `base/` con contexto, glosario y sistemas (tres filas, con "quién da acceso" como hueco), y `compras/` con Ana Pérez como dueña.
 >
-> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `empresa/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución · Confidencial` con acceso para Ana. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.
+> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución · Confidencial` con acceso para Ana. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.

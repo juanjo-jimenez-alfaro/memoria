@@ -15,13 +15,13 @@ Crear o actualizar un entregable. Reglas de estructura, cabecera y nombres: la s
 
 ## Qué leo antes de escribir nada
 
-1. `empresa/contexto.md` y `empresa/glosario.md`, para el vocabulario de la casa
+1. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md` si existe, para el vocabulario de la casa y las reglas propias de la organización
 2. `<area>/area.md`, su bloque `Proyectos`, para saber qué entregables vigentes hay ya en el área
 3. `<area>/<proyecto>/proyecto.md`
 4. `decisiones.md` **completo**, no solo las últimas. Un entregable que contradice una decisión de hace ocho meses es peor que no tenerlo
 5. Las cabeceras de los demás entregables del proyecto
-6. La plantilla del tipo de documento: `brief.md`, `comparativo.md`, `reporte-de-decision.md` o `handoff.md`. Si la organización tiene la suya en `empresa/plantillas/`, esa; si no, la del plugin, que está en `plantillas/` dentro de la skill `nuevo`
-7. `empresa/sistemas.md`, si el documento toca un sistema
+6. La plantilla del tipo de documento: `brief.md`, `comparativo.md`, `reporte-de-decision.md` o `handoff.md`. Si la organización tiene la suya en `base/plantillas/`, esa; si no, la del plugin, que está en `plantillas/` dentro de la skill `nuevo`
+7. `base/sistemas.md`, si el documento toca un sistema
 8. Las fuentes concretas que apliquen, de `fuentes/`
 9. Si el entregable ya existe, el entregable entero
 
@@ -99,6 +99,6 @@ Si al escribirlo aparecieron decisiones que nadie había tomado, se listan al us
 
 > Listo: `entregables/mapa-proceso-actual.md`, en `borrador`.
 >
-> Escrito para alguien de fuera de Compras, con el glosario de la empresa para las siglas del ERP. Basado en la entrevista con Ana, el export de órdenes de 2025 y `decisiones.md`; las tres rutas están en la cabecera. Del Excel de sueldos, que está en la unidad confidencial, solo entra el total agregado del equipo, citado por su fila en `enlaces.md`.
+> Escrito para alguien de fuera de Compras, con el glosario de la organización para las siglas del ERP. Basado en la entrevista con Ana, el export de órdenes de 2025 y `decisiones.md`; las tres rutas están en la cabecera. Del Excel de sueldos, que está en la unidad confidencial, solo entra el total agregado del equipo, citado por su fila en `enlaces.md`.
 >
 > Le falta una cosa para pasar a revisión: en el paso de validación presupuestal, la entrevista y el export se contradicen sobre quién aprueba entre 5.000 y 20.000 MXN. Lo dejé marcado como hueco en el documento en lugar de elegir uno.

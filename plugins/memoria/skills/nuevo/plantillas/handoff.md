@@ -19,7 +19,7 @@ basado_en: []
 [Lista corta. Cada punto con quién lo tiene y desde cuándo.]
 
 ## Dónde están las cosas
-[Sistemas, accesos y fuentes que hacen falta, con quién da el acceso. Ver `empresa/sistemas.md`.]
+[Sistemas, accesos y fuentes que hacen falta, con quién da el acceso. Ver `base/sistemas.md`.]
 
 ## A quién preguntar
 [Personas con nombre y apellido y para qué tema cada una.]

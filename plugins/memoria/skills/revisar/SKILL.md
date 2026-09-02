@@ -25,7 +25,7 @@ Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar
 2. `decisiones.md` completo del proyecto
 3. Cada archivo listado en `basado_en`, con su fecha `actualizado`
 4. La skill `estilo`
-5. La plantilla que siga el documento: la de `empresa/plantillas/` si la organización tiene la suya, si no la del plugin, en `plantillas/` dentro de la skill `nuevo`
+5. La plantilla que siga el documento: la de `base/plantillas/` si la organización tiene la suya, si no la del plugin, en `plantillas/` dentro de la skill `nuevo`
 
 ## Las cinco comprobaciones
 

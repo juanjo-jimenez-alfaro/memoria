@@ -27,7 +27,7 @@ Por el camino de lectura de `convenciones`, en este orden:
 
 1. `metodo.md`, solo su primera línea, para la versión del método de la raíz
 2. `guia.md`, para confirmar el área y quién responde por ella
-3. `empresa/contexto.md` y `empresa/glosario.md`
+3. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md` si existe
 4. `<area>/area.md`, con su bloque `Proyectos`
 5. `<area>/<proyecto>/proyecto.md`
 6. `decisiones.md` del proyecto, las 5 entradas más recientes
@@ -35,7 +35,7 @@ Por el camino de lectura de `convenciones`, en este orden:
 8. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado
 9. Las líneas `Afecta a:` de todos los `decisiones.md` de la raíz, buscando `area/proyecto` del proyecto activo. Solo esas líneas y el encabezado de su entrada, nada más del archivo
 
-No leo `fuentes/` al abrir. Se lee cuando el trabajo del día lo pida. `empresa/sistemas.md` se lee si el trabajo toca un sistema.
+No leo `fuentes/` al abrir. Se lee cuando el trabajo del día lo pida. `base/sistemas.md` se lee si el trabajo toca un sistema.
 
 ## Qué respondo
 
@@ -47,7 +47,7 @@ Tres bloques, en este orden y sin encabezados largos.
 
 - La versión de la primera línea de `metodo.md` es anterior a la del plugin. La raíz se quedó atrás y hay que regenerar `metodo.md`
 - Alguna decisión de otro proyecto de la raíz nombra este proyecto en `Afecta a:`. Se cita la entrada con su fecha, quién decidió y de qué proyecto viene
-- `empresa/contexto.md` lleva más de 90 días sin actualizarse
+- `base/contexto.md` lleva más de 90 días sin actualizarse
 - Algún entregable tiene en `basado_en` un archivo cuya fecha `actualizado` es posterior a la suya, y por tanto puede estar desfasado
 - Algún entregable lleva más de 30 días en `borrador` o `en-revision`
 
@@ -113,7 +113,7 @@ Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. 
 - Registrar una decisión que el usuario no confirmó en esta sesión
 - Cambiar el `estado` de un entregable a `vigente`. Eso lo pide el dueño del proyecto de forma explícita
 - Tocar archivos fuera del proyecto activo, salvo la línea de este proyecto en el bloque `Proyectos` de su `area.md`
-- Escribir en `empresa/`, en `metodo.md` o en la carpeta de otra área
+- Escribir en `base/`, en `metodo.md` o en la carpeta de otra área
 - Leer `sesiones.md`, `fuentes/` o la unidad confidencial de otra área
 - Mover algo a la unidad confidencial sin que el usuario lo confirme
 - Rellenar un pendiente con una suposición. Si no sé si algo quedó cerrado, pregunto
@@ -128,7 +128,7 @@ Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. 
 
 > El proyecto busca quitar aprobaciones manuales en compras de bajo monto. La última sesión, el 14 de agosto, terminaste las entrevistas con Ana y con el equipo de Finanzas y quedó pendiente decidir el criterio de corte.
 >
-> Tres avisos. Finanzas registró el 20 de agosto en `finanzas/cierre-mensual/decisiones.md` que el cierre pasa al día 3, y marcó este proyecto como afectado: decidió Luis Romero. `empresa/contexto.md` no se toca desde hace 104 días. Y `entregables/mapa-proceso.md` está en `en-revision` desde hace 41 días esperando a Ana.
+> Tres avisos. Finanzas registró el 20 de agosto en `finanzas/cierre-mensual/decisiones.md` que el cierre pasa al día 3, y marcó este proyecto como afectado: decidió Luis Romero. `base/contexto.md` no se toca desde hace 104 días. Y `entregables/mapa-proceso.md` está en `en-revision` desde hace 41 días esperando a Ana.
 >
 > Tres focos posibles para hoy:
 >
