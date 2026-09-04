@@ -1,4 +1,4 @@
-# Método de trabajo · versión 1.3 · generado desde el plugin memoria, no se edita a mano
+# Método de trabajo · versión 1.4 · generado desde el plugin memoria, no se edita a mano
 
 Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin `memoria`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz.
 
@@ -8,7 +8,7 @@ Este archivo reúne el contrato del método, las normas de estilo y el índice d
 
 Contrato base del método. El resto de skills del plugin referencian este documento en lugar de repetir sus reglas. Si una skill contradice algo de aquí, manda este documento.
 
-Versión del método: **1.3**
+Versión del método: **1.4**
 
 ## 1. Las tres capas de propiedad
 
@@ -334,16 +334,33 @@ Estilo de todo lo que se escribe, firma o comparte en esta estructura:
 
 > **Ejecutivo y al grano: el hecho relevante desde el inicio, sin rodeos ni expresiones que no aporten de manera directa.**
 
+Se escribe para alguien con poco tiempo y muchas interrupciones. Tiene que poder leer en diagonal, quedarse con lo que decide y no perderse nada esencial por haberlo hecho así.
+
 Este archivo es la fuente canónica del estilo. Si una plantilla, la del plugin o una de `base/plantillas/`, lo contradice, manda este archivo.
 
 ## Cuándo se aplica
 
-Siempre, sin que nadie la invoque, en cualquier redacción o revisión. Y de forma explícita cuando alguien pide que suene menos a IA, más ejecutivo, más al grano, o que le quiten los rodeos.
+Siempre, sin que nadie la invoque, en cualquier redacción o revisión. Y de forma explícita cuando alguien pide que suene menos a IA, más ejecutivo, más al grano, más compacto, que se lea rápido, o que le quiten los rodeos.
+
+**No se cambia por iniciativa propia.** Este es el estilo de la casa y se aplica por defecto, aunque el texto parezca pedir otro registro. Solo cambia si quien encarga el texto lo pide de forma expresa, y el cambio vale para ese texto: no se guarda como estándar nuevo ni se arrastra al siguiente entregable.
 
 ## Las dos preguntas que resuelven casi todo
 
 1. **¿La primera frase ya dice el hecho, o lo anuncia?** Si lo anuncia, empieza por el hecho.
 2. **¿Puedo borrar esta palabra y no se pierde información?** Entonces sobra.
+
+## Lectura rápida
+
+Los siete patrones de abajo arreglan la frase. Estas ocho reglas arreglan el documento, que es donde se pierde al lector que tiene prisa.
+
+1. **La primera pantalla basta.** Quien solo lee eso sale sabiendo el estado y qué se decide. Nada esencial vive por debajo del primer pliegue.
+2. **Los títulos dicen el hecho, no el tema.** *"El motor cuesta 2.44 M al año"*, no *"Costos del motor"*.
+3. **Una idea por fila.** Si el contenido se puede enumerar, va en lista o tabla. La prosa se reserva para lo que necesita argumento.
+4. **Si cabe en una fila de tabla, no va en un párrafo.**
+5. **Cada afirmación trae su dato.** Un párrafo que no aporta un dato ni cambia una decisión se borra.
+6. **La consecuencia va pegada a la acción.** El "si esto no ocurre, pasa aquello" debajo de su acción, no en una lista de riesgos al final que el lector ya no relaciona.
+7. **Lo hecho antes de lo pendiente**, cuando el lector decide sobre el trabajo de otros.
+8. **Sin preámbulo de sección.** Título y contenido. Las frases que presentan lo que viene se borran.
 
 ## Siete patrones a evitar
 
@@ -389,16 +406,18 @@ La fecha basta cuando el dato es de la propia organización y está en una fuent
 
 ## Alcance
 
-- **Entregables y cualquier texto que salga del proyecto:** los siete patrones, sin excepción.
+- **Entregables y cualquier texto que salga del proyecto:** los siete patrones y las ocho reglas de lectura rápida, sin excepción.
 - **Registros** (`sesiones.md`, `decisiones.md`): pueden ser más extensos, porque su función es dejar constancia del razonamiento. El metadiscurso y los rodeos sobran igual, y una cifra en `Por qué` también lleva su fecha o su fuente.
+- **Respuestas de la IA en el chat:** la respuesta primero y el detalle después, sin recapitular lo que el usuario acaba de decir y sin narrar lo que se va a hacer. El único límite es no perder información que el usuario necesita para decidir: entre una respuesta corta y una completa gana la completa, pero sin relleno.
 
 ## Al revisar un texto existente
 
 1. Señala los pasajes concretos y propón la reescritura. No reescribas el documento entero en silencio.
-2. Cuenta los guiones largos antes y después, y compáralos con el umbral de uno cada 500 palabras. Es la medida más rápida de si el texto mejoró.
-3. Busca cada cifra y comprueba que tenga fecha o fuente al lado.
-4. No toques las citas textuales de terceros ni los nombres propios de documentos y decisiones.
-5. Corregir el estilo de un entregable de otro proyecto o de otra área es tocar contenido ajeno, no forma. Se propone al dueño, no se aplica.
+2. Lee solo la primera pantalla y pregúntate si con eso basta para saber el estado y qué se decide. Si no basta, el problema es de orden y se arregla antes que las frases.
+3. Cuenta los guiones largos antes y después, y compáralos con el umbral de uno cada 500 palabras. Es la medida más rápida de si el texto mejoró.
+4. Busca cada cifra y comprueba que tenga fecha o fuente al lado.
+5. No toques las citas textuales de terceros ni los nombres propios de documentos y decisiones.
+6. Corregir el estilo de un entregable de otro proyecto o de otra área es tocar contenido ajeno, no forma. Se propone al dueño, no se aplica.
 
 ---
 
@@ -407,7 +426,7 @@ La fecha basta cuando el dato es de la propia organización y está en una fuent
 Lo que hace cada una, en una línea. Con el plugin instalado se activan solas por las frases que menciona cada descripción.
 
 - **convenciones**: Contrato base del metodo de trabajo: estructura de carpetas, cabecera de los archivos, estados, como se lee la raiz, que es publico y que va a la unidad confidencial. Consultala antes de crear o modificar cualquier archivo dentro de la memoria de una organizacion, y cuando pregunten como se organiza algo, donde va, que significa un estado o quien puede escribir donde.
-- **estilo**: Normas de estilo de redaccion. Aplicala por defecto al redactar o revisar cualquier texto que se vaya a firmar o compartir, sin que la invoquen, y cuando pidan 'que suene menos a IA', 'mas ejecutivo', 'mas al grano' o 'revisa el estilo'.
+- **estilo**: Normas de estilo y de lectura rapida. Aplicala por defecto al redactar o revisar cualquier texto que se vaya a firmar o compartir, y tambien a las respuestas en el chat, sin que la invoquen; y de forma explicita cuando pidan 'que suene menos a IA', 'mas ejecutivo', 'mas al grano', 'mas compacto', 'que se lea rapido' o 'revisa el estilo'.
 - **sesion**: Abre y cierra sesiones de trabajo sobre un proyecto. Usala cuando digan 'abre sesion', 'retomamos X', 'en que quedamos con...', 'cierra la sesion', 'guarda lo de hoy' o 'terminamos'.
 - **nuevo**: Da de alta lo que falte en la memoria de la organizacion: monta la raiz si la carpeta no tiene guia.md, crea el area si no existe y crea el paquete completo de un proyecto. Usala cuando digan 'nuevo proyecto', 'arranca un proyecto para...', 'necesito documentar esto como proyecto', 'nueva area', 'crea el area de...', 'monta la carpeta de...', 'nueva organizacion', 'arranca el metodo para este cliente', o cuando se trabaje en algo que todavia no tiene carpeta.
 - **entregable**: Crea o actualiza un entregable de un proyecto. Usala cuando pidan 'prepara el documento de...', 'necesito un documento con...', 'documenta lo que decidimos sobre...', o 'actualiza el entregable X'.
