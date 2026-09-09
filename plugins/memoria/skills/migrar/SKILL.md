@@ -98,7 +98,7 @@ El reporte se guarda como entregable en la raíz de quien migró, en su proyecto
 
 **Respuesta al terminar:**
 
-> **Qué se trajo.** Cuatro entradas en `decisiones.md` (2026-03-12, 04-02, 06-20, 08-14), con el análisis de las dos últimas en `entregables/comparativo-topes-aprobacion.md`, en revisión. Once entradas en `sesiones.md`. `entregables/flujo-aprobacion.md`, en revisión, con `basado_en` apuntando al export y a la entrevista. Cuatro archivos en `fuentes/`. `nomina-compras.xlsx` en `Acme · Restringido`, con su fila en `fuentes/enlaces.md`. Estado actual y cuatro pendientes en `proyecto.md`, sacados del contexto original.
+> **Qué se trajo.** Cuatro entradas en `decisiones.md` (2026-03-12, 04-02, 06-20, 08-14), con el análisis de las dos últimas en `entregables/comparativo-topes-aprobacion.md`, en revisión. Once entradas en `sesiones.md`. `entregables/flujo-aprobacion.md`, en revisión, con `basado_en` apuntando al export y a la entrevista. Cuatro archivos en `fuentes/`. `nomina-compras.xlsx` en `Acme - Restringido`, con su fila en `fuentes/enlaces.md`. Estado actual y cuatro pendientes en `proyecto.md`, sacados del contexto original.
 >
 > **Qué se dejó.** `AGENTS.md`: lo sustituyen las skills y `guia.md`. `indice.md`: lo sustituye el bloque Proyectos de `compras/area.md`. `plantilla-adr.md`: el formato de decisión es el del método. Dos borradores de `insumos/` que nadie reconoce, con el nombre `sin-titulo`. El origen sigue intacto en `viejo/`.
 >

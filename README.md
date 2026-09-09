@@ -48,7 +48,7 @@ El número de versión vive en el plugin y en la primera línea de `metodo.md`. 
 
 ## Las unidades restringidas
 
-Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna carpeta. Lo que no pueda leer todo el equipo vive en una unidad compartida aparte, con su propio acceso: `<Organización> · Restringido`, o una por cuenta de cliente si el contrato lo exige. Una raíz puede tener ninguna, una o varias, y el método es idéntico en todas.
+Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna carpeta. Lo que no pueda leer todo el equipo vive en una unidad compartida aparte, con su propio acceso: `<Organización> - Restringido`, o una por cuenta de cliente si el contrato lo exige. Una raíz puede tener ninguna, una o varias, y el método es idéntico en todas.
 
 Una unidad restringida es un espejo parcial de la raíz: carpetas de área con el mismo nombre y proyectos con la misma estructura, sin `guia.md`, sin `metodo.md` y sin `base/`, porque su método y su contexto son los de la raíz. Sirve para dos cosas: un área entera que no puede leer todo el equipo —una cuenta de cliente, recursos humanos, finanzas— y un archivo suelto con datos personales, facturación, contratos o credenciales dentro de un área que por lo demás es pública. En el segundo caso el proyecto guarda una fila en `fuentes/enlaces.md` con qué es, su liga y qué tener presente.
 
@@ -57,6 +57,8 @@ Las áreas restringidas se listan siempre en `guia.md`, con su dueño y dónde v
 Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a la unidad restringida. El usuario decide, y nada se mueve sin su confirmación.
 
 ## Versiones
+
+**1.5.2** · El nombre sugerido para la unidad pasa de `<Organización> · Restringido` a `<Organización> - Restringido`. El punto medio era decorativo y no está en el teclado: el nombre de una carpeta compartida se teclea muchas veces —al buscarla, al pedir acceso, al nombrarla en un correo, en la terminal o en un script—, y un signo que hay que copiar de algún lado se escribe distinto cada vez y obliga a comprobar en cada herramienta nueva si lo admite. El contrato gana una subsección en `Nombres` que fija cómo se llama una carpeta compartida —letras, números, espacios y guiones, con los acentos y eñes del nombre propio— y `nuevo` la aplica: revisa el nombre de la carpeta conectada y el de la unidad antes de escribir nada, y lo suma a su lista de lo que nunca hace. Cambian los ejemplos de `nuevo`, `donde-va` y `migrar`. Las organizaciones que ya tienen una unidad con el nombre viejo la renombran cuando quieran: el método no usa rutas absolutas y nada se rompe al hacerlo.
 
 **1.5.1** · El nombre sugerido para la unidad pasa de `<Organización> · Confidencial` a `<Organización> · Restringido`, para que el nombre visible en Drive use la misma palabra que el contrato. Sale de la primera aplicación de 1.5: una organización que renombre su unidad y un plugin que siga proponiendo la palabra vieja parten el vocabulario en la siguiente que se monte. Cambian los ejemplos de `nuevo`, `donde-va` y `migrar`, y el texto de `guia.md` que escribe `nuevo`; el contrato no cambia de reglas. Se corrige además un ejemplo de `nuevo` que había entrado con el nombre de una organización real y el de una de sus cuentas: los ejemplos del plugin no nombran a ninguna organización.
 

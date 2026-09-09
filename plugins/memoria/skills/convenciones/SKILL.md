@@ -38,7 +38,7 @@ En la raíz de la organización entra solo lo que su equipo necesita para operar
 
 ### Las unidades restringidas
 
-Una raíz puede tener ninguna, una o varias **unidades restringidas**: carpetas compartidas aparte, cada una con su propio padrón de acceso, donde vive el trabajo que no puede leer todo el equipo. Una organización pequeña no necesita ninguna. A la mayoría le basta con una, `<Organización> · Restringido`. Una que trabaja por cuentas de cliente puede querer una aparte para un cliente cuyo contrato lo exija. El método es idéntico en todas.
+Una raíz puede tener ninguna, una o varias **unidades restringidas**: carpetas compartidas aparte, cada una con su propio padrón de acceso, donde vive el trabajo que no puede leer todo el equipo. Una organización pequeña no necesita ninguna. A la mayoría le basta con una, `<Organización> - Restringido`. Una que trabaja por cuentas de cliente puede querer una aparte para un cliente cuyo contrato lo exija. El método es idéntico en todas.
 
 Una unidad restringida es un **espejo parcial de la raíz**: dentro tiene carpetas de área, con el mismo nombre que tendrían en la raíz, y dentro de ellas proyectos con la misma estructura, las mismas cabeceras y los mismos estados. No lleva `guia.md`, ni `metodo.md`, ni `base/`: su método y su contexto son los de la raíz, y no significa nada abierta sin ella.
 
@@ -278,6 +278,10 @@ Las claves van sin acentos ni eñes.
 Minúsculas, guiones en vez de espacios, sin acentos ni eñes, sin fechas ni números de versión, sin números de fase ni de etapa. `flujo-aprobacion.md`, no `Flujo de Aprobación v2 FINAL.md` ni `fase1-flujo-aprobacion.md`.
 
 El nombre de un archivo es estable durante toda su vida. La versión la lleva Drive, el estado lo lleva la cabecera y el orden de las fases lo cuenta `proyecto.md`.
+
+### El nombre de una carpeta compartida
+
+La raíz y las unidades restringidas son carpetas compartidas y su nombre se ve en Drive, así que ese sí lleva mayúsculas y espacios: `Acme`, `Acme - Restringido`. Solo letras, números, espacios y guiones, y los acentos y las eñes que traiga el nombre propio. Ningún otro signo: el nombre de una carpeta compartida se escribe a mano muchas veces —al buscarla, al pedir acceso, al nombrarla en un correo, al usarla en la terminal o en un script— y cualquier signo que no esté en el teclado se copia mal, se escribe distinto cada vez y obliga a comprobar si una herramienta lo admite. Si una organización ya tiene una carpeta con un signo así, se propone renombrarla; el método no depende del nombre, porque ninguna instrucción usa rutas absolutas.
 
 ## 7. Qué es público
 
