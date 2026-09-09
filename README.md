@@ -26,7 +26,7 @@ En una organización de Claude Team o Enterprise, el propietario puede distribui
 
 | Skill | Para qué |
 |---|---|
-| `convenciones` | Contrato base: estructura, cabeceras, estados, cómo se lee, qué es público, qué es confidencial |
+| `convenciones` | Contrato base: estructura, cabeceras, estados, cómo se lee, qué es público, qué va a una unidad restringida |
 | `estilo` | Normas de redacción, siempre activas |
 | `sesion` | Abrir y cerrar sesión de trabajo sobre un proyecto |
 | `nuevo` | Dar de alta lo que falte: la raíz de la organización, un área o un proyecto |
@@ -46,13 +46,19 @@ Cada organización tiene una raíz sincronizada en Drive, autocontenida, con `gu
 
 El número de versión vive en el plugin y en la primera línea de `metodo.md`. Al abrir sesión se comparan y se avisa si la raíz se quedó atrás; ponerla al día es regenerar `metodo.md` con `plugins/memoria/build-metodo.sh` y copiarlo a la raíz.
 
-## La unidad confidencial
+## Las unidades restringidas
 
-Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna carpeta. Lo que no deba leer todo el equipo (datos personales, facturación, contratos, credenciales) va a una segunda unidad compartida, restringida, con acceso solo para los dueños de área que la necesiten: `<Organización> · Confidencial`. En el proyecto queda una fila en `fuentes/enlaces.md` con qué es, su liga y qué tener presente.
+Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna carpeta. Lo que no pueda leer todo el equipo vive en una unidad compartida aparte, con su propio acceso: `<Organización> · Confidencial`, o una por cuenta de cliente si el contrato lo exige. Una raíz puede tener ninguna, una o varias, y el método es idéntico en todas.
 
-Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a la unidad confidencial. El usuario decide, y nada se mueve sin su confirmación.
+Una unidad restringida es un espejo parcial de la raíz: carpetas de área con el mismo nombre y proyectos con la misma estructura, sin `guia.md`, sin `metodo.md` y sin `base/`, porque su método y su contexto son los de la raíz. Sirve para dos cosas: un área entera que no puede leer todo el equipo —una cuenta de cliente, recursos humanos, finanzas— y un archivo suelto con datos personales, facturación, contratos o credenciales dentro de un área que por lo demás es pública. En el segundo caso el proyecto guarda una fila en `fuentes/enlaces.md` con qué es, su liga y qué tener presente.
+
+Las áreas restringidas se listan siempre en `guia.md`, con su dueño y dónde viven: el equipo sabe que existen y a quién pedir acceso, pero no las lee. La cita va en una sola dirección —lo restringido cita a la raíz, nunca al revés— y lo aprendido vuelve a la memoria común reescrito, sin los datos ni los nombres de donde salió.
+
+Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a la unidad restringida. El usuario decide, y nada se mueve sin su confirmación.
 
 ## Versiones
+
+**1.5** · El método deja de suponer que toda la raíz la puede leer todo el equipo. Entra el concepto de **unidad restringida**: una raíz puede tener ninguna, una o varias carpetas compartidas aparte, cada una con su propio acceso, y cada una es un espejo parcial de la raíz —mismas áreas, mismos proyectos, misma estructura— sin `guia.md`, `metodo.md` ni `base/`, porque su método y su contexto son los de la raíz. Lo que se restringe es un área, no un tipo de documento, así que sirve igual para una cuenta de cliente, para recursos humanos o para finanzas; un área puede vivir entera a un lado o partida entre los dos, pero la partición es por proyecto y lo único que cruza dentro de un proyecto es material sensible suelto, que es el caso que el método ya cubría. Las áreas restringidas se listan siempre en `guia.md`, con su dueño y dónde viven. La cita va en **una sola dirección**: lo restringido cita a la raíz, nada de la raíz nombra ni resume lo restringido, y lo aprendido vuelve a la memoria común reescrito y sin los datos de donde salió. Quien trabaja en un área restringida conecta dos carpetas en su proyecto de Cowork, raíz y unidad, porque la unidad sola no significa nada. `nuevo` da de alta áreas restringidas y las lista en `guia.md`; `donde-va` decide primero a qué lado va cada cosa; `consulta` y `sesion` se paran en lo que no pueden abrir y lo dicen en vez de deducirlo; `migrar` manda a la unidad el origen que es trabajo restringido; `entregable` y `revisar` bloquean la cita en la dirección prohibida.
 
 **1.3.4** · Se cierra cómo se conecta una raíz a Claude, que el método daba por sabido. `guia.md` trae ahora una receta de cinco pasos que cada persona ejecuta sola: crear su proyecto con el nombre de su área, instalar el plugin desde el marketplace, conectar la carpeta, pegar las instrucciones y comprobar con «abre sesión en…». Dos reglas nuevas: **un proyecto por persona**, y **se conecta la raíz completa, nunca la carpeta de un área** —`guia.md`, `metodo.md` y `base/` viven en la raíz, la lectura en cascada cruza áreas, y `consulta` y `sesion` necesitan verlas todas—; quién escribe dónde lo fijan los permisos de la carpeta compartida y la línea del área, no el alcance de la conexión. La unidad confidencial no se conecta salvo en la sesión que la necesite. El texto para pegar pasa a ser **portable sin cambios**: no nombra organización, no lleva huecos que rellenar y no dice nada propio de una raíz, porque eso vive en `base/ajustes.md`, que el propio texto manda leer. Dónde escribe cada quien va en una línea aparte que añade la persona; si falta, se pregunta antes de escribir en vez de suponer.
 

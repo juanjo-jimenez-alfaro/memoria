@@ -35,7 +35,7 @@ Tres comprobaciones, resueltas con el usuario en dos o tres líneas, no con un i
 
 **¿De dónde sale cada cosa?** Toda afirmación no obvia tiene que poder rastrearse a un archivo de `basado_en`. Si algo importante viene solo de la conversación de hoy, se guarda primero en `fuentes/` como nota y luego se cita. Lo que solo existe en el chat se pierde. Toda cifra lleva fecha o fuente en el mismo párrafo.
 
-**¿Hay algo que no todos deban ver?** Si el material que voy a usar trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios), lo digo y propongo dos cosas: llevar ese material a la unidad confidencial con su fila en `enlaces.md`, y dejar en el entregable solo lo agregado o anonimizado que sí puede leer todo el equipo. El usuario decide si es confidencial. Un entregable es superficie pública: lo que entra en él lo lee toda la organización.
+**¿Hay algo que no todos deban ver?** Si el material que voy a usar trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios), lo digo y propongo dos cosas: llevar ese material a la unidad restringida con su fila en `enlaces.md`, y dejar en el entregable solo lo agregado o anonimizado que sí puede leer todo el equipo. El usuario decide si es confidencial. Un entregable es superficie pública: lo que entra en él lo lee toda la organización.
 
 ## Qué escribo y dónde
 
@@ -43,7 +43,9 @@ Tres comprobaciones, resueltas con el usuario en dos o tres líneas, no con un i
 
 **Cabecera**: tres claves. `estado: borrador` siempre al crear, la fecha de hoy en `actualizado`, y en `basado_en` todas las rutas que se usaron de verdad. La clave la escribo yo siempre; la persona no tiene que rellenarla. No se listan archivos que se leyeron por encima y no aportaron nada. No hay clave de dueño: el dueño es el del proyecto, en `proyecto.md`. Si este documento tiene otro responsable, se dice en la primera línea del cuerpo, debajo del título.
 
-Una fuente de otro proyecto de la misma área se cita por su ruta original, nunca se copia a este `fuentes/`. Fuentes de otra área no se citan: de otra área solo entregables vigentes y decisiones. Lo que está en la unidad confidencial no se cita directamente; se cita su fila de `fuentes/enlaces.md`.
+Una fuente de otro proyecto de la misma área se cita por su ruta original, nunca se copia a este `fuentes/`. Fuentes de otra área no se citan: de otra área solo entregables vigentes y decisiones. El material guardado en una unidad restringida no se cita directamente; se cita su fila de `fuentes/enlaces.md`.
+
+Un entregable que vive en una unidad restringida puede citar en `basado_en` lo que quiera de la raíz. Uno que vive en la raíz no cita nada restringido, ni por su ruta ni contando lo que dice: la cita va en una sola dirección. Lo aprendido en un área restringida entra en la raíz reescrito, como entregable propio y sin los datos ni los nombres de donde salió.
 
 La lista vacía `[]` solo se admite para material adoptado, que ya existía antes de entrar en la estructura y del que no hay forma de saber de dónde salió. Un entregable escrito aquí siempre tiene fuentes, aunque sea una sola nota en `fuentes/`. Un `[]` lo detiene `revisar` antes de publicar.
 
@@ -72,7 +74,8 @@ Si al escribirlo aparecieron decisiones que nadie había tomado, se listan al us
 - Marcar un entregable como `vigente`. Eso lo pide el dueño del proyecto de forma explícita
 - Escribir una afirmación que no sale de una fuente citable
 - Dejar `basado_en` vacía en un entregable que escribí yo
-- Citar en `basado_en` un `sesiones.md`, una fuente de otra área o un archivo de la unidad confidencial
+- Citar en `basado_en` un `sesiones.md`, una fuente de otra área o un archivo de una unidad restringida
+- Escribir en un entregable de la raíz algo que leí en una unidad restringida, aunque sea resumido
 - Copiar una fuente de otro proyecto a este `fuentes/` en vez de citar la original
 - Meter en un entregable datos que parecen confidenciales sin haberlo dicho antes
 - Construir sobre un entregable que no esté `vigente`, sin avisar de que no lo está
@@ -99,6 +102,6 @@ Si al escribirlo aparecieron decisiones que nadie había tomado, se listan al us
 
 > Listo: `entregables/mapa-proceso-actual.md`, en `borrador`.
 >
-> Escrito para alguien de fuera de Compras, con el glosario de la organización para las siglas del ERP. Basado en la entrevista con Ana, el export de órdenes de 2025 y `decisiones.md`; las tres rutas están en la cabecera. Del Excel de sueldos, que está en la unidad confidencial, solo entra el total agregado del equipo, citado por su fila en `enlaces.md`.
+> Escrito para alguien de fuera de Compras, con el glosario de la organización para las siglas del ERP. Basado en la entrevista con Ana, el export de órdenes de 2025 y `decisiones.md`; las tres rutas están en la cabecera. Del Excel de sueldos, que está en la unidad restringida, solo entra el total agregado del equipo, citado por su fila en `enlaces.md`.
 >
 > Le falta una cosa para pasar a revisión: en el paso de validación presupuestal, la entrevista y el export se contradicen sobre quién aprueba entre 5.000 y 20.000 MXN. Lo dejé marcado como hueco en el documento en lugar de elegir uno.

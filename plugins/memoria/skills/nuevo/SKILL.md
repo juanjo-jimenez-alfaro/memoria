@@ -56,15 +56,18 @@ Cada carpeta de área es de su dueño; nadie más escribe en ella. Dentro, cada 
 tiene su carpeta con `proyecto.md`, `decisiones.md`, `sesiones.md`, `entregables/` y `fuentes/`.
 Toda la carpeta la lee todo el equipo. Lo que no deba leer todo el equipo no entra aquí.
 
-## Lo confidencial
-Datos personales, facturación, contratos, credenciales o cualquier cosa que no todos deban
-ver van a la unidad compartida `[Organización] · Confidencial`, con acceso solo para los
-dueños de área que la necesiten. En el proyecto queda una fila en `fuentes/enlaces.md` con
-qué es, su liga y qué tener presente. Si la IA detecta algo que parece confidencial, lo dice
-y propone moverlo; la decisión es tuya.
+## Lo restringido
+Lo que no puede leer todo el equipo no vive en esta carpeta, sino en unidades compartidas
+aparte con su propio acceso. Son de dos clases y funcionan igual. Un área entera puede vivir
+allí, con la misma estructura que aquí; aparece abajo en la lista de áreas, con su dueño y
+dónde está, para que sepas que existe y a quién pedir acceso. Y un archivo suelto con datos
+personales, facturación, contratos o credenciales también va allí aunque su área esté aquí:
+en el proyecto queda una fila en `fuentes/enlaces.md` con qué es, su liga y qué tener
+presente. Si la IA detecta algo que parece confidencial, lo dice y propone moverlo; la
+decisión es tuya.
 
 ## Áreas
-- `[area]/` · [qué es en media línea] · [dueño]
+- `[area]/` · [qué es en media línea] · [dueño] · [dónde vive: esta carpeta, o el nombre de la unidad restringida]
 
 ## Cómo se avisa entre áreas
 La carpeta no notifica a nadie. Cuando una decisión afecta a otra área, queda anotada en
@@ -100,8 +103,9 @@ completa**, la que tiene dentro `guia.md` y `metodo.md`. No elijas la carpeta de
 `guia.md`, `metodo.md` y `base/` viven aquí arriba, y la IA necesita poder mirar en
 cualquier área para decirte qué se sabe ya y qué decisión de otra te afecta. Conectar de
 más no deja escribir de más; eso lo fijan los permisos de la carpeta y la línea que
-añades en el paso 4. La unidad confidencial no se conecta: solo en la sesión que la
-necesite, y solo si tienes acceso.
+añades en el paso 4. Si trabajas en un área restringida, conecta también su unidad, en este
+mismo proyecto: son dos carpetas y una sola raíz. Si no trabajas en ninguna, no conectes
+ninguna.
 
 **4. Pega las instrucciones.** En las instrucciones del proyecto, este texto tal cual:
 
@@ -153,7 +157,7 @@ actualizado: AAAA-MM-DD
 [Hueco: lo que aplica a todo proyecto sin que nadie lo diga. Presupuesto, plazos, idioma, formato de los documentos, quién firma]
 
 ## Datos sensibles
-[Hueco: qué tipos de datos van a la unidad confidencial, qué no se cita en entregables, qué no se comparte fuera del área]
+[Hueco: qué tipos de datos van a una unidad restringida, qué áreas no puede leer todo el equipo, qué no se cita en entregables, qué no se comparte fuera del área]
 ```
 
 **4. `base/glosario.md`.** Cabecera, título y una lista vacía con el formato `término: qué significa`. Si el usuario dio siglas o nombres internos al responder, se meten ya.
@@ -171,7 +175,7 @@ No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta s
 
 ## Qué respondo al terminar
 
-Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` con acceso solo a los dueños de área, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
+Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` si hay algo que no pueda leer todo el equipo —con acceso solo a quien necesite alguna de sus áreas—, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
 Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización: ahí va el registro de la relación —qué se entregó, cuándo y con qué versión— y, si hubo migración, su reporte. Del contenido del trabajo de la organización no entra nada.
 
@@ -183,11 +187,12 @@ Solo si el área del dueño no está en `guia.md`.
 
 Antes de crearla se dice en una línea: un área es una capa de propiedad nueva, con un dueño que responde por todo lo que hay dentro, y conviene que lo sepa el responsable de contexto. Si el usuario confirma, se sigue.
 
-## Las tres preguntas
+## Las cuatro preguntas
 
 1. ¿Quién es el dueño, la persona que responde por el área? Nombre y apellido. Bloqueante
 2. ¿Qué es el área, en dos o tres líneas?
 3. ¿Qué tiene entre manos ahora? Tres a cinco prioridades
+4. ¿La puede leer todo el equipo, o solo quien trabaja en ella? Si es lo segundo, el área es restringida y su carpeta no se crea aquí
 
 ## Qué escribo y dónde
 
@@ -216,13 +221,21 @@ actualizado: 2026-09-01
 Dueño: Marta Ruiz
 ```
 
-**3. La línea del área en `guia.md`**, en la lista de áreas, con el mismo formato que las demás.
+**3. La línea del área en `guia.md`**, en la lista de áreas, con el mismo formato que las demás y diciendo dónde vive.
 
 Nada más: ni proyectos vacíos, ni plantillas, ni un `README`.
 
+## Si el área es restringida
+
+La carpeta y su `area.md` se crean igual, pero dentro de la unidad restringida, que tiene que estar conectada en esta sesión. En la raíz solo se escribe su línea en `guia.md`, con el dueño y el nombre de la unidad donde vive: nada de un `area.md` vacío para representarla.
+
+Si la unidad restringida todavía no existe, no se crea nada a medias: se dice qué unidad hay que crear, con qué nombre y con acceso para quién, y se espera a que exista y esté conectada. Crear una unidad compartida y dar sus permisos es trabajo de una persona en Drive, no de la skill.
+
+Un área que ya existe en la raíz no se convierte en restringida por las buenas: se dice qué habría que mover y se espera confirmación, porque mover carpetas cambia quién ve qué y eso lo decide su dueño.
+
 ## Qué respondo al terminar
 
-Dos líneas: qué se creó y quién es el dueño, y el recordatorio de que el dueño necesita permiso de escritura sobre la carpeta en Drive y, si va a manejar material confidencial, acceso a la unidad confidencial. Eso no lo da la skill.
+Dos líneas: qué se creó, dónde, y quién es el dueño, más el recordatorio de que el dueño necesita permiso de escritura sobre la carpeta en Drive y, si el área es restringida o va a manejar material sensible, acceso a la unidad restringida. Eso no lo da la skill.
 
 ---
 
@@ -240,7 +253,7 @@ Un proyecto a medio encuadrar es mejor que una conversación sin carpeta.
 
 ## Qué escribo y dónde
 
-**1. La carpeta**, con nombre en minúsculas y guiones, sin número de fase ni de etapa, dentro del área del dueño.
+**1. La carpeta**, con nombre en minúsculas y guiones, sin número de fase ni de etapa, dentro del área del dueño. Si esa área es restringida, dentro de su carpeta en la unidad restringida, que tiene que estar conectada; en la raíz no se escribe nada de este proyecto, tampoco su línea en un `area.md` de la raíz.
 
 **2. `proyecto.md`**, con la estructura fija de `convenciones`, sección 3. Se rellena con las respuestas: `Quién participa` lleva al dueño, `Estado actual` queda como "arrancando" y `Siguientes pasos` recoge lo que salga de la conversación de arranque. Las secciones sin respuesta se dejan con el hueco marcado, nunca se borran ni se rellenan con supuestos.
 
@@ -257,7 +270,7 @@ Pendiente: reunir los exports del ERP.
 
 **5. Las dos carpetas** `entregables/` y `fuentes/`, vacías.
 
-**6. El material existente** se mueve a `fuentes/` con nombres legibles, si el usuario lo tiene a mano. Si no, queda como siguiente paso. Los enlaces van a `fuentes/enlaces.md`, una fila por enlace; ese archivo solo se crea si hay filas. Antes de guardar cada archivo se mira si trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios); si los trae, se dice y se propone llevarlo a la unidad confidencial con su fila en `enlaces.md`. El usuario decide.
+**6. El material existente** se mueve a `fuentes/` con nombres legibles, si el usuario lo tiene a mano. Si no, queda como siguiente paso. Los enlaces van a `fuentes/enlaces.md`, una fila por enlace; ese archivo solo se crea si hay filas. Antes de guardar cada archivo se mira si trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios); si los trae, se dice y se propone llevarlo a la unidad restringida con su fila en `enlaces.md`. El usuario decide.
 
 **7. La línea del proyecto en el bloque `Proyectos` de `area.md`**: `` `nombre-del-proyecto/` — qué es ``, sin entregables debajo porque todavía no hay ninguno vigente. Es lo único que se toca de `area.md`.
 
@@ -279,6 +292,9 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 - Guardar en `fuentes/` un archivo con indicios de información confidencial sin preguntar antes
 - Inventar alcance, plazos o participantes que nadie mencionó
 - Crear un proyecto en un área que no es la del dueño
+- Crear la carpeta de un área restringida en la raíz, o dejarla sin su línea en `guia.md`
+- Crear un área restringida cuando su unidad no existe o no está conectada. Se dice qué falta y se espera
+- Mover un área existente a una unidad restringida sin que su dueño lo haya confirmado
 - Tocar de `area.md` o de `guia.md` algo que no sea la línea nueva
 - Duplicar un proyecto o un área existente sin avisar antes
 - Guardar en la raíz de quien mantiene el método algo del contenido del trabajo de la organización que se acaba de montar
@@ -313,6 +329,27 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 ---
 
+**Usuario:** vamos a abrir un área para la cuenta de Procter, pero eso no lo puede ver todo el mundo
+
+**Respuesta:**
+
+> Un área es una capa de propiedad nueva: alguien responde por todo lo que hay dentro, y conviene que lo sepa el responsable de contexto. Cuatro preguntas y la creo:
+>
+> 1. ¿Quién es el dueño, con nombre y apellido?
+> 2. ¿Qué es el área, en dos o tres líneas?
+> 3. ¿Qué tiene entre manos ahora?
+> 4. Me dices que no la puede leer todo el equipo, así que va a una unidad restringida. ¿A `Smile Pill · Confidencial`, que ya existe, o a una propia de esta cuenta?
+
+**Usuario:** Abril del Castillo. Es la cuenta de Procter & Gamble: campañas, automatizaciones y lo que nos pidan. Ahora mismo la revisión de automatizaciones. A la que ya existe
+
+**Respuesta:**
+
+> Creado `procter-and-gamble/` con su `area.md` en `Smile Pill · Confidencial`, con Abril del Castillo como dueña. En esta carpeta solo escribí su línea en `guia.md`: nombre, dueña y que vive en la unidad restringida, para que el equipo sepa que existe y a quién pedir acceso.
+>
+> Queda una cosa que no hace la skill: darle a Abril escritura sobre esa carpeta en Drive, y acceso solo a quien trabaje en la cuenta.
+
+---
+
 **Usuario:** monta la carpeta para Acme, que empezamos con ellos el lunes
 
 **Respuesta:**
@@ -328,6 +365,6 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 **Respuesta:**
 
-> Montada la raíz de Acme Distribución: `guia.md` con el texto para Cowork, `metodo.md` en versión 1.3, `base/` con contexto, glosario y sistemas (tres filas, con "quién da acceso" como hueco), y `compras/` con Ana Pérez como dueña.
+> Montada la raíz de Acme Distribución: `guia.md` con el texto para Cowork, `metodo.md` en versión 1.5, `base/` con contexto, glosario y sistemas (tres filas, con "quién da acceso" como hueco), y `compras/` con Ana Pérez como dueña, que la lee todo el equipo.
 >
-> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución · Confidencial` con acceso para Ana. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.
+> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución · Confidencial`, con acceso para quien vaya a necesitarla, en cuanto haya algo que no pueda leer todo el equipo. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.
