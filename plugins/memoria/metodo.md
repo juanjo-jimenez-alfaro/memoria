@@ -39,7 +39,7 @@ En la raíz de la organización entra solo lo que su equipo necesita para operar
 
 ### Las unidades restringidas
 
-Una raíz puede tener ninguna, una o varias **unidades restringidas**: carpetas compartidas aparte, cada una con su propio padrón de acceso, donde vive el trabajo que no puede leer todo el equipo. Una organización pequeña no necesita ninguna. A la mayoría le basta con una, `<Organización> · Confidencial`. Una que trabaja por cuentas de cliente puede querer una aparte para un cliente cuyo contrato lo exija. El método es idéntico en todas.
+Una raíz puede tener ninguna, una o varias **unidades restringidas**: carpetas compartidas aparte, cada una con su propio padrón de acceso, donde vive el trabajo que no puede leer todo el equipo. Una organización pequeña no necesita ninguna. A la mayoría le basta con una, `<Organización> · Restringido`. Una que trabaja por cuentas de cliente puede querer una aparte para un cliente cuyo contrato lo exija. El método es idéntico en todas.
 
 Una unidad restringida es un **espejo parcial de la raíz**: dentro tiene carpetas de área, con el mismo nombre que tendrían en la raíz, y dentro de ellas proyectos con la misma estructura, las mismas cabeceras y los mismos estados. No lleva `guia.md`, ni `metodo.md`, ni `base/`: su método y su contexto son los de la raíz, y no significa nada abierta sin ella.
 

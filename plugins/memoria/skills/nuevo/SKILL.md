@@ -175,7 +175,7 @@ No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta s
 
 ## Qué respondo al terminar
 
-Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Confidencial` si hay algo que no pueda leer todo el equipo —con acceso solo a quien necesite alguna de sus áreas—, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
+Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] · Restringido` si hay algo que no pueda leer todo el equipo —con acceso solo a quien necesite alguna de sus áreas—, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
 Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización: ahí va el registro de la relación —qué se entregó, cuándo y con qué versión— y, si hubo migración, su reporte. Del contenido del trabajo de la organización no entra nada.
 
@@ -319,7 +319,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 > Creado `compras/automatizacion-ordenes/` con el paquete completo, y su línea en `compras/area.md`. El enlace del ERP ya está en `fuentes/enlaces.md`.
 >
-> El Excel de sueldos trae nombres con salario, así que no lo guardo en `fuentes/`. Si lo confirmas, va a `Acme · Confidencial` y dejo su fila en `enlaces.md` con la nota de que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
+> El Excel de sueldos trae nombres con salario, así que no lo guardo en `fuentes/`. Si lo confirmas, va a `Acme · Restringido` y dejo su fila en `enlaces.md` con la nota de que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
 
 **Usuario:** sí
 
@@ -329,7 +329,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 ---
 
-**Usuario:** vamos a abrir un área para la cuenta de Procter, pero eso no lo puede ver todo el mundo
+**Usuario:** vamos a abrir un área para la cuenta de Nordia, pero eso no lo puede ver todo el mundo
 
 **Respuesta:**
 
@@ -338,15 +338,15 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 > 1. ¿Quién es el dueño, con nombre y apellido?
 > 2. ¿Qué es el área, en dos o tres líneas?
 > 3. ¿Qué tiene entre manos ahora?
-> 4. Me dices que no la puede leer todo el equipo, así que va a una unidad restringida. ¿A `Smile Pill · Confidencial`, que ya existe, o a una propia de esta cuenta?
+> 4. Me dices que no la puede leer todo el equipo, así que va a una unidad restringida. ¿A `Acme · Restringido`, que ya existe, o a una propia de esta cuenta?
 
-**Usuario:** Abril del Castillo. Es la cuenta de Procter & Gamble: campañas, automatizaciones y lo que nos pidan. Ahora mismo la revisión de automatizaciones. A la que ya existe
+**Usuario:** Marta Ruiz. Es la cuenta de Nordia: campañas, automatizaciones y lo que nos pidan. Ahora mismo la revisión de automatizaciones. A la que ya existe
 
 **Respuesta:**
 
-> Creado `procter-and-gamble/` con su `area.md` en `Smile Pill · Confidencial`, con Abril del Castillo como dueña. En esta carpeta solo escribí su línea en `guia.md`: nombre, dueña y que vive en la unidad restringida, para que el equipo sepa que existe y a quién pedir acceso.
+> Creado `nordia/` con su `area.md` en `Acme · Restringido`, con Marta Ruiz como dueña. En esta carpeta solo escribí su línea en `guia.md`: nombre, dueña y que vive en la unidad restringida, para que el equipo sepa que existe y a quién pedir acceso.
 >
-> Queda una cosa que no hace la skill: darle a Abril escritura sobre esa carpeta en Drive, y acceso solo a quien trabaje en la cuenta.
+> Queda una cosa que no hace la skill: darle a Marta escritura sobre esa carpeta en Drive, y acceso solo a quien trabaje en la cuenta.
 
 ---
 
@@ -367,4 +367,4 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 > Montada la raíz de Acme Distribución: `guia.md` con el texto para Cowork, `metodo.md` en versión 1.5, `base/` con contexto, glosario y sistemas (tres filas, con "quién da acceso" como hueco), y `compras/` con Ana Pérez como dueña, que la lee todo el equipo.
 >
-> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución · Confidencial`, con acceso para quien vaya a necesitarla, en cuanto haya algo que no pueda leer todo el equipo. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.
+> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución · Restringido`, con acceso para quien vaya a necesitarla, en cuanto haya algo que no pueda leer todo el equipo. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.
