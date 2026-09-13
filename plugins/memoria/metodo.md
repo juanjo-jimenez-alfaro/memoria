@@ -1,4 +1,4 @@
-# Método de trabajo · versión 1.6 · generado desde el plugin memoria, no se edita a mano
+# Método de trabajo · versión 1.6.1 · generado desde el plugin memoria, no se edita a mano
 
 Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin `memoria`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz.
 
@@ -352,10 +352,11 @@ Un proyecto de Claude admite una sola carpeta, que se elige al crearlo y no se p
 El texto para pegar en las instrucciones del proyecto no nombra skills, porque Claude las elige solo:
 
 ```
-Esta carpeta es una memoria de trabajo y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
+Este proyecto trabaja sobre una memoria de trabajo permanente: la carpeta conectada, que sigue el método del plugin `memoria`. Aplícalo en todo lo que hagas aquí, y no guardes nada en tu memoria: si un dato importa, va a un archivo de la carpeta.
 Lee `guia.md` al empezar, y `base/ajustes.md` si existe.
-Escribe solo donde te haya dicho que trabajo, y en ningún otro sitio de esta carpeta; si no te lo he dicho, pregúntamelo antes de escribir nada. Si algo le toca a otra área, dímelo y yo se lo pido a su dueño.
+Escribe solo donde te haya dicho que trabajo, y en ningún otro sitio de la carpeta; si no te lo he dicho, pregúntamelo antes de escribir nada. Si algo le toca a otra área, dímelo y yo se lo pido a su dueño.
 No des por aprobado ningún documento ni edites lo ya registrado en decisiones o sesiones.
+Si una carpeta no se deja leer, está restringida: dímelo y sigue con lo que sí puedas leer, sin suponer lo que hay dentro.
 Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver. Si algo parece confidencial, avísame y propón moverlo; no lo muevas tú.
 ```
 

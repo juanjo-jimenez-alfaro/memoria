@@ -8,14 +8,15 @@ PLUGIN_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILLS="$PLUGIN_DIR/skills"
 OUT="$PLUGIN_DIR/metodo.md"
 
-# Versión mayor.menor, tomada de plugin.json
-VERSION="$(sed -n 's/.*"version": *"\([0-9]*\.[0-9]*\)\.[0-9]*".*/\1/p' "$PLUGIN_DIR/.claude-plugin/plugin.json")"
+# Versión completa para metodo.md; mayor.menor para comprobar el contrato
+VERSION="$(sed -n 's/.*"version": *"\([0-9]*\.[0-9]*\.[0-9]*\)".*/\1/p' "$PLUGIN_DIR/.claude-plugin/plugin.json")"
 if [ -z "$VERSION" ]; then
   echo "No se pudo leer la versión de plugin.json" >&2
   exit 1
 fi
-if ! grep -q "Versión del método: \*\*$VERSION\*\*" "$SKILLS/convenciones/SKILL.md"; then
-  echo "convenciones/SKILL.md no declara la versión $VERSION. Corrígelo antes de generar." >&2
+VERSION_CONTRATO="${VERSION%.*}"
+if ! grep -q "Versión del método: \*\*$VERSION_CONTRATO\*\*" "$SKILLS/convenciones/SKILL.md"; then
+  echo "convenciones/SKILL.md no declara la versión $VERSION_CONTRATO. Corrígelo antes de generar." >&2
   exit 1
 fi
 

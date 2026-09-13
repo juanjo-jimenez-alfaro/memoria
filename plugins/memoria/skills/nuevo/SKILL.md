@@ -110,10 +110,11 @@ aunque esté dentro de la carpeta conectada.
 
 **4. Pega las instrucciones.** En las instrucciones del proyecto, este texto tal cual:
 
-    Esta carpeta es una memoria de trabajo y sigue el método del plugin `memoria`; úsalo en todo lo que hagas aquí.
+    Este proyecto trabaja sobre una memoria de trabajo permanente: la carpeta conectada, que sigue el método del plugin `memoria`. Aplícalo en todo lo que hagas aquí, y no guardes nada en tu memoria: si un dato importa, va a un archivo de la carpeta.
     Lee `guia.md` al empezar, y `base/ajustes.md` si existe.
-    Escribe solo donde te haya dicho que trabajo, y en ningún otro sitio de esta carpeta; si no te lo he dicho, pregúntamelo antes de escribir nada. Si algo le toca a otra área, dímelo y yo se lo pido a su dueño.
+    Escribe solo donde te haya dicho que trabajo, y en ningún otro sitio de la carpeta; si no te lo he dicho, pregúntamelo antes de escribir nada. Si algo le toca a otra área, dímelo y yo se lo pido a su dueño.
     No des por aprobado ningún documento ni edites lo ya registrado en decisiones o sesiones.
+    Si una carpeta no se deja leer, está restringida: dímelo y sigue con lo que sí puedas leer, sin suponer lo que hay dentro.
     Antes de guardar algo, pregúntate si alguien más lo va a leer y si contiene datos que no todos deben ver. Si algo parece confidencial, avísame y propón moverlo; no lo muevas tú.
 
 Ese bloque es igual en cualquier organización: no lo cambies. Debajo añade **una línea
