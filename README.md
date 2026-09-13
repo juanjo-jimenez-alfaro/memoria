@@ -26,7 +26,7 @@ En una organización de Claude Team o Enterprise, el propietario puede distribui
 
 | Skill | Para qué |
 |---|---|
-| `convenciones` | Contrato base: estructura, cabeceras, estados, cómo se lee, qué es público, qué va a una unidad restringida |
+| `convenciones` | Contrato base: estructura, cabeceras, estados, cómo se lee, qué es público, qué se restringe |
 | `estilo` | Normas de redacción, siempre activas |
 | `sesion` | Abrir y cerrar sesión de trabajo sobre un proyecto |
 | `nuevo` | Dar de alta lo que falte: la raíz de la organización, un área o un proyecto |
@@ -46,17 +46,21 @@ Cada organización tiene una raíz sincronizada en Drive, autocontenida, con `gu
 
 El número de versión vive en el plugin y en la primera línea de `metodo.md`. Al abrir sesión se comparan y se avisa si la raíz se quedó atrás; ponerla al día es regenerar `metodo.md` con `plugins/memoria/build-metodo.sh` y copiarlo a la raíz.
 
-## Las unidades restringidas
+## Lo restringido
 
-Toda la raíz la lee todo el equipo y dentro de ella no se restringe ninguna carpeta. Lo que no pueda leer todo el equipo vive en una unidad compartida aparte, con su propio acceso: `<Organización> - Restringido`, o una por cuenta de cliente si el contrato lo exige. Una raíz puede tener ninguna, una o varias, y el método es idéntico en todas.
+Lo que no puede leer todo el equipo se queda donde está y se marca con el acceso limitado de Drive, que desactiva la herencia de permisos en esa carpeta: solo entra quien esté añadido a ella. Una organización tiene una sola carpeta compartida. No hay unidad aparte ni espejos.
 
-Una unidad restringida es un espejo parcial de la raíz: carpetas de área con el mismo nombre y proyectos con la misma estructura, sin `guia.md`, sin `metodo.md` y sin `base/`, porque su método y su contexto son los de la raíz. Sirve para dos cosas: un área entera que no puede leer todo el equipo —una cuenta de cliente, recursos humanos, finanzas— y un archivo suelto con datos personales, facturación, contratos o credenciales dentro de un área que por lo demás es pública. En el segundo caso el proyecto guarda una fila en `fuentes/enlaces.md` con qué es, su liga y qué tener presente.
+Se restringe un área entera, un proyecto entero, o solo una parte de un proyecto. En el tercer caso el proyecto no se parte: sigue siendo uno, con un dueño y un registro, y lo que no puede leer todo el equipo vive en su carpeta `restringido/`, con su fila en el `fuentes/enlaces.md` público. Si lo que hay que esconder es una decisión, el estado o el objetivo, el proyecto se restringe entero.
 
-Las áreas restringidas se listan siempre en `guia.md`, con su dueño y dónde viven: el equipo sabe que existen y a quién pedir acceso, pero no las lee. La cita va en una sola dirección —lo restringido cita a la raíz, nunca al revés— y lo aprendido vuelve a la memoria común reescrito, sin los datos ni los nombres de donde salió.
+Quien no tiene acceso ve la carpeta en gris, con su nombre, y un botón para pedirlo que llega a quien administra. Las áreas y los proyectos se listan en `guia.md` y en `area.md` estén restringidos o no: el equipo sabe que existen y a quién pedir acceso, pero no los lee. La cita va en una sola dirección: lo restringido cita a lo que lee todo el equipo, nunca al revés, y lo aprendido sale reescrito, sin los datos ni los nombres de donde salió.
 
-Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a la unidad restringida. El usuario decide, y nada se mueve sin su confirmación.
+El modelo se apoya en una condición: administrar la carpeta compartida es del dueño de la organización o de una persona de su total confianza, porque quien administra puede quitar cualquier restricción. Si hace falta esconder algo también de él, esa organización abre una carpeta compartida aparte y lo escribe en `base/ajustes.md`.
+
+Las skills participan: cuando `donde-va`, `migrar`, `entregable` o el cierre de sesión detectan indicios de información sensible en un material, lo dicen y proponen llevarlo a `restringido/`. El usuario decide, y nada se mueve sin su confirmación. Poner y quitar el acceso limitado lo hace una persona en la web de Drive, nunca una skill.
 
 ## Versiones
+
+**1.6** · Lo restringido deja de vivir en una carpeta compartida aparte y pasa a marcarse donde ya está, con el acceso limitado de Drive. Desaparecen la unidad restringida, el espejo parcial de la raíz y sus reglas, y la prohibición de restringir carpetas dentro de la raíz. Una organización tiene una sola carpeta compartida y se restringe en tres sitios: un área, un proyecto, o `<proyecto>/restringido/` cuando solo una parte del proyecto no puede leerla todo el equipo. Un proyecto ya no se parte entre dos sitios: sigue siendo uno, y escala a restringirse entero solo si lo que hay que esconder tendría que entrar en `proyecto.md`, `decisiones.md` o `sesiones.md`. La condición que lo sostiene entra al contrato: administrar la carpeta compartida es del dueño de la organización o de una persona de su total confianza, porque quien administra puede quitar cualquier restricción; el caso en que haya que esconder algo también de él se resuelve con una carpeta aparte declarada en `base/ajustes.md`. El montaje en Cowork baja de tres reglas a dos, porque solo hay una carpeta que conectar, y dice que un proyecto admite una sola carpeta elegida al crearlo y no ampliable. `Independencia entre raíces` fija que conectar varias raíces a la vez solo se hace para trabajar la estructura. La lista de lo que no existe nombra la memoria de proyecto de Claude, que hoy sí es una función y no guarda estado del método. Las siete skills que preguntaban si la unidad estaba conectada pasan a tratar la falta de acceso como un error de lectura.
 
 **1.5.2** · El nombre sugerido para la unidad pasa de `<Organización> · Restringido` a `<Organización> - Restringido`. El punto medio era decorativo y no está en el teclado: el nombre de una carpeta compartida se teclea muchas veces —al buscarla, al pedir acceso, al nombrarla en un correo, en la terminal o en un script—, y un signo que hay que copiar de algún lado se escribe distinto cada vez y obliga a comprobar en cada herramienta nueva si lo admite. El contrato gana una subsección en `Nombres` que fija cómo se llama una carpeta compartida —letras, números, espacios y guiones, con los acentos y eñes del nombre propio— y `nuevo` la aplica: revisa el nombre de la carpeta conectada y el de la unidad antes de escribir nada, y lo suma a su lista de lo que nunca hace. Cambian los ejemplos de `nuevo`, `donde-va` y `migrar`. Las organizaciones que ya tienen una unidad con el nombre viejo la renombran cuando quieran: el método no usa rutas absolutas y nada se rompe al hacerlo.
 

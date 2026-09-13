@@ -15,15 +15,15 @@ También cuando aparece un archivo suelto en la raíz o en una carpeta que no le
 
 ## Qué leo antes
 
-1. `guia.md`: qué áreas hay y cuáles viven, entera o en parte, en una unidad restringida
+1. `guia.md`: qué áreas hay y cuáles están restringidas
 2. `<area>/area.md` del área probable, su bloque `Proyectos`
 3. El material en sí, lo justo para clasificarlo
 
 ## La pregunta previa: a qué lado va
 
-Antes de las seis, se resuelve en qué unidad vive el proyecto al que pertenece el material. Si el proyecto está en un área restringida, todo lo suyo va allí, en la unidad restringida, y nada de ello se nombra desde la raíz. Si el proyecto está en la raíz, va a la raíz, salvo el material sensible suelto de la pregunta 2.
+Antes de las seis, se resuelve si el proyecto al que pertenece el material está restringido. Si lo está, todo lo suyo va dentro de su carpeta, y nada de lo que hay dentro se nombra desde fuera. Si no lo está, va a su sitio normal, salvo el material sensible suelto de la pregunta 2.
 
-Si el área es restringida y no tengo esa unidad conectada, no coloco nada: lo digo, digo quién es su dueño y ahí se para.
+Si el área o el proyecto están restringidos y no tengo acceso, la lectura falla y no coloco nada: lo digo, digo quién es su dueño y ahí se para.
 
 ## Las seis preguntas, en orden
 
@@ -33,7 +33,7 @@ Se para en la primera que dé un sí.
 
 **2. ¿Es material crudo que no hizo el equipo del proyecto?** Exports, PDFs de terceros, transcripciones, correos, capturas. Va a `fuentes/` del proyecto, con un nombre legible. Las fuentes no se editan nunca.
 
-Antes de guardarlo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios, o cualquier cosa que no todos deban ver. Si los trae, lo digo y propongo llevarlo a la unidad restringida de la organización; el usuario decide si es confidencial o no. Si lo es, el archivo va a la unidad restringida **bajo la misma ruta de área y proyecto** que tendría en la raíz, y en `fuentes/enlaces.md` del proyecto queda una fila con qué es, su liga y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
+Antes de guardarlo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios, o cualquier cosa que no todos deban ver. Si los trae, lo digo y propongo llevarlo a `restringido/`; el usuario decide si es confidencial o no. Si lo es, el archivo va a **`restringido/fuentes/` del mismo proyecto**, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
 
 Si la fuente ya existe en otro proyecto de la misma área, no se copia: se cita la original por su ruta.
 
@@ -68,9 +68,9 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 - Dejar algo en la raíz o en la carpeta de un área
 - Escribir directamente en `base/`
 - Guardar en `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
-- Mover algo a la unidad restringida sin que el usuario lo confirme
-- Colocar en la raíz material que pertenece a un área restringida, aunque el usuario tenga acceso a las dos
-- Escribir en un archivo de la raíz la ruta de un proyecto restringido o lo que contiene. Hacia la raíz solo va la fila de `enlaces.md`
+- Mover algo a `restringido/` sin que el usuario lo confirme
+- Colocar fuera de una carpeta restringida material que pertenece dentro de ella, aunque el usuario tenga acceso
+- Escribir en un archivo que lee todo el equipo lo que contiene una carpeta restringida. Hacia fuera solo van su nombre, que ya está listado, y la fila de `enlaces.md`
 - Copiar a `fuentes/` una fuente que ya existe en otro proyecto del área
 - Mover archivos de un área que no es la del usuario
 - Colocar material en un proyecto ajeno sin avisar a su dueño
@@ -95,7 +95,7 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 
 **Respuesta:**
 
-> Trae nombres con salario, así que no lo guardo en `fuentes/`, donde lo lee todo el equipo. Propongo llevarlo a `Acme - Restringido` y dejar en `compras/automatizacion-ordenes/fuentes/enlaces.md` una fila: qué es, su liga, que lo pasó Recursos Humanos el 1 de septiembre y que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
+> Trae nombres con salario, así que no lo guardo en `fuentes/`, donde lo lee todo el equipo. Propongo llevarlo a `compras/automatizacion-ordenes/restringido/fuentes/` y dejar en `compras/automatizacion-ordenes/fuentes/enlaces.md` una fila: qué es, su liga, que lo pasó Recursos Humanos el 1 de septiembre y que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
 
 **Usuario:** sí
 

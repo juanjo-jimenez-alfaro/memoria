@@ -19,7 +19,7 @@ También cuando una conversación de trabajo lleva veinte minutos sobre algo que
 2. `guia.md`: qué áreas hay y quién responde por cada una. Si el área del dueño no está, falta el área y se pasa por el nivel 2
 3. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md` si existe
 4. `<area>/area.md`, su bloque `Proyectos`: qué proyectos hay ya y qué entregables vigentes tienen
-5. El nombre de la carpeta conectada, y el de la unidad restringida si hay una: si traen algún signo que no sea letra, número, espacio o guion, se dice y se propone renombrarla antes de seguir. Un nombre que no se puede teclear se copia mal y se escribe distinto cada vez
+5. El nombre de la carpeta conectada: si trae algún signo que no sea letra, número, espacio o guion, se dice y se propone renombrarla antes de seguir. Un nombre que no se puede teclear se copia mal y se escribe distinto cada vez
 
 Si el proyecto se parece a uno existente, se dice antes de crear nada. Dos proyectos sobre el mismo tema son la forma más rápida de romper el sistema. Lo mismo con un área parecida a otra.
 
@@ -55,20 +55,20 @@ el plugin `memoria` cuando trabajas con Claude.
 `base/` es quién somos y qué usamos. Lo escribe solo [responsable de contexto].
 Cada carpeta de área es de su dueño; nadie más escribe en ella. Dentro, cada proyecto
 tiene su carpeta con `proyecto.md`, `decisiones.md`, `sesiones.md`, `entregables/` y `fuentes/`.
-Toda la carpeta la lee todo el equipo. Lo que no deba leer todo el equipo no entra aquí.
+Casi toda la carpeta la lee todo el equipo. Lo que no, está marcado y se ve en gris.
 
 ## Lo restringido
-Lo que no puede leer todo el equipo no vive en esta carpeta, sino en unidades compartidas
-aparte con su propio acceso. Son de dos clases y funcionan igual. Un área entera puede vivir
-allí, con la misma estructura que aquí; aparece abajo en la lista de áreas, con su dueño y
-dónde está, para que sepas que existe y a quién pedir acceso. Y un archivo suelto con datos
-personales, facturación, contratos o credenciales también va allí aunque su área esté aquí:
-en el proyecto queda una fila en `fuentes/enlaces.md` con qué es, su liga y qué tener
-presente. Si la IA detecta algo que parece confidencial, lo dice y propone moverlo; la
-decisión es tuya.
+Lo que no puede leer todo el equipo se queda donde está, en su carpeta, con el acceso
+limitado de Drive puesto encima. Quien no tiene acceso ve la carpeta en gris, con su
+nombre, y un botón para pedirlo que le llega a quien administra. Puede ser un área entera,
+un proyecto entero, o solo una parte de un proyecto: en ese caso el proyecto sigue siendo
+uno y lo que no puede leer todo el equipo vive en su carpeta `restringido/`, con una fila
+en `fuentes/enlaces.md` que dice qué es y dónde está. Si la IA detecta algo que parece
+confidencial, lo dice y propone moverlo; la decisión es tuya. Quitar o poner una
+restricción solo lo puede hacer [quien administra la carpeta].
 
 ## Áreas
-- `[area]/` · [qué es en media línea] · [dueño] · [dónde vive: esta carpeta, o el nombre de la unidad restringida]
+- `[area]/` · [qué es en media línea] · [dueño] · [restringida, si lo es]
 
 ## Cómo se avisa entre áreas
 La carpeta no notifica a nadie. Cuando una decisión afecta a otra área, queda anotada en
@@ -99,14 +99,14 @@ IA sepa qué puedes tocar y a quién avisar cuando algo le toca a otra área.
 
 Si la organización ya lo distribuye a todos, ya lo tienes y te saltas este paso.
 
-**3. Conecta la carpeta.** En el selector de carpetas del proyecto elige **esta carpeta
-completa**, la que tiene dentro `guia.md` y `metodo.md`. No elijas la carpeta de tu área:
-`guia.md`, `metodo.md` y `base/` viven aquí arriba, y la IA necesita poder mirar en
-cualquier área para decirte qué se sabe ya y qué decisión de otra te afecta. Conectar de
-más no deja escribir de más; eso lo fijan los permisos de la carpeta y la línea que
-añades en el paso 4. Si trabajas en un área restringida, conecta también su unidad, en este
-mismo proyecto: son dos carpetas y una sola raíz. Si no trabajas en ninguna, no conectes
-ninguna.
+**3. Conecta la carpeta.** Al crear el proyecto elige **esta carpeta completa**, la que
+tiene dentro `guia.md` y `metodo.md`. No elijas la carpeta de tu área: `guia.md`,
+`metodo.md` y `base/` viven aquí arriba, y la IA necesita poder mirar en cualquier área
+para decirte qué se sabe ya y qué decisión de otra te afecta. Es una sola carpeta y se
+elige al crear el proyecto; después no se puede cambiar, así que si te equivocas, crea
+otro proyecto. Conectar de más no deja leer ni escribir de más: eso lo fijan los permisos
+de las carpetas y la línea que añades en el paso 4, y lo restringido sigue restringido
+aunque esté dentro de la carpeta conectada.
 
 **4. Pega las instrucciones.** En las instrucciones del proyecto, este texto tal cual:
 
@@ -158,7 +158,7 @@ actualizado: AAAA-MM-DD
 [Hueco: lo que aplica a todo proyecto sin que nadie lo diga. Presupuesto, plazos, idioma, formato de los documentos, quién firma]
 
 ## Datos sensibles
-[Hueco: qué tipos de datos van a una unidad restringida, qué áreas no puede leer todo el equipo, qué no se cita en entregables, qué no se comparte fuera del área]
+[Hueco: qué tipos de datos se restringen, qué áreas no puede leer todo el equipo, qué no se cita en entregables, qué no se comparte fuera del área]
 ```
 
 **4. `base/glosario.md`.** Cabecera, título y una lista vacía con el formato `término: qué significa`. Si el usuario dio siglas o nombres internos al responder, se meten ya.
@@ -176,7 +176,7 @@ No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta s
 
 ## Qué respondo al terminar
 
-Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto), crear la unidad `[Organización] - Restringido` si hay algo que no pueda leer todo el equipo —con acceso solo a quien necesite alguna de sus áreas—, y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
+Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto, y administrar la carpeta solo el dueño de la organización o una persona de su total confianza), y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
 Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización: ahí va el registro de la relación —qué se entregó, cuándo y con qué versión— y, si hubo migración, su reporte. Del contenido del trabajo de la organización no entra nada.
 
@@ -228,15 +228,13 @@ Nada más: ni proyectos vacíos, ni plantillas, ni un `README`.
 
 ## Si el área es restringida
 
-La carpeta y su `area.md` se crean igual, pero dentro de la unidad restringida, que tiene que estar conectada en esta sesión. En la raíz solo se escribe su línea en `guia.md`, con el dueño y el nombre de la unidad donde vive: nada de un `area.md` vacío para representarla.
+La carpeta y su `area.md` se crean igual, en su sitio de la raíz, y su línea en `guia.md` dice que está restringida. Lo que cambia es el permiso, y la skill no lo pone: se dice qué carpeta hay que limitar y con acceso para quién, y se avisa de que hasta que no se haga, lo que hay dentro lo lee todo el equipo. Ponerle el acceso limitado a una carpeta lo hace quien administra la carpeta compartida, desde la web de Drive.
 
-Si la unidad restringida todavía no existe, no se crea nada a medias: se dice qué unidad hay que crear, con qué nombre y con acceso para quién, y se espera a que exista y esté conectada. Crear una unidad compartida y dar sus permisos es trabajo de una persona en Drive, no de la skill.
-
-Un área que ya existe en la raíz no se convierte en restringida por las buenas: se dice qué habría que mover y se espera confirmación, porque mover carpetas cambia quién ve qué y eso lo decide su dueño.
+Un área que ya existe no se convierte en restringida por las buenas: se dice qué carpeta habría que limitar y se espera confirmación, porque cambia quién ve qué y eso lo decide su dueño.
 
 ## Qué respondo al terminar
 
-Dos líneas: qué se creó, dónde, y quién es el dueño, más el recordatorio de que el dueño necesita permiso de escritura sobre la carpeta en Drive y, si el área es restringida o va a manejar material sensible, acceso a la unidad restringida. Eso no lo da la skill.
+Dos líneas: qué se creó, dónde, y quién es el dueño, más el recordatorio de que el dueño necesita permiso de escritura sobre la carpeta en Drive y, si el área es restringida, que alguien tiene que ponerle el acceso limitado. Eso no lo da la skill.
 
 ---
 
@@ -254,7 +252,7 @@ Un proyecto a medio encuadrar es mejor que una conversación sin carpeta.
 
 ## Qué escribo y dónde
 
-**1. La carpeta**, con nombre en minúsculas y guiones, sin número de fase ni de etapa, dentro del área del dueño. Si esa área es restringida, dentro de su carpeta en la unidad restringida, que tiene que estar conectada; en la raíz no se escribe nada de este proyecto, tampoco su línea en un `area.md` de la raíz.
+**1. La carpeta**, con nombre en minúsculas y guiones, sin número de fase ni de etapa, dentro del área del dueño. Si el proyecto entero no lo puede leer todo el equipo y su área sí, se dice que hay que limitar el acceso a esta carpeta y quién tiene que hacerlo. Si solo una parte no lo puede leer, el proyecto se crea normal y esa parte va a `restringido/`.
 
 **2. `proyecto.md`**, con la estructura fija de `convenciones`, sección 3. Se rellena con las respuestas: `Quién participa` lleva al dueño, `Estado actual` queda como "arrancando" y `Siguientes pasos` recoge lo que salga de la conversación de arranque. Las secciones sin respuesta se dejan con el hueco marcado, nunca se borran ni se rellenan con supuestos.
 
@@ -271,7 +269,7 @@ Pendiente: reunir los exports del ERP.
 
 **5. Las dos carpetas** `entregables/` y `fuentes/`, vacías.
 
-**6. El material existente** se mueve a `fuentes/` con nombres legibles, si el usuario lo tiene a mano. Si no, queda como siguiente paso. Los enlaces van a `fuentes/enlaces.md`, una fila por enlace; ese archivo solo se crea si hay filas. Antes de guardar cada archivo se mira si trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios); si los trae, se dice y se propone llevarlo a la unidad restringida con su fila en `enlaces.md`. El usuario decide.
+**6. El material existente** se mueve a `fuentes/` con nombres legibles, si el usuario lo tiene a mano. Si no, queda como siguiente paso. Los enlaces van a `fuentes/enlaces.md`, una fila por enlace; ese archivo solo se crea si hay filas. Antes de guardar cada archivo se mira si trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios); si los trae, se dice y se propone llevarlo a `restringido/fuentes/` con su fila en el `enlaces.md` público. El usuario decide.
 
 **7. La línea del proyecto en el bloque `Proyectos` de `area.md`**: `` `nombre-del-proyecto/` — qué es ``, sin entregables debajo porque todavía no hay ninguno vigente. Es lo único que se toca de `area.md`.
 
@@ -293,10 +291,10 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 - Guardar en `fuentes/` un archivo con indicios de información confidencial sin preguntar antes
 - Inventar alcance, plazos o participantes que nadie mencionó
 - Crear un proyecto en un área que no es la del dueño
-- Crear la carpeta de un área restringida en la raíz, o dejarla sin su línea en `guia.md`
-- Crear un área restringida cuando su unidad no existe o no está conectada. Se dice qué falta y se espera
+- Crear un área restringida sin su línea en `guia.md`, o sin decir que falta limitarle el acceso
+- Dar por restringida una carpeta cuyo acceso limitado nadie ha puesto todavía
 - Proponer para una carpeta compartida un nombre con signos fuera de letras, números, espacios y guiones
-- Mover un área existente a una unidad restringida sin que su dueño lo haya confirmado
+- Proponer restringir un área existente sin que su dueño lo haya confirmado
 - Tocar de `area.md` o de `guia.md` algo que no sea la línea nueva
 - Duplicar un proyecto o un área existente sin avisar antes
 - Guardar en la raíz de quien mantiene el método algo del contenido del trabajo de la organización que se acaba de montar
@@ -321,7 +319,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 > Creado `compras/automatizacion-ordenes/` con el paquete completo, y su línea en `compras/area.md`. El enlace del ERP ya está en `fuentes/enlaces.md`.
 >
-> El Excel de sueldos trae nombres con salario, así que no lo guardo en `fuentes/`. Si lo confirmas, va a `Acme - Restringido` y dejo su fila en `enlaces.md` con la nota de que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
+> El Excel de sueldos trae nombres con salario, así que no lo guardo en `fuentes/`. Si lo confirmas, va a `restringido/fuentes/` de este proyecto y dejo su fila en `enlaces.md` con la nota de que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
 
 **Usuario:** sí
 
@@ -340,13 +338,13 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 > 1. ¿Quién es el dueño, con nombre y apellido?
 > 2. ¿Qué es el área, en dos o tres líneas?
 > 3. ¿Qué tiene entre manos ahora?
-> 4. Me dices que no la puede leer todo el equipo, así que va a una unidad restringida. ¿A `Acme - Restringido`, que ya existe, o a una propia de esta cuenta?
+> 4. Me dices que no la puede leer todo el equipo, así que la carpeta se crea aquí y hay que ponerle el acceso limitado. ¿Quién entra, además de Marta?
 
 **Usuario:** Marta Ruiz. Es la cuenta de Nordia: campañas, automatizaciones y lo que nos pidan. Ahora mismo la revisión de automatizaciones. A la que ya existe
 
 **Respuesta:**
 
-> Creado `nordia/` con su `area.md` en `Acme - Restringido`, con Marta Ruiz como dueña. En esta carpeta solo escribí su línea en `guia.md`: nombre, dueña y que vive en la unidad restringida, para que el equipo sepa que existe y a quién pedir acceso.
+> Creado `nordia/` con su `area.md`, con Marta Ruiz como dueña, y su línea en `guia.md`: nombre, dueña y que está restringida, para que el equipo sepa que existe y a quién pedir acceso. Falta lo único que no puedo hacer yo: que quien administra la carpeta le ponga el acceso limitado a `nordia/` desde la web de Drive, con Marta y quien decidas. Hasta entonces la lee todo el equipo.
 >
 > Queda una cosa que no hace la skill: darle a Marta escritura sobre esa carpeta en Drive, y acceso solo a quien trabaje en la cuenta.
 
@@ -369,4 +367,4 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 
 > Montada la raíz de Acme Distribución: `guia.md` con el texto para Cowork, `metodo.md` en versión 1.5, `base/` con contexto, glosario y sistemas (tres filas, con "quién da acceso" como hueco), y `compras/` con Ana Pérez como dueña, que la lee todo el equipo.
 >
-> Tres siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Crear la unidad `Acme Distribución - Restringido`, con acceso para quien vaya a necesitarla, en cuanto haya algo que no pueda leer todo el equipo. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.
+> Dos siguientes pasos. Permisos en Drive: lectura de la raíz para todo el equipo, escritura en `base/` para Jorge y en `compras/` para Ana. Y una sesión con Jorge para rellenar `contexto.md`, que ahora mismo son cuatro huecos.

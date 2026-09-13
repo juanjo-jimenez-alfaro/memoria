@@ -33,7 +33,7 @@ Por el camino de lectura de `convenciones`, en este orden:
 6. `decisiones.md` del proyecto, las 5 entradas más recientes
 7. `sesiones.md`, las 3 entradas más recientes
 8. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado
-9. Las líneas `Afecta a:` de todos los `decisiones.md` de la raíz, buscando `area/proyecto` del proyecto activo. Solo esas líneas y el encabezado de su entrada, nada más del archivo. Si hay una unidad restringida conectada, se barre también; los avisos que salgan de ella solo se dan si el proyecto activo vive en esa misma unidad
+9. Las líneas `Afecta a:` de todos los `decisiones.md` de la raíz, buscando `area/proyecto` del proyecto activo. Solo esas líneas y el encabezado de su entrada, nada más del archivo. Las carpetas restringidas a las que no tengo acceso fallan al leerse y se saltan sin más. Un aviso que salga de una carpeta restringida solo se da si el proyecto activo está dentro de ella
 
 No leo `fuentes/` al abrir. Se lee cuando el trabajo del día lo pida. `base/sistemas.md` se lee si el trabajo toca un sistema.
 
@@ -90,7 +90,7 @@ Si la decisión trae análisis detrás (opciones comparadas, tablas, cifras), el
 
 Si `Afecta a` nombra un proyecto de otra área, se dice al usuario a quién tiene que avisar: el dueño de esa área, según `guia.md` o su `area.md`. La carpeta no notifica a nadie y la skill tampoco.
 
-Si el proyecto activo está en la raíz y la decisión toca a un área restringida, `Afecta a` lleva el nombre del área y nada más: ni su proyecto, ni su ruta. Al revés, una decisión que se registra dentro de una unidad restringida sí puede nombrar el proyecto de la raíz al que afecta.
+Si el proyecto activo lo lee todo el equipo y la decisión toca a un área o a un proyecto restringido, `Afecta a` lleva su nombre y nada más, porque ese nombre ya está listado: ni sus archivos, ni lo que contiene. Al revés, una decisión que se registra dentro de una carpeta restringida sí puede nombrar cualquier proyecto al que afecte.
 
 **3. `proyecto.md`.** Se reescriben `Estado actual` y `Siguientes pasos`. Es un archivo vivo: se sustituye el contenido anterior, no se acumula.
 
@@ -98,7 +98,7 @@ Si el proyecto activo está en la raíz y la decisión toca a un área restringi
 
 **5. Cabeceras de lo que se tocó.** Se actualiza `actualizado` en cada archivo modificado y se añade a `basado_en` cualquier fuente nueva que se haya usado.
 
-**6. Lo que entró en `fuentes/`.** Si durante la sesión se guardó algo en `fuentes/` sin haber pasado por la pregunta de si es confidencial, se pregunta ahora: si trae datos personales, facturación, contratos, credenciales o cualquier cosa que no todos deban ver, se propone llevarlo a la unidad restringida y dejar su fila en `fuentes/enlaces.md`. El usuario decide; nada se mueve sin que lo confirme.
+**6. Lo que entró en `fuentes/`.** Si durante la sesión se guardó algo en `fuentes/` sin haber pasado por la pregunta de si es confidencial, se pregunta ahora: si trae datos personales, facturación, contratos, credenciales o cualquier cosa que no todos deban ver, se propone llevarlo a `restringido/fuentes/` del mismo proyecto y dejar su fila en el `fuentes/enlaces.md` público. El usuario decide; nada se mueve sin que lo confirme.
 
 **7. Rotación.** Si `sesiones.md` supera las 1.500 líneas o cambia el año, se renombra con el año (`sesiones-2026.md`) y se abre uno nuevo. Sin preguntar.
 
@@ -116,10 +116,10 @@ Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. 
 - Cambiar el `estado` de un entregable a `vigente`. Eso lo pide el dueño del proyecto de forma explícita
 - Tocar archivos fuera del proyecto activo, salvo la línea de este proyecto en el bloque `Proyectos` de su `area.md`
 - Escribir en `base/`, en `metodo.md` o en la carpeta de otra área
-- Leer `sesiones.md`, `fuentes/` o el material restringido de otra área
-- Mover algo a la unidad restringida sin que el usuario lo confirme
-- Escribir en un archivo de la raíz la ruta, el nombre de un proyecto o el contenido de algo que vive en una unidad restringida
-- Dar como aviso a alguien una decisión que leí en una unidad restringida a la que su proyecto no pertenece
+- Leer `sesiones.md`, `fuentes/` o lo restringido de otra área
+- Mover algo a `restringido/` sin que el usuario lo confirme
+- Escribir en un archivo que lee todo el equipo la ruta o el contenido de algo restringido. Hacia fuera solo van el nombre del área o del proyecto, que ya están listados, y la fila de `enlaces.md`
+- Dar como aviso a alguien una decisión que leí en una carpeta restringida a la que su proyecto no pertenece
 - Rellenar un pendiente con una suposición. Si no sé si algo quedó cerrado, pregunto
 
 ---

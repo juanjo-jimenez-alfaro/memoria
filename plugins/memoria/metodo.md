@@ -1,4 +1,4 @@
-# Método de trabajo · versión 1.5 · generado desde el plugin memoria, no se edita a mano
+# Método de trabajo · versión 1.6 · generado desde el plugin memoria, no se edita a mano
 
 Este archivo reúne el contrato del método, las normas de estilo y el índice de skills del plugin `memoria`. Sirve a quien trabaja con Gemini u otro modelo sin el plugin, y a quien abre la carpeta sin IA delante. Para ponerlo al día se vuelve a generar desde el plugin y se copia a la raíz.
 
@@ -8,7 +8,7 @@ Este archivo reúne el contrato del método, las normas de estilo y el índice d
 
 Contrato base del método. El resto de skills del plugin referencian este documento en lugar de repetir sus reglas. Si una skill contradice algo de aquí, manda este documento.
 
-Versión del método: **1.5**
+Versión del método: **1.6**
 
 ## 1. Las tres capas de propiedad
 
@@ -18,13 +18,13 @@ Versión del método: **1.5**
 | `base/` | Un único responsable de contexto | Quién es la organización, cómo se organiza, qué sistemas usa |
 | Cada área | El dueño del área | El trabajo real |
 
-Nadie escribe fuera de su capa. Un área lee `base/` y `metodo.md`, nunca los modifica. Las skills escriben en nombre de quien las usa y respetan las mismas capas. Una capa no cambia por estar en una unidad restringida: el dueño de un área lo es a los dos lados.
+Nadie escribe fuera de su capa. Un área lee `base/` y `metodo.md`, nunca los modifica. Las skills escriben en nombre de quien las usa y respetan las mismas capas. Una capa no cambia porque algo esté restringido: el dueño de un área lo es también de lo restringido dentro de ella.
 
 La raíz es la carpeta que contiene `guia.md`, `metodo.md` y `base/`. Ninguna instrucción del método usa rutas absolutas, porque cada usuario tiene la carpeta sincronizada en un sitio distinto.
 
 ### Independencia entre raíces
 
-Un mismo trabajo puede tener conectada más de una raíz a la vez, o una raíz y el repo del plugin, para ajustar la estructura o comparar cómo está montada cada organización. Cada raíz sigue siendo de una sola organización: nada que se escriba en una raíz usa hechos, cifras, nombres o decisiones de otra raíz, ni del repo del plugin, y nada que se escriba en el repo del plugin usa hechos de una organización en particular, porque el plugin es idéntico para todas. Comparar la forma de dos raíces (¿tienen las mismas piezas?, ¿la misma cabecera?) no es tocar su contenido, y ese trabajo no se guarda dentro de ninguna de las dos. Lo que una organización guarda sobre otra —por ejemplo, quien mantiene el método guardando el historial de una migración que hizo para un cliente— se limita a lo operativo de quien lo guarda: qué se entregó y cuándo, nunca el contenido del trabajo del cliente.
+Un mismo trabajo puede tener conectada más de una raíz a la vez, o una raíz y el repo del plugin, y solo por una razón: ajustar la estructura o comparar cómo está montada cada organización. Nunca se conectan dos raíces para trabajar el contenido de una. Cada raíz sigue siendo de una sola organización: nada que se escriba en una raíz usa hechos, cifras, nombres o decisiones de otra raíz, ni del repo del plugin, y nada que se escriba en el repo del plugin usa hechos de una organización en particular, porque el plugin es idéntico para todas. Comparar la forma de dos raíces (¿tienen las mismas piezas?, ¿la misma cabecera?) no es tocar su contenido, y ese trabajo no se guarda dentro de ninguna de las dos. Lo que una organización guarda sobre otra —por ejemplo, quien mantiene el método guardando el historial de una migración que hizo para un cliente— se limita a lo operativo de quien lo guarda: qué se entregó y cuándo, nunca el contenido del trabajo del cliente.
 
 Eso fija dónde vive cada cosa cuando una organización adopta el método. **El registro de la migración es de quien migra**: las auditorías, los planes y los manifiestos van a su raíz, en un proyecto por organización nombrado por la organización y no por el trabajo. Cuentan lo que hizo el proveedor y hablan del sistema del que se migró, que la organización que estrena el método no usó nunca y no le dice nada.
 
@@ -32,32 +32,40 @@ En la raíz de la organización entra solo lo que su equipo necesita para operar
 
 ### Permisos en Drive
 
-- Lectura de toda la raíz para todo el equipo.
+- Lectura de toda la raíz para todo el equipo, salvo lo restringido.
 - Escritura en la carpeta de un área solo para su dueño y las personas que él designe.
 - `base/` la escribe únicamente el responsable de contexto.
-- Dentro de la raíz no se restringe ninguna carpeta. Lo que no pueda leer todo el equipo no vive en la raíz, sino en una unidad restringida.
+- Administrar la carpeta compartida es del dueño de la organización, o de una persona de su total confianza, y de nadie más. Quien administra puede quitar cualquier restricción, así que todo lo que sigue se apoya en esa lista.
 
-### Las unidades restringidas
+### Lo restringido
 
-Una raíz puede tener ninguna, una o varias **unidades restringidas**: carpetas compartidas aparte, cada una con su propio padrón de acceso, donde vive el trabajo que no puede leer todo el equipo. Una organización pequeña no necesita ninguna. A la mayoría le basta con una, `<Organización> - Restringido`. Una que trabaja por cuentas de cliente puede querer una aparte para un cliente cuyo contrato lo exija. El método es idéntico en todas.
+Lo que no puede leer todo el equipo se marca en la carpeta que lo contiene, ahí donde ya está, con el acceso limitado de Drive: esa carpeta deja de heredar los permisos de arriba y solo entra quien esté añadido a ella. No hay carpeta compartida aparte, ni espejos, ni rutas alternativas. Una organización tiene una sola carpeta compartida.
 
-Una unidad restringida es un **espejo parcial de la raíz**: dentro tiene carpetas de área, con el mismo nombre que tendrían en la raíz, y dentro de ellas proyectos con la misma estructura, las mismas cabeceras y los mismos estados. No lleva `guia.md`, ni `metodo.md`, ni `base/`: su método y su contexto son los de la raíz, y no significa nada abierta sin ella.
+Se restringe en tres sitios y en ninguno más:
 
-Qué se restringe es un área, no un tipo de documento. Un área puede vivir entera en la raíz, entera en una unidad restringida, o partida entre las dos con el mismo nombre a los dos lados; en una sola unidad restringida, nunca repartida entre dos. Lo que decide dónde va cada cosa es quién puede leerla, no de qué trata: da igual que sea una cuenta de cliente, recursos humanos, finanzas o legal.
+| Qué | Dónde se marca |
+|---|---|
+| Un área entera | La carpeta del área |
+| Un proyecto entero, dentro de un área que sí lee todo el equipo | La carpeta del proyecto |
+| Parte de un proyecto | `<proyecto>/restringido/` |
 
-**La partición es por proyecto.** Un proyecto vive entero en un lado. Lo único que cruza dentro de un mismo proyecto es material sensible suelto: se guarda en la unidad restringida, bajo la misma ruta de área y proyecto, y deja su fila en `fuentes/enlaces.md`. Un proyecto no tiene la mitad de sus entregables a cada lado.
+Lo que decide dónde va cada cosa es quién puede leerla, no de qué trata: da igual que sea una cuenta de cliente, recursos humanos, finanzas o legal.
 
-Un área partida tiene un `area.md` a cada lado, y cada uno indexa en su bloque `Proyectos` solo los proyectos de su lado. Un área que vive entera en una unidad restringida tiene su `area.md` allí y en la raíz solo su fila en `guia.md`; no se deja un `area.md` vacío en la raíz para representarla.
+**Un proyecto no se parte.** Sigue siendo uno, con un dueño, un `proyecto.md`, un `decisiones.md` y un `sesiones.md`. Lo que no puede leer todo el equipo va a `restringido/`, que repite dentro las carpetas del proyecto que hagan falta, `entregables/` y `fuentes/`, con su propio `enlaces.md`. Del `enlaces.md` público desaparecen esas filas.
 
-Las áreas restringidas se listan siempre en `guia.md`, con su dueño y en qué unidad viven. El equipo tiene que poder saber que existen y a quién pedir acceso; lo que no puede es leerlas. Si una organización necesita que ni el nombre de un área se vea, esa excepción se escribe en `base/ajustes.md`.
+**Dónde escala.** En `restringido/` no entran nunca `proyecto.md`, `decisiones.md` ni `sesiones.md`. Si lo que hay que esconder es una decisión, el estado o el objetivo, el proyecto no se puede partir: se restringe entero.
 
-Quién es miembro de cada unidad restringida, y quién ve qué carpeta dentro de ella, lo fijan los permisos de la carpeta compartida y no el método. El criterio: se es miembro solo si se necesita alguna de sus áreas, y quien administra la unidad ve todo lo que hay dentro.
+**El nombre se ve.** Quien no tiene acceso ve la carpeta en gris, con su nombre, y un botón para solicitarlo que llega a quien administra. Por eso la carpeta de dentro de un proyecto se llama siempre `restringido` y no dice de qué trata. Las áreas y los proyectos se siguen listando en `guia.md` y en `area.md` con su nombre y su dueño, estén restringidos o no: el equipo tiene que poder saber que existen y a quién pedir acceso; lo que no puede es leerlos.
 
-### Material sensible dentro de un área que no es restringida
+Si una organización necesita que ni el nombre de un área se vea, o que quien administra la carpeta compartida no pueda ver algo, ese caso se resuelve con una carpeta compartida aparte y se escribe en `base/ajustes.md`.
 
-Un archivo con datos personales, facturación, contratos o credenciales no se guarda en `fuentes/`: se guarda en la unidad restringida de su área —o en la general de la organización, si su área no tiene una—, bajo la misma ruta de área y proyecto, y en `fuentes/enlaces.md` del proyecto queda una fila con qué es, su liga y qué tener presente al usarlo. No obliga a restringir el área entera: es el caso pequeño del espejo, un área partida de la que solo cruzó un archivo.
+Poner y quitar el acceso limitado solo lo puede hacer quien administra la carpeta compartida, desde la web y de una carpeta en una. Ninguna skill lo hace: dicen qué carpeta hay que limitar y para quién, y esperan.
 
-La IA participa en esa decisión. Cuando una skill detecta indicios de información sensible en un material (nombres junto a RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios), lo dice y propone llevarlo a la unidad restringida. El usuario decide si lo es o no. Nada se mueve sin que el usuario lo confirme.
+### Material sensible dentro de un proyecto que lee todo el equipo
+
+Un archivo con datos personales, facturación, contratos o credenciales no se guarda en `fuentes/`: se guarda en `restringido/fuentes/` del mismo proyecto, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente al usarlo. No obliga a restringir el proyecto entero.
+
+La IA participa en esa decisión. Cuando una skill detecta indicios de información sensible en un material (nombres junto a RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios), lo dice y propone llevarlo a `restringido/`. El usuario decide si lo es o no. Nada se mueve sin que el usuario lo confirme.
 
 Ese material se lee igual que `fuentes/`: es taller privado del proyecto y no se cita en `basado_en` salvo por su fila de `enlaces.md`.
 
@@ -82,23 +90,15 @@ RAIZ/
       entregables/
       fuentes/
         enlaces.md      (opcional)
+      restringido/      (opcional: lo que no puede leer todo el equipo)
+        entregables/
+        fuentes/
+          enlaces.md
 ```
 
-Tres niveles como máximo: área, proyecto, carpeta del proyecto. Un cuarto nivel significa que ahí había dos proyectos.
+Tres niveles como máximo: área, proyecto, carpeta del proyecto. Un cuarto nivel significa que ahí había dos proyectos. `restringido/` es la única excepción: no es un proyecto nuevo, es la parte del mismo proyecto que no lee todo el equipo, y dentro repite sus carpetas.
 
-Una unidad restringida repite ese mismo árbol a partir del área, sin `guia.md`, sin `metodo.md` y sin `base/`:
-
-```
-UNIDAD RESTRINGIDA/
-  <area>/
-    area.md
-    <proyecto>/
-      ...igual que en la raíz
-```
-
-Los nombres de área y de proyecto son los mismos a los dos lados. Dos carpetas con el mismo nombre son la misma área; dos proyectos con el mismo nombre serían el mismo proyecto y por eso no pueden existir a la vez en los dos sitios.
-
-`guia.md` es para personas: qué es esta carpeta, cómo se organiza y quién escribe dónde, qué áreas hay, quién responde por cada una y dónde vive cada una, cómo se avisa entre áreas, cuándo se revisa cada cosa, cómo conectarla a un proyecto de Cowork y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: lleva este contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
+`guia.md` es para personas: qué es esta carpeta, cómo se organiza y quién escribe dónde, qué áreas hay, quién responde por cada una y cuáles están restringidas, cómo se avisa entre áreas, cuándo se revisa cada cosa, cómo conectarla a un proyecto de Cowork y qué hacer si programas. `metodo.md` lo genera el plugin y nadie lo edita: lleva este contrato, el estilo y el índice de skills, para que funcionen también con Gemini o con quien abra la carpeta sin el plugin.
 
 ### Los archivos de `base/`
 
@@ -149,7 +149,7 @@ El bloque `Proyectos` es el índice de contexto del área: una línea por proyec
 | `sesiones.md` | Registro | Qué se avanzó cada día y qué quedó pendiente |
 | `entregables/` | Vivo | El producto del proyecto, en cualquier estado |
 | `fuentes/` | Inmutable | Insumos crudos: exports, PDFs, transcripciones, material sin clasificar |
-| `fuentes/enlaces.md` | Inmutable | Tabla de enlaces externos y de lo que está en una unidad restringida. Solo existe si hay filas |
+| `fuentes/enlaces.md` | Inmutable | Tabla de enlaces externos y de lo que está en `restringido/`. Solo existe si hay filas |
 
 Los tres archivos de la raíz del proyecto y las dos carpetas existen siempre, aunque estén vacías. `sesiones.md` es obligatorio y lo escribe la skill de cierre de sesión, no el usuario.
 
@@ -195,7 +195,7 @@ Consumen esto: [áreas o personas]
 | Qué es | Enlace | Qué tener presente |
 |---|---|---|
 | Documentación del ERP | https://… | Versión 2024, puede estar desfasada |
-| Nómina del equipo, 2026 | (liga a la unidad restringida) | Solo el total agregado sale a un entregable |
+| Nómina del equipo, 2026 | `restringido/fuentes/nomina-2026.xlsx` | Solo el total agregado sale a un entregable |
 ```
 
 ## 4. Vivo o registro, nunca las dos cosas
@@ -268,7 +268,7 @@ El paso a `vigente` lo pide siempre el dueño del proyecto de forma explícita y
 
 **actualizado**: fecha en formato `AAAA-MM-DD`, la del último cambio de contenido real.
 
-**basado_en**: rutas relativas a la raíz de todo lo que se usó para escribir el archivo. También dentro de una unidad restringida, que se lee junto a la raíz y comparte con ella el mismo sistema de rutas: `area/proyecto/entregables/x.md` señala a un solo archivo, esté de un lado o del otro, porque un proyecto vive entero en un lado y no hay dos proyectos con el mismo nombre a los dos lados. Es lo que permite detectar que un entregable quedó desactualizado cuando cambia algo aguas arriba. Es obligatoria en los entregables y la escribe la skill, no la persona. Para material adoptado sin trazabilidad se permite la lista vacía `[]`, y `revisar` la pide completa antes de publicar. Los registros, las fuentes y los archivos de `base/` no llevan esta clave.
+**basado_en**: rutas relativas a la raíz de todo lo que se usó para escribir el archivo. Es lo que permite detectar que un entregable quedó desactualizado cuando cambia algo aguas arriba. Es obligatoria en los entregables y la escribe la skill, no la persona. Para material adoptado sin trazabilidad se permite la lista vacía `[]`, y `revisar` la pide completa antes de publicar. Los registros, las fuentes y los archivos de `base/` no llevan esta clave.
 
 No hay clave de dueño. El dueño vive en `area.md` y en `proyecto.md`, en `Quién participa`. Si un documento concreto tiene otro responsable, lo dice la primera línea de su cuerpo.
 
@@ -282,23 +282,23 @@ El nombre de un archivo es estable durante toda su vida. La versión la lleva Dr
 
 ### El nombre de una carpeta compartida
 
-La raíz y las unidades restringidas son carpetas compartidas y su nombre se ve en Drive, así que ese sí lleva mayúsculas y espacios: `Acme`, `Acme - Restringido`. Solo letras, números, espacios y guiones, y los acentos y las eñes que traiga el nombre propio. Ningún otro signo: el nombre de una carpeta compartida se escribe a mano muchas veces —al buscarla, al pedir acceso, al nombrarla en un correo, al usarla en la terminal o en un script— y cualquier signo que no esté en el teclado se copia mal, se escribe distinto cada vez y obliga a comprobar si una herramienta lo admite. Si una organización ya tiene una carpeta con un signo así, se propone renombrarla; el método no depende del nombre, porque ninguna instrucción usa rutas absolutas.
+La raíz es una carpeta compartida y su nombre se ve en Drive, así que ese sí lleva mayúsculas y espacios: `Acme`. Solo letras, números, espacios y guiones, y los acentos y las eñes que traiga el nombre propio. Ningún otro signo: el nombre de una carpeta compartida se escribe a mano muchas veces —al buscarla, al pedir acceso, al nombrarla en un correo, al usarla en la terminal o en un script— y cualquier signo que no esté en el teclado se copia mal, se escribe distinto cada vez y obliga a comprobar si una herramienta lo admite. Si una organización ya tiene una carpeta con un signo así, se propone renombrarla; el método no depende del nombre, porque ninguna instrucción usa rutas absolutas.
 
 ## 7. Qué es público
 
 La superficie pública de un proyecto son `entregables/` y `decisiones.md`. Es lo único que otra área puede leer para construir encima, y solo si el entregable está `vigente`. `area.md` y `proyecto.md` también se leen desde fuera, porque son el índice que lleva hasta esa superficie.
 
-`sesiones.md`, `fuentes/` y el material guardado en una unidad restringida son taller privado. Nadie de fuera del área los lee ni los cita en `basado_en`.
+`sesiones.md`, `fuentes/` y todo lo que está restringido son taller privado. Nadie de fuera del área los lee ni los cita en `basado_en`.
 
 Dentro de la misma área, un entregable puede citar en `basado_en` una fuente de otro proyecto del área, siempre la original y nunca una copia: un export vive en un solo `fuentes/` y los demás lo citan por su ruta. Entre áreas no se citan fuentes, solo entregables vigentes y decisiones.
 
 ### Lo restringido se cita en una sola dirección
 
-Un archivo de una unidad restringida puede citar en `basado_en` lo que quiera de la raíz: entregables vigentes, decisiones, `base/`. Al revés, nunca. Nada de la raíz cita, nombra ni resume un archivo restringido, porque quien lo lea no va a poder abrirlo y porque la cita misma ya cuenta algo de lo que hay dentro. La única excepción es la fila de `fuentes/enlaces.md`, que dice que un material existe y dónde está, no lo que dice.
+Un archivo restringido puede citar en `basado_en` lo que quiera de lo que sí lee todo el equipo: entregables vigentes, decisiones, `base/`. Al revés, nunca. Nada que lea todo el equipo cita, nombra ni resume un archivo restringido, porque quien lo lea no va a poder abrirlo y porque la cita misma ya cuenta algo de lo que hay dentro. La única excepción es la fila de `fuentes/enlaces.md`, que dice que un material existe y dónde está, no lo que dice.
 
-Vale igual para `Afecta a`: una decisión restringida puede apuntar a un proyecto de la raíz, y una decisión de la raíz apunta a un área restringida por su nombre, nunca a uno de sus proyectos ni a uno de sus archivos.
+Vale igual para `Afecta a`: una decisión restringida puede apuntar a cualquier proyecto, y una decisión que lee todo el equipo apunta a un área o a un proyecto restringido por su nombre, que ya está listado, nunca a uno de sus archivos.
 
-Lo aprendido dentro de un área restringida vuelve a la memoria común **reescrito, no movido**: se publica como entregable propio de un área de la raíz, con lo que sirve para la próxima vez y sin los datos, las cifras ni los nombres de donde salió. Un archivo restringido no sube nunca a la raíz; un aprendizaje sí cambia de sitio, y lo hace escribiéndolo de nuevo.
+Lo aprendido dentro de un área restringida vuelve a la memoria común **reescrito, no movido**: se publica como entregable propio de un proyecto que lee todo el equipo, con lo que sirve para la próxima vez y sin los datos, las cifras ni los nombres de donde salió. Un archivo restringido no sale nunca de donde está; un aprendizaje sí cambia de sitio, y lo hace escribiéndolo de nuevo.
 
 ## 8. Rotación
 
@@ -310,16 +310,15 @@ Cuando un registro pasa de unas 1.500 líneas o cambia el año, se archiva con e
 - `AGENTS.md` ni ningún archivo de instrucciones para la IA dentro de la raíz. Las instrucciones son las skills y el texto para Cowork de `guia.md`
 - Índices mantenidos a mano. El único índice es el bloque `Proyectos` de cada `area.md`, y lo escriben las skills
 - Una clave de dueño en la cabecera. El dueño está en `area.md` y `proyecto.md`
-- Carpetas restringidas dentro de la raíz. Lo que no puede leer todo el equipo vive en una unidad restringida, no escondido dentro de la raíz
-- Una unidad restringida con su propio `guia.md`, `metodo.md` o `base/`. No es una raíz: es el espejo de una
-- Un `area.md` vacío en la raíz para representar a un área que vive entera en una unidad restringida. Su fila en `guia.md` basta
+- Una carpeta compartida aparte para lo restringido, ni espejos de la raíz. Se restringe donde está
+- Una carpeta restringida sin dueño en `area.md` o en `proyecto.md`. Restringir no cambia de quién es
 - Copias de una fuente en dos proyectos. Se cita la original
 - Carpetas numeradas (`01-`, `02-`) ni números de fase en los nombres
 - Carpetas llamadas `varios`, `otros`, `temp` o `borrador`
 - Un archivo por decisión
 - Enlaces wiki `[[asi]]`, callouts propietarios, archivos `.canvas`
 - Rutas absolutas dentro de cualquier archivo
-- Estado guardado en la memoria del modelo o en un proyecto de Claude. Si un dato importa, está en un `.md`
+- Estado del método guardado en la memoria del modelo ni en la memoria de proyecto de Claude, que hoy sí existe como función y viene activada. Es por persona y por proyecto, no se comparte con el equipo, no se audita, no se ve, y puede contradecir un archivo sin que nadie lo note. Si un dato importa, está en un `.md`
 - Cualquier archivo que el usuario tenga que rellenar a mano
 
 ## 10. Actualización del método
@@ -330,25 +329,25 @@ El método se actualiza publicando una versión nueva del plugin. La versión vi
 
 Nunca se lee todo. El camino va por niveles y se para en el primero que responde:
 
-1. `guia.md`: la lista de áreas, quién responde por cada una y cuáles viven en una unidad restringida
+1. `guia.md`: la lista de áreas, quién responde por cada una y cuáles están restringidas
 2. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md`, si existe
 3. `area.md` de las áreas pertinentes. Su bloque `Proyectos` es el índice: dice qué proyectos hay y qué entregables vigentes tiene cada uno
 4. Solo entonces, del proyecto que toque: `proyecto.md`, `decisiones.md` completo y las cabeceras de `entregables/`
 5. El cuerpo de un entregable, solo si hace falta
 
-`base/sistemas.md` se lee cuando el trabajo toca un sistema. `sesiones.md`, `fuentes/` y el material restringido de otra área no se leen nunca para responder a otra área.
+`base/sistemas.md` se lee cuando el trabajo toca un sistema. `sesiones.md`, `fuentes/` y lo restringido de otra área no se leen nunca para responder a otra área.
 
-Si el camino lleva a un área que no se puede abrir porque vive en una unidad restringida sin acceso, eso no es un error ni un hueco: se dice qué área es y quién es su dueño, y ahí se para. No se deduce lo que hay dentro por los nombres de las carpetas ni se da por hecho que no hay nada.
+Si el camino lleva a una carpeta restringida sin acceso, la lectura falla. Eso no es un error ni un hueco: se dice qué área o qué proyecto es y quién es su dueño, y ahí se para. No se deduce lo que hay dentro por los nombres de las carpetas ni se da por hecho que no hay nada.
 
 ## 12. Cowork y programadores
 
-**Cowork.** El uso principal del método es Claude Cowork con la raíz conectada y el plugin instalado. El montaje tiene tres reglas.
+**Cowork.** El uso principal del método es Claude Cowork con la raíz conectada y el plugin instalado. El montaje tiene dos reglas.
 
 **Un proyecto por persona**, nombrado por su área. Es lo que hace que la línea del área en las instrucciones signifique algo y que el aviso de «esto le toca a otra área» tenga a quién señalar.
 
-**Se conecta la raíz completa, nunca la carpeta de un área.** `guia.md`, `metodo.md` y `base/` viven en la raíz; la lectura en cascada cruza áreas; `consulta` busca en lo que produjo cualquier área y `sesion` avisa de las decisiones de otras que afectan al proyecto. Conectada solo un área, el método se rompe en la primera llamada. Conectar de más no abre ningún riesgo: quién puede escribir dónde lo fijan los permisos de la carpeta compartida y la línea del área en las instrucciones, no el alcance de la conexión.
+**Se conecta la raíz completa, nunca la carpeta de un área.** `guia.md`, `metodo.md` y `base/` viven en la raíz; la lectura en cascada cruza áreas; `consulta` busca en lo que produjo cualquier área y `sesion` avisa de las decisiones de otras que afectan al proyecto. Conectada solo un área, el método se rompe en la primera llamada. Conectar de más no abre ningún riesgo: quién puede leer y escribir dónde lo fijan los permisos de las carpetas, no el alcance de la conexión, y lo restringido sigue restringido dentro de una carpeta conectada.
 
-**Quien trabaja en un área restringida conecta también su unidad restringida**, en el mismo proyecto de Cowork y solo si tiene acceso. Son dos carpetas conectadas y una sola raíz: la unidad restringida no se conecta sola, porque sin la raíz no tiene ni método ni contexto. Quien no trabaja en ninguna área restringida no conecta ninguna.
+Un proyecto de Claude admite una sola carpeta, que se elige al crearlo y no se puede ampliar después. Es la raíz, y no hace falta ninguna más. Si se eligió mal, se crea otro proyecto.
 
 El texto para pegar en las instrucciones del proyecto no nombra skills, porque Claude las elige solo:
 
@@ -467,7 +466,7 @@ La fecha basta cuando el dato es de la propia organización y está en una fuent
 
 Lo que hace cada una, en una línea. Con el plugin instalado se activan solas por las frases que menciona cada descripción.
 
-- **convenciones**: Contrato base del metodo de trabajo: estructura de carpetas, cabecera de los archivos, estados, como se lee la raiz, que es publico y que va a una unidad restringida. Consultala antes de crear o modificar cualquier archivo dentro de la memoria de una organizacion, y cuando pregunten como se organiza algo, donde va, que significa un estado o quien puede escribir donde.
+- **convenciones**: Contrato base del metodo de trabajo: estructura de carpetas, cabecera de los archivos, estados, como se lee la raiz, que es publico y que se restringe. Consultala antes de crear o modificar cualquier archivo dentro de la memoria de una organizacion, y cuando pregunten como se organiza algo, donde va, que significa un estado o quien puede escribir donde.
 - **estilo**: Normas de estilo y de lectura rapida. Aplicala por defecto al redactar o revisar cualquier texto que se vaya a firmar o compartir, y tambien a las respuestas en el chat, sin que la invoquen; y de forma explicita cuando pidan 'que suene menos a IA', 'mas ejecutivo', 'mas al grano', 'mas compacto', 'que se lea rapido' o 'revisa el estilo'.
 - **sesion**: Abre y cierra sesiones de trabajo sobre un proyecto. Usala cuando digan 'abre sesion', 'retomamos X', 'en que quedamos con...', 'cierra la sesion', 'guarda lo de hoy' o 'terminamos'.
 - **nuevo**: Da de alta lo que falte en la memoria de la organizacion: monta la raiz si la carpeta no tiene guia.md, crea el area si no existe y crea el paquete completo de un proyecto. Usala cuando digan 'nuevo proyecto', 'arranca un proyecto para...', 'necesito documentar esto como proyecto', 'nueva area', 'crea el area de...', 'monta la carpeta de...', 'nueva organizacion', 'arranca el metodo para este cliente', o cuando se trabaje en algo que todavia no tiene carpeta.

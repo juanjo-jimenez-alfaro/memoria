@@ -23,7 +23,7 @@ Migrar es una tarea larga. Se hace por proyecto, no toda la carpeta de golpe, y 
 
 **1. Inventario.** Una tabla de todo lo que hay en el origen: ruta, qué es en una línea, fecha del último cambio, y a qué se va a convertir (registro, entregable, fuente, contexto de la organización, no se trae). Se enseña al usuario y se corrige con él antes de mover nada. Un archivo que el usuario no reconoce se pregunta, no se adivina.
 
-**2. Mapeo a proyectos.** Cada grupo de archivos del origen se asigna a un proyecto del método, existente o nuevo. Antes, se decide a qué unidad va: si lo que se migra es el trabajo de un área que no puede leer todo el equipo, el destino entero es su unidad restringida, no la raíz, y esa unidad tiene que estar conectada para poder escribir en ella. Un mismo origen no se reparte entre las dos: si trae cosas de las dos, son dos migraciones. Un proyecto nuevo se crea con la skill `nuevo`, con su dueño con nombre y apellido, que es bloqueante también aquí. Si el origen mezclaba dos trabajos en una carpeta, salen dos proyectos. Si el origen tenía un cuarto nivel de carpetas, ahí había dos proyectos.
+**2. Mapeo a proyectos.** Cada grupo de archivos del origen se asigna a un proyecto del método, existente o nuevo. Antes, se decide si el destino está restringido: si lo que se migra es el trabajo de un área o de un proyecto que no puede leer todo el equipo, el destino entero es esa carpeta, y hace falta acceso a ella para poder escribir. Un mismo origen no se reparte entre lo restringido y lo que no: si trae cosas de los dos, son dos migraciones. Un proyecto nuevo se crea con la skill `nuevo`, con su dueño con nombre y apellido, que es bloqueante también aquí. Si el origen mezclaba dos trabajos en una carpeta, salen dos proyectos. Si el origen tenía un cuarto nivel de carpetas, ahí había dos proyectos.
 
 **3. Decisiones.** Cada ADR o archivo de decisión del origen pasa a ser una entrada de `decisiones.md` con el formato del método: fecha, título en una frase, quién decidió, por qué, qué se descartó, a qué afecta. Si el ADR traía análisis (opciones comparadas, tablas, cifras), el análisis no cabe en la entrada: se convierte en un entregable del proyecto, normalmente con la plantilla `reporte-de-decision.md`, y la entrada lo cita en `Afecta a`. Si el ADR no dice quién decidió, se pregunta; si nadie lo sabe, se escribe "no consta" y queda como hueco en el reporte.
 
@@ -35,7 +35,7 @@ Migrar es una tarea larga. Se hace por proyecto, no toda la carpeta de golpe, y 
 
 **7. Fuentes.** Exports, PDFs, transcripciones, correos, capturas: a `fuentes/` con nombre en minúsculas y guiones. Los enlaces sueltos, a `fuentes/enlaces.md`, una fila cada uno. Si una fuente ya está en otro proyecto de la misma área, no se duplica: se cita la original.
 
-Antes de traer cada archivo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios. Los que los traen se listan al usuario en un bloque aparte del inventario, con la propuesta de llevarlos a la unidad restringida, bajo la misma ruta de área y proyecto, y dejar su fila en `fuentes/enlaces.md`. El usuario decide archivo por archivo. Ninguno va a `fuentes/` ni a la unidad restringida sin esa confirmación; mientras no la haya, se quedan en el origen y constan como pendientes en el reporte.
+Antes de traer cada archivo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios. Los que los traen se listan al usuario en un bloque aparte del inventario, con la propuesta de llevarlos a `restringido/fuentes/` del proyecto que les toca y dejar su fila en el `fuentes/enlaces.md` público. El usuario decide archivo por archivo. Ninguno va a `fuentes/` ni a `restringido/` sin esa confirmación; mientras no la haya, se quedan en el origen y constan como pendientes en el reporte.
 
 **8. Nombres y enlaces.** Todo lo que se trae se renombra a la convención: sin prefijos numéricos, sin fechas, sin versiones, sin números de fase. Después se recorren los archivos traídos y se reescribe cada enlace interno para que apunte a la ruta nueva. Un enlace que apuntaba a algo que no se trajo se sustituye por una frase que dice a qué apuntaba y que quedó en el origen. Los enlaces wiki `[[asi]]` se convierten en enlaces normales.
 
@@ -65,11 +65,11 @@ El reporte se guarda como entregable en la raíz de quien migró, en su proyecto
 - Resumir o reescribir el contenido de un log de sesión al consolidarlo. Se cambia el formato, no lo que decía
 - Dejar un entregable migrado en `vigente` sin que el dueño del origen lo haya pedido
 - Traer a `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
-- Mover algo a la unidad restringida sin que el usuario lo confirme
+- Mover algo a `restringido/` sin que el usuario lo confirme
 - Traer `AGENTS.md`, índices manuales, prefijos numéricos o cualquier cosa de la lista de lo que no existe en `convenciones`
 - Traer a esta raíz contenido sustantivo de otra raíz u organización conectada en la misma sesión, aunque sea para comparar estructura
-- Subir a la raíz un archivo que pertenece a un área restringida, o dejar en un archivo de la raíz la ruta de lo que se migró a una unidad restringida
-- Escribir en el reporte de la migración el contenido de lo restringido. Se cuenta cuántos archivos fueron y a qué unidad, nunca qué decían
+- Sacar de una carpeta restringida un archivo que pertenece dentro de ella, o dejar fuera la ruta de lo que se migró dentro
+- Escribir en el reporte de la migración el contenido de lo restringido. Se cuenta cuántos archivos fueron y a qué carpeta, nunca qué decían
 - Dejar en la raíz migrada rastro del sistema de origen: sus rutas, sus nombres de carpeta, su vocabulario o el reporte de la migración
 - Rellenar un hueco con lo que parece probable. "No consta" es una respuesta válida en un reporte de migración
 - Inventar una fecha para una entrada cuya fecha no se puede saber. Se usa la fecha del archivo y se marca como aproximada
@@ -89,7 +89,7 @@ El reporte se guarda como entregable en la raíz de quien migró, en su proyecto
 > | `sesiones/2026-03-12.md` … `2026-08-14.md` | Once logs | Un `sesiones.md` con once entradas |
 > | `entregables/flujo-aprobacion-v3-FINAL.md` | El flujo, dado por bueno | `entregables/flujo-aprobacion.md`, en revisión |
 > | `insumos/export-ordenes.csv` | Export de órdenes | `fuentes/` |
-> | `insumos/nomina-compras.xlsx` | Nómina con nombres y salarios | Parece confidencial: propongo la unidad restringida y su fila en `enlaces.md` |
+> | `insumos/nomina-compras.xlsx` | Nómina con nombres y salarios | Parece confidencial: propongo `restringido/fuentes/` y su fila en `enlaces.md` |
 > | `AGENTS.md`, `indice.md`, `plantilla-adr.md` | Instrucciones, índice manual, plantilla | No se traen |
 >
 > El destino es `compras/automatizacion-ordenes/`, que no existe. ¿La dueña es Ana Pérez? Sin eso no creo el proyecto. ¿Y la nómina la tratamos como confidencial?
@@ -98,7 +98,7 @@ El reporte se guarda como entregable en la raíz de quien migró, en su proyecto
 
 **Respuesta al terminar:**
 
-> **Qué se trajo.** Cuatro entradas en `decisiones.md` (2026-03-12, 04-02, 06-20, 08-14), con el análisis de las dos últimas en `entregables/comparativo-topes-aprobacion.md`, en revisión. Once entradas en `sesiones.md`. `entregables/flujo-aprobacion.md`, en revisión, con `basado_en` apuntando al export y a la entrevista. Cuatro archivos en `fuentes/`. `nomina-compras.xlsx` en `Acme - Restringido`, con su fila en `fuentes/enlaces.md`. Estado actual y cuatro pendientes en `proyecto.md`, sacados del contexto original.
+> **Qué se trajo.** Cuatro entradas en `decisiones.md` (2026-03-12, 04-02, 06-20, 08-14), con el análisis de las dos últimas en `entregables/comparativo-topes-aprobacion.md`, en revisión. Once entradas en `sesiones.md`. `entregables/flujo-aprobacion.md`, en revisión, con `basado_en` apuntando al export y a la entrevista. Cuatro archivos en `fuentes/`. `nomina-compras.xlsx` en `restringido/fuentes/`, con su fila en `fuentes/enlaces.md`. Estado actual y cuatro pendientes en `proyecto.md`, sacados del contexto original.
 >
 > **Qué se dejó.** `AGENTS.md`: lo sustituyen las skills y `guia.md`. `indice.md`: lo sustituye el bloque Proyectos de `compras/area.md`. `plantilla-adr.md`: el formato de decisión es el del método. Dos borradores de `insumos/` que nadie reconoce, con el nombre `sin-titulo`. El origen sigue intacto en `viejo/`.
 >

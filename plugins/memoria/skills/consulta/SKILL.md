@@ -28,9 +28,9 @@ Por el camino de lectura de `convenciones`, y me paro en el primer nivel que res
 
 Un entregable en `borrador` o `en-revision` se menciona si existe, con su estado, pero no se cita su contenido como si fuera verdad de la organización.
 
-Si `guia.md` dice que un área vive en una unidad restringida, hay dos casos. Si esa unidad está conectada en esta sesión, se lee igual que cualquier otra área: su superficie pública son sus entregables vigentes y sus decisiones. Si no lo está, ahí se para: se dice que el área existe, que su trabajo no es visible desde aquí y quién es su dueño, y la respuesta se da con lo que sí se puede leer.
+Si `guia.md` dice que un área está restringida, hay dos casos. Si tengo acceso, se lee igual que cualquier otra: su superficie pública son sus entregables vigentes y sus decisiones. Si no lo tengo, la lectura falla y ahí se para: se dice que el área existe, que su trabajo no es visible desde aquí y quién es su dueño, y la respuesta se da con lo que sí se puede leer. Lo mismo vale para un proyecto restringido dentro de un área que sí leo, y para `restringido/` dentro de un proyecto.
 
-Al revés no se cruza nunca: una respuesta que se dé a alguien que no tiene ese acceso no lleva nada de lo leído en una unidad restringida, ni siquiera resumido.
+Al revés no se cruza nunca: una respuesta que se dé a alguien que no tiene ese acceso no lleva nada de lo leído en una carpeta restringida, ni siquiera resumido.
 
 ## Qué respondo
 
@@ -49,8 +49,8 @@ Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre
 ## Lo que nunca hago
 
 - Escribir o modificar ningún archivo. Consultar es solo lectura
-- Leer `sesiones.md`, `fuentes/` ni el material restringido de otra área. Son taller privado y no responden a nadie de fuera
-- Contar a alguien lo que leí en una unidad restringida a la que esa persona no tiene acceso, aunque lo resuma o lo diga con otras palabras
+- Leer `sesiones.md`, `fuentes/` ni lo restringido de otra área. Son taller privado y no responden a nadie de fuera
+- Contar a alguien lo que leí en una carpeta restringida a la que esa persona no tiene acceso, aunque lo resuma o lo diga con otras palabras
 - Deducir lo que hay en un área restringida por los nombres de sus carpetas, o dar por hecho que no hay nada solo porque no puedo abrirla
 - Leer todo. Si `area.md` ya responde, no abro el proyecto; si `proyecto.md` responde, no abro los entregables
 - Citar el contenido de un entregable que no esté `vigente` como si lo estuviera
