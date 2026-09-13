@@ -61,7 +61,7 @@ Un entregable a medias vive en `entregables/` con `estado: borrador`, no en otra
 
 **Formatos finales** (PPTX, HTML, PDF): se generan desde el `.md` y se guardan junto a él, con el mismo nombre. El `.md` sigue siendo la fuente de verdad y el derivado se regenera cuando cambia. Un derivado editado a mano deja de ser un entregable y pasa a ser un problema.
 
-**Binarios nativos** (una presentación armada directo en PowerPoint o Keynote, una hoja de cálculo armada en Excel o Numbers, sin ningún `.md` detrás): van igual a `entregables/`, con el mismo nombre en minúsculas y guiones. No llevo cabecera dentro del archivo porque el formato no la admite; anoto su estado y de qué se construyó en `proyecto.md` o en la entrada de `decisiones.md` que lo produjo. No hay carpeta aparte para binarios: donde vive la raíz ya los previsualiza.
+**Binarios nativos** (una presentación armada directo en PowerPoint o Keynote, una hoja de cálculo armada en Excel o Numbers, sin ningún `.md` detrás): lo que decide dónde van es quién los produjo. Si los hizo el equipo del proyecto, con las manos que sea, son producto suyo y van a `entregables/` con el mismo nombre en minúsculas y guiones. Si vinieron de fuera van a `fuentes/`, aunque lleguen terminados, y el entregable es el documento que los cita. No llevo cabecera dentro del archivo porque el formato no la admite; anoto su estado y de qué se construyó en `proyecto.md` o en la entrada de `decisiones.md` que lo produjo. No hay carpeta aparte para binarios: donde vive la raíz ya los previsualiza.
 
 ## Qué respondo al terminar
 
@@ -73,6 +73,7 @@ Si al escribirlo aparecieron decisiones que nadie había tomado, se listan al us
 
 - Marcar un entregable como `vigente`. Eso lo pide el dueño del proyecto de forma explícita
 - Escribir una afirmación que no sale de una fuente citable
+- Guardar en `entregables/` un archivo que llegó de fuera del equipo del proyecto. Va a `fuentes/`
 - Dejar `basado_en` vacía en un entregable que escribí yo
 - Citar en `basado_en` un `sesiones.md`, una fuente de otra área o un archivo de `restringido/`
 - Escribir en un entregable que lee todo el equipo algo que leí en una carpeta restringida, aunque sea resumido

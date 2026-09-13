@@ -31,17 +31,19 @@ Se para en la primera que dé un sí.
 
 **1. ¿Es un enlace?** Va a `fuentes/enlaces.md` del proyecto, una fila con qué es, el enlace y qué tener presente. Si el archivo no existe, se crea con su tabla. No se guarda una copia de la página como archivo salvo que el usuario lo pida.
 
-**2. ¿Es material crudo que no hizo el equipo del proyecto?** Exports, PDFs de terceros, transcripciones, correos, capturas. Va a `fuentes/` del proyecto, con un nombre legible. Las fuentes no se editan nunca.
+**2. ¿Lo produjo alguien de fuera del equipo del proyecto?** Exports, PDFs de terceros, transcripciones, correos, capturas, y también un documento o una presentación que ya vienen con forma de entregable. Va a `fuentes/` del proyecto, con un nombre legible. Las fuentes no se editan nunca.
+
+No hay otra puerta. Todo lo que llega de fuera entra por `fuentes/`, aunque venga terminado y el proyecto lo vaya a usar tal cual: en ese caso el entregable es el documento que lo cita, no el archivo de fuera. Y no se guarda además una copia en ningún otro sitio de la raíz.
 
 Antes de guardarlo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios, o cualquier cosa que no todos deban ver. Si los trae, lo digo y propongo llevarlo a `restringido/`; el usuario decide si es confidencial o no. Si lo es, el archivo va a **`restringido/fuentes/` del mismo proyecto**, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
 
 Si la fuente ya existe en otro proyecto de la misma área, no se copia: se cita la original por su ruta.
 
-**3. ¿Es algo que otra persona va a leer para construir encima?** Va a `entregables/`, y entonces no se guarda tal cual: se convierte en un entregable con su cabecera, con la skill `entregable`.
+**3. ¿Lo hizo el equipo del proyecto y otra persona lo va a leer para construir encima?** La pregunta 2 ya paró todo lo que venía de fuera, así que aquí solo queda lo propio. Va a `entregables/`, y entonces no se guarda tal cual: se convierte en un entregable con su cabecera, con la skill `entregable`.
 
 **4. ¿Es un compromiso que cambia lo que se va a construir?** No es un archivo, es una entrada en `decisiones.md`. Se propone la entrada y se pide confirmación antes de registrarla.
 
-**5. ¿Es contexto de la organización y no de un proyecto?** Organigrama, sistemas, políticas, vocabulario. Va a `base/`, que no se toca. Se prepara el texto y se le pasa al responsable de contexto para que lo incorpore. Si es un sistema, el texto va en el formato de la tabla de `sistemas.md`: sistema, para qué, quién da acceso, antes de usarlo.
+**5. ¿Es contexto de la organización y no de un proyecto?** Organigrama, sistemas, políticas, vocabulario. Va a `base/`, que desde otra área no se toca. Se prepara el texto y se le pasa al responsable de contexto, que lo escribe en su sesión. Si es un sistema, el texto va en el formato de la tabla de `sistemas.md`: sistema, para qué, quién da acceso, antes de usarlo.
 
 **6. Ninguna de las anteriores.** Va a `fuentes/` del proyecto más probable, con una línea diciendo qué es y que está sin clasificar. Se decide más adelante, cuando esté claro.
 
@@ -66,7 +68,9 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 
 - Crear una carpeta nueva para acomodar algo que no encaja. Si no encaja, es la pregunta 6
 - Dejar algo en la raíz o en la carpeta de un área
-- Escribir directamente en `base/`
+- Escribir en `base/` o en `guia.md` desde la sesión de otra área. El texto se prepara y se le pasa al responsable de contexto
+- Guardar en cualquier sitio que no sea `fuentes/` un material que llegó de fuera, aunque venga terminado y listo para usarse
+- Dejar dentro de la raíz el almacén de datos de una aplicación, o apuntar una aplicación a que escriba ahí
 - Guardar en `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
 - Mover algo a `restringido/` sin que el usuario lo confirme
 - Colocar fuera de una carpeta restringida material que pertenece dentro de ella, aunque el usuario tenga acceso

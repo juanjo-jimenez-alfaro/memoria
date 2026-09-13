@@ -11,7 +11,7 @@ Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar
 
 **Revisar**: "revisa el mapa de proceso", "¿esto está listo?", o antes de enseñar algo a alguien de fuera del proyecto.
 
-**Barrido**: "¿qué está desactualizado?", "¿qué hay parado en compras?", o al abrir sesión cuando aparecen avisos de desfase.
+**Barrido**: "¿qué está desactualizado?", "¿qué hay parado en compras?", "¿hay algo aquí que no debería estar?", o al abrir sesión cuando aparecen avisos de desfase.
 
 **Publicar**: "esto ya está listo", "pásalo a vigente", "ya lo aprobó Ana".
 
@@ -55,7 +55,7 @@ Un problema de estilo nunca es bloqueante. Un entregable feo pero correcto se pu
 
 # Barrido de desfase
 
-Sobre un proyecto o sobre un área entera. Solo se leen el bloque `Proyectos` de `area.md` y las cabeceras de los entregables, no el contenido. El bloque `Proyectos` dice qué entregables vigentes debería haber; las cabeceras dicen en qué estado están de verdad. Si las dos cosas no coinciden, eso también es un hallazgo.
+Sobre un proyecto o sobre un área entera. Se leen el bloque `Proyectos` de `area.md`, las cabeceras de los entregables y el listado de archivos de cada proyecto. Nunca el contenido. El bloque `Proyectos` dice qué entregables vigentes debería haber; las cabeceras dicen en qué estado están de verdad. Si las dos cosas no coinciden, eso también es un hallazgo.
 
 Se devuelve una tabla ordenada por lo que más gente consume:
 
@@ -68,6 +68,18 @@ Se devuelve una tabla ordenada por lo que más gente consume:
 Cuatro cosas se marcan siempre: entregables `vigente` con una fuente más reciente que ellos, entregables con más de 30 días en `borrador` o `en-revision`, entregables `vigente` que citan un archivo `reemplazado`, y entregables `vigente` con `basado_en` vacía.
 
 No se toca ningún archivo durante un barrido.
+
+## Lo que entró por otro camino
+
+En el mismo barrido, tres comprobaciones más sobre cada proyecto. Son de listado de carpeta: se mira qué archivos hay, no qué dicen.
+
+1. **Archivos en `entregables/` sin cabecera** que no estén anotados en `proyecto.md` ni en una entrada de `decisiones.md`. Un binario que produjo el equipo consta en uno de los dos; si no consta en ninguno, o llegó de fuera o nadie respondió por él.
+2. **Carpetas que la estructura no contempla** dentro del proyecto: cualquiera que no sea `entregables/`, `fuentes/` o `restringido/`.
+3. **Archivos sueltos en la raíz del proyecto**, más allá de `proyecto.md`, `decisiones.md` y `sesiones.md`.
+
+Cada hallazgo se reporta con su ruta y un destino propuesto, casi siempre `fuentes/`. Ninguno bloquea una publicación y ninguno se mueve sin que el usuario lo confirme: la regla es norma y no candado, y hay motivos legítimos para que algo esté fuera de sitio un rato.
+
+El almacén de datos de una aplicación apuntado a la raíz se dice aparte, en la primera línea del barrido. No es un archivo fuera de sitio: crece solo, nadie responde por lo que hay dentro y rompe la carpeta como memoria.
 
 ---
 
@@ -109,6 +121,8 @@ Se avisa de quién consume este entregable, según el campo `Consumen esto` de `
 - Leer el cuerpo de los entregables durante un barrido
 - Revisar y modificar entregables de otra área. Se propone al dueño y ahí termina
 - Cerrar un hueco eligiendo la fuente que parece más fiable
+- Mover a `fuentes/` un archivo detectado en el barrido sin que el usuario lo confirme
+- Tratar como hallazgo bloqueante algo que apareció en el listado de carpeta. Se dice, no se detiene nada
 
 ## Ejemplo completo
 

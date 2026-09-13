@@ -7,17 +7,33 @@ description: Contrato base del metodo de trabajo: estructura de carpetas, cabece
 
 Contrato base del método. El resto de skills del plugin referencian este documento en lugar de repetir sus reglas. Si una skill contradice algo de aquí, manda este documento.
 
-Versión del método: **1.6**
+Versión del método: **1.7**
 
 ## 1. Las tres capas de propiedad
 
-| Capa | Quién escribe | Qué contiene |
+| Capa | Quién responde | Qué contiene |
 |---|---|---|
 | El plugin y `metodo.md` | Solo el responsable del método | Cómo se trabaja. Idéntico en todas las organizaciones |
-| `base/` | Un único responsable de contexto | Quién es la organización, cómo se organiza, qué sistemas usa |
+| `guia.md` y `base/` | Un único responsable de contexto | Quién es la organización, cómo se organiza, qué sistemas usa, cómo se usa esta carpeta |
 | Cada área | El dueño del área | El trabajo real |
 
-Nadie escribe fuera de su capa. Un área lee `base/` y `metodo.md`, nunca los modifica. Las skills escriben en nombre de quien las usa y respetan las mismas capas. Una capa no cambia porque algo esté restringido: el dueño de un área lo es también de lo restringido dentro de ella.
+Nadie responde fuera de su capa, y nadie pide que se escriba en la capa de otro. Un área lee `base/` y `metodo.md`, nunca los modifica. Las skills escriben en nombre de quien las usa y respetan las mismas capas. Una capa no cambia porque algo esté restringido: el dueño de un área lo es también de lo restringido dentro de ella.
+
+### Quién teclea, y por dónde entra lo de fuera
+
+Responder por un archivo y escribirlo son dos cosas distintas. **Lo que hay en una carpeta de trabajo lo escribe la IA en sesión**: `guia.md`, `base/`, los `area.md` y los `proyecto.md`, los registros y los entregables. Las personas deciden qué dice cada archivo y lo piden; la IA es la que teclea. `metodo.md` no es excepción: lo genera un script disparado desde una sesión.
+
+De ahí sale el valor de la carpeta: todo lo que hay dentro entró por el método y alguien respondió por ello. En cuanto entra material que nadie puso a propósito, un almacén que una aplicación escribe sola, un archivo copiado a mano o un índice mantenido aparte, la carpeta deja de ser fiable y la IA lee ruido como si fuera contexto.
+
+**La única puerta para el material que llega de fuera es `fuentes/`**, la del proyecto al que pertenece. De fuera es lo que no produjo el equipo del proyecto: un export, un PDF de un tercero, una transcripción, un documento que mandó un cliente. Entra a `fuentes/`, no se edita, y lo que se construya con él se escribe aparte y lo cita.
+
+Los formatos que la IA no puede teclear, una presentación o una hoja de cálculo, son la excepción a quién escribe y no a por dónde se entra: los arma el equipo del proyecto con su herramienta y son producto suyo; si vinieron de fuera entran por `fuentes/` como cualquier otro material. La sección 3 lo detalla.
+
+Ninguna carpeta de trabajo aloja el almacén de datos de una aplicación. Lo escribe la aplicación sola, crece por su cuenta y nadie responde por lo que hay dentro.
+
+La migración es la excepción declarada. El material que se adopta al migrar no llega de fuera: es el trabajo anterior de la propia organización, y entra donde le toque con `estado: en-revision` y con la trazabilidad que se pueda reconstruir. Lo que en el origen ya era material de entrada entra por `fuentes/` como en cualquier proyecto. Lo detalla la skill `migrar`.
+
+Es norma, no candado. Nada impide abrir un archivo y editarlo a mano, y a veces hay que hacerlo; detectar lo que entró por otro camino es trabajo de la skill `revisar`. La propiedad no cambia: quien responde por un archivo sigue siendo su dueño, lo que cambia es la mano que escribe.
 
 La raíz es la carpeta que contiene `guia.md`, `metodo.md` y `base/`. Ninguna instrucción del método usa rutas absolutas, porque cada usuario tiene la carpeta sincronizada en un sitio distinto.
 
@@ -33,7 +49,7 @@ En la raíz de la organización entra solo lo que su equipo necesita para operar
 
 - Lectura de toda la raíz para todo el equipo, salvo lo restringido.
 - Escritura en la carpeta de un área solo para su dueño y las personas que él designe.
-- `base/` la escribe únicamente el responsable de contexto.
+- Escritura en `guia.md` y en `base/` solo para el responsable de contexto. La IA escribe los dos, y solo puede hacerlo en la sesión de esa persona; desde la sesión de otra área prepara el texto y se lo pasa.
 - Administrar la carpeta compartida es del dueño de la organización, o de una persona de su total confianza, y de nadie más. Quien administra puede quitar cualquier restricción, así que todo lo que sigue se apoya en esa lista.
 
 ### Lo restringido
@@ -124,7 +140,7 @@ Fija, porque varias skills leen y escriben en ella:
 [Dos o tres líneas]
 
 ## Prioridades ahora
-[Tres a cinco líneas. Las reescribe el dueño, o el cierre de sesión a petición suya]
+[Tres a cinco líneas. Las pide el dueño, las escriben las skills]
 
 ## Proyectos
 - `nombre-del-proyecto/` — qué es
@@ -154,7 +170,7 @@ Los tres archivos de la raíz del proyecto y las dos carpetas existen siempre, a
 
 No hay carpeta de borradores. Un entregable a medias vive en `entregables/` con `estado: borrador`, y lo que todavía no es nada vive en la conversación hasta que merezca ser un archivo.
 
-No hay carpeta aparte para binarios. Una presentación hecha directo en PowerPoint o Keynote, una hoja de cálculo hecha en Excel o Numbers, un PDF que nadie generó desde texto: si es el producto del proyecto, va a `entregables/` con nombre en minúsculas y guiones, igual que cualquier otro entregable; si es material de entrada, a `fuentes/`. No lleva cabecera propia porque el formato no la admite; su estado y de qué se construyó se anotan en `proyecto.md` o en la entrada de `decisiones.md` que lo produjo. El lugar donde vive la raíz de la organización (Drive, iCloud) ya previsualiza estos formatos, así que no hace falta sacarlos de la estructura para poder verlos.
+No hay carpeta aparte para binarios. Una presentación hecha directo en PowerPoint o Keynote, una hoja de cálculo hecha en Excel o Numbers, un PDF que nadie generó desde texto: lo que decide dónde va es quién lo produjo. Si lo hizo el equipo del proyecto, con las manos que sea, es producto suyo y va a `entregables/` con nombre en minúsculas y guiones, igual que cualquier otro entregable. Si vino de fuera, entra por `fuentes/` aunque el proyecto lo vaya a usar tal cual, y entonces el entregable es el documento que lo cita, no el archivo de fuera. No lleva cabecera propia porque el formato no la admite; su estado y de qué se construyó se anotan en `proyecto.md` o en la entrada de `decisiones.md` que lo produjo. El lugar donde vive la raíz de la organización (Drive, iCloud) ya previsualiza estos formatos, así que no hace falta sacarlos de la estructura para poder verlos.
 
 ### Estructura de `proyecto.md`
 
@@ -307,7 +323,9 @@ Cuando un registro pasa de unas 1.500 líneas o cambia el año, se archiva con e
 
 - Una carpeta `metodo/` dentro de la raíz. El método vive en el plugin y en `metodo.md`
 - `AGENTS.md` ni ningún archivo de instrucciones para la IA dentro de la raíz. Las instrucciones son las skills y el texto para Cowork de `guia.md`
-- Índices mantenidos a mano. El único índice es el bloque `Proyectos` de cada `area.md`, y lo escriben las skills
+- Índices, inventarios o resúmenes mantenidos a mano o por otra herramienta. El único índice es el bloque `Proyectos` de cada `area.md`, y lo escriben las skills
+- El almacén de datos de una aplicación dentro de la raíz. Lo escribe la aplicación sola y nadie responde por lo que hay dentro
+- Material que llegó de fuera guardado en cualquier sitio que no sea `fuentes/`
 - Una clave de dueño en la cabecera. El dueño está en `area.md` y `proyecto.md`
 - Una carpeta compartida aparte para lo restringido, ni espejos de la raíz. Se restringe donde está
 - Una carpeta restringida sin dueño en `area.md` o en `proyecto.md`. Restringir no cambia de quién es

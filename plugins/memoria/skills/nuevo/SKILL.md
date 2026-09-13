@@ -51,11 +51,18 @@ aquí, en archivos de texto, y la IA lee esta carpeta antes de ayudar a cualquie
 Las reglas completas están en `metodo.md`. No hace falta leerlas para empezar: las aplica
 el plugin `memoria` cuando trabajas con Claude.
 
-## Cómo se organiza y quién escribe dónde
-`base/` es quién somos y qué usamos. Lo escribe solo [responsable de contexto].
+## Cómo se organiza y de quién es cada cosa
+`guia.md` y `base/` son quiénes somos y qué usamos, y responde por los dos [responsable de contexto].
 Cada carpeta de área es de su dueño; nadie más escribe en ella. Dentro, cada proyecto
 tiene su carpeta con `proyecto.md`, `decisiones.md`, `sesiones.md`, `entregables/` y `fuentes/`.
 Casi toda la carpeta la lee todo el equipo. Lo que no, está marcado y se ve en gris.
+
+## Quién escribe y por dónde entra lo de fuera
+Los archivos los teclea la IA en sesión: tú decides qué dicen y se lo pides. Responder por
+un archivo y escribirlo son cosas distintas, y lo que cambia es la mano, no de quién es.
+Lo que llega de fuera —un export, un PDF, algo que mandó un cliente, una presentación
+terminada— entra siempre por la carpeta `fuentes/` del proyecto al que pertenece, y por
+ningún otro sitio. Ninguna aplicación escribe dentro de esta carpeta por su cuenta.
 
 ## Lo restringido
 Lo que no puede leer todo el equipo se queda donde está, en su carpeta, con el acceso
@@ -83,7 +90,7 @@ Un archivo suelto en la raíz o en la carpeta de un área se coloca o se quita; 
 
 ## Versión del método
 La primera línea de `metodo.md` dice la versión. Si al abrir sesión la IA avisa de que la
-carpeta se quedó atrás, [responsable de contexto] vuelve a copiar `metodo.md` desde el plugin.
+carpeta se quedó atrás, [responsable de contexto] lo pone al día desde el plugin en una sesión suya.
 
 ## Cómo conectarla a un proyecto de Cowork
 Una vez, cada quien, y son cinco minutos.
@@ -124,7 +131,7 @@ la IA te lo preguntará antes de escribir nada.
 
 **5. Compruébalo.** Escribe «abre sesión en [un proyecto de tu área]». Tiene que ponerte
 al día del proyecto y proponerte en qué trabajar. Si avisa de que la carpeta se quedó
-atrás de versión, dile al responsable de contexto que vuelva a copiar `metodo.md`.
+atrás de versión, dile al responsable de contexto que lo ponga al día desde el plugin.
 
 ## Si usas otro modelo
 Gemini u otro modelo sin el plugin: pídele que lea `metodo.md` al empezar. Contiene las
@@ -177,7 +184,7 @@ No se crea `base/plantillas/`: las plantillas viven en el plugin, junto a esta s
 
 ## Qué respondo al terminar
 
-Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `base/` al responsable de contexto, y administrar la carpeta solo el dueño de la organización o una persona de su total confianza), y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
+Tres o cuatro líneas: qué se creó, quién es el responsable de contexto, y los siguientes pasos: permisos en Drive (lectura de la raíz a todo el equipo, escritura en `guia.md` y `base/` al responsable de contexto, y administrar la carpeta solo el dueño de la organización o una persona de su total confianza), y rellenar `contexto.md` en una primera sesión con el responsable. Si había documentos de otra estructura, se recuerda que el siguiente paso es `migrar`.
 
 Si quien monta la raíz mantiene el método para otros, se recuerda además abrir en su propia raíz un proyecto con el nombre de esta organización: ahí va el registro de la relación —qué se entregó, cuándo y con qué versión— y, si hubo migración, su reporte. Del contenido del trabajo de la organización no entra nada.
 
@@ -286,6 +293,7 @@ El nombre de la carpeta creada y el primer siguiente paso. Dos líneas.
 - Crear un área sin decir antes que es una decisión organizativa
 - Montar la raíz encima de una carpeta con documentos sin avisar de que después toca `migrar`
 - Editar `metodo.md` al copiarlo
+- Montar la raíz en una carpeta donde una aplicación escribe sola, o dejar dentro el almacén de datos de una aplicación
 - Crear `base/plantillas/` o `base/ajustes.md` sin que la organización lo pida, una carpeta `metodo/`, un `AGENTS.md`, un índice a mano o una carpeta de borradores
 - Rellenar `contexto.md` con lo que parece razonable para una organización de ese tipo
 - Crear un cuarto nivel de carpeta, entregables vacíos "para ir rellenando" o `fuentes/enlaces.md` sin filas
