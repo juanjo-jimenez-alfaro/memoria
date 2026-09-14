@@ -37,7 +37,7 @@ Tres comprobaciones, resueltas con el usuario en dos o tres líneas, no con un i
 
 **¿De dónde sale cada cosa?** Toda afirmación no obvia tiene que poder rastrearse a un archivo de `basado_en`. Si algo importante viene solo de la conversación de hoy, se guarda primero en `fuentes/` como nota y luego se cita. Lo que solo existe en el chat se pierde. Toda cifra lleva fecha o fuente en el mismo párrafo.
 
-**¿Hay algo que no todos deban ver?** Si el material que voy a usar trae indicios de información confidencial (nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios), lo digo y propongo dos cosas: llevar ese material a `restringido/fuentes/` del proyecto con su fila en el `enlaces.md` público, y dejar en el entregable solo lo agregado o anonimizado que sí puede leer todo el equipo. El usuario decide si es confidencial. Un entregable es superficie pública: lo que entra en él lo lee toda la organización.
+**¿Hay algo que no todos deban ver?** Si el material que voy a usar trae indicios de información confidencial (la lista está en `convenciones`, sección 1, «Material sensible»), lo digo y propongo dos cosas: llevar ese material a `restringido/fuentes/` del proyecto con su fila en el `enlaces.md` público, y dejar en el entregable solo lo agregado o anonimizado que sí puede leer todo el equipo. El usuario decide si es confidencial. Un entregable es superficie pública: lo que entra en él lo lee toda la organización.
 
 ## Qué escribo y dónde
 

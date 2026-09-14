@@ -37,7 +37,7 @@ Se para en la primera que dé un sí.
 
 No hay otra puerta. Todo lo que llega de fuera entra por `fuentes/`, aunque venga terminado y el proyecto lo vaya a usar tal cual: en ese caso el entregable es el documento que lo cita, no el archivo de fuera. Y no se guarda además una copia en ningún otro sitio de la raíz.
 
-Antes de guardarlo se mira si trae indicios de información confidencial: nombres con RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios, o cualquier cosa que no todos deban ver. Si los trae, lo digo y propongo llevarlo a `restringido/`; el usuario decide si es confidencial o no. Si lo es, el archivo va a **`restringido/fuentes/` del mismo proyecto**, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
+Antes de guardarlo se mira si trae indicios de información confidencial (la lista está en `convenciones`, sección 1, «Material sensible»). Si los trae, lo digo y propongo llevarlo a `restringido/`; el usuario decide si es confidencial o no. Si lo es, el archivo va a **`restringido/fuentes/` del mismo proyecto**, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
 
 Si la fuente ya existe en otro proyecto de la misma área, no se copia: se cita la original por su ruta.
 
