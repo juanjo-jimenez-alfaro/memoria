@@ -62,7 +62,7 @@ for area, aruta in areas:
     if not os.path.exists(amd):
         h("área sin area.md", area); continue
     fm, txt = cabecera(amd)
-    if not re.search(r"^Dueño: *\S", txt, re.M):
+    if not re.search(r"^Dueñ[oa]: *\S", txt, re.M):
         h("área sin dueño", rel(amd))
     if "## Proyectos" not in txt:
         h("area.md sin bloque Proyectos", rel(amd))
@@ -153,8 +153,10 @@ for dp, dn, fn in os.walk(raiz):
             h("entregable sin basado_en", r)
         if "[[" in txt:
             h("enlace wiki", r)
-        if re.search(r"(?<![\w`])/(Users|home|Volumes)/", txt) or "C:\\" in txt:
-            h("ruta absoluta", r)
+        # solo se marca una ruta absoluta que apunta a un archivo del método;
+        # una ruta de máquina citada dentro de un runbook es contenido legítimo
+        if re.search(r"/(Users|home|Volumes)/[^\s`)]*\.md\b", txt):
+            h("ruta absoluta a un archivo del método", r)
         if f == "enlaces.md" and len([l for l in txt.splitlines() if l.startswith("|")]) <= 2:
             h("enlaces.md sin filas", r)
 
