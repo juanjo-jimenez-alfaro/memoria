@@ -5,7 +5,7 @@ description: Crea o actualiza un entregable de un proyecto. Usala cuando pidan '
 
 # Entregable
 
-Crear o actualizar un entregable. Reglas de estructura, cabecera y nombres: la skill `convenciones`. Estilo de redacción: la skill `estilo`, sin excepciones, porque un entregable sale del proyecto.
+Crear o actualizar un entregable. Antes de nada se cargan `convenciones`, cuyas 19 prohibiciones aplican a todo lo que sigue, y `estilo`, sin excepciones, porque un entregable sale del proyecto.
 
 ## Cuándo
 
@@ -15,13 +15,15 @@ Crear o actualizar un entregable. Reglas de estructura, cabecera y nombres: la s
 
 ## Qué leo antes de escribir nada
 
-1. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md` si existe, para el vocabulario de la casa y las reglas propias de la organización
-2. `<area>/area.md`, su bloque `Proyectos`, para saber qué entregables vigentes hay ya en el área
-3. `<area>/<proyecto>/proyecto.md`
-4. `decisiones.md` **completo**, no solo las últimas. Un entregable que contradice una decisión de hace ocho meses es peor que no tenerlo
-5. Las cabeceras de los demás entregables del proyecto
-6. La plantilla del tipo de documento: `brief.md`, `comparativo.md`, `reporte-de-decision.md` o `handoff.md`. Si la organización tiene la suya en `base/plantillas/`, esa; si no, la del plugin, que está en `plantillas/` dentro de la skill `nuevo`
-7. `base/sistemas.md`, si el documento toca un sistema
+Por los niveles de la sección 12 de `convenciones`. Escribir un entregable es de los pocos trabajos que justifican bajar a casi todo:
+
+1. El bloque `Proyectos` de `<area>/area.md`, para saber qué entregables vigentes hay ya en el área
+2. `<area>/<proyecto>/proyecto.md`
+3. `decisiones.md` **completo**, no solo las últimas. Un entregable que contradice una decisión de hace ocho meses es peor que no tenerlo
+4. Las cabeceras de los demás entregables del proyecto
+5. `base/contexto.md`, porque el documento sale del proyecto y hay criterios transversales que aplican sin que nadie los diga
+6. `base/glosario.md`, si el documento usa siglas o nombres internos; `base/sistemas.md`, si toca un sistema
+7. La plantilla, si el documento es un brief o un comparativo: están en `plantillas/` dentro de la skill `nuevo`
 8. Las fuentes concretas que apliquen, de `fuentes/`
 9. Si el entregable ya existe, el entregable entero
 
@@ -51,7 +53,7 @@ La lista vacía `[]` solo se admite para material adoptado, que ya existía ante
 
 Un entregable a medias vive en `entregables/` con `estado: borrador`, no en otra carpeta. El estado es lo que avisa a los demás de que todavía no se puede consumir.
 
-**Cuerpo**: título en `#` inmediatamente después de la cabecera. Estructura según la plantilla del tipo de documento; si el documento no encaja en ninguno de los cuatro tipos, la que pida el contenido, con la conclusión primero.
+**Cuerpo**: título en `#` inmediatamente después de la cabecera. Si el documento es un brief o un comparativo, su plantilla; si no, la estructura que pida el contenido, siempre con la conclusión primero.
 
 **Al actualizar**: se reescribe en su sitio, porque un entregable es un archivo vivo. No se acumulan secciones de "actualización de agosto". Se pone la fecha nueva en `actualizado` y se añaden las fuentes nuevas.
 
@@ -71,19 +73,14 @@ Si al escribirlo aparecieron decisiones que nadie había tomado, se listan al us
 
 ## Lo que nunca hago
 
-- Marcar un entregable como `vigente`. Eso lo pide el dueño del proyecto de forma explícita
+Además de las 19 prohibiciones de `convenciones`:
+
 - Escribir una afirmación que no sale de una fuente citable
-- Guardar en `entregables/` un archivo que llegó de fuera del equipo del proyecto. Va a `fuentes/`
 - Dejar `basado_en` vacía en un entregable que escribí yo
 - Citar en `basado_en` un `sesiones.md`, una fuente de otra área o un archivo de `restringido/`
-- Escribir en un entregable que lee todo el equipo algo que leí en una carpeta restringida, aunque sea resumido
-- Copiar una fuente de otro proyecto a este `fuentes/` en vez de citar la original
-- Meter en un entregable datos que parecen confidenciales sin haberlo dicho antes
 - Construir sobre un entregable que no esté `vigente`, sin avisar de que no lo está
 - Crear un entregable nuevo cuando ya hay uno vigente sobre el mismo tema
-- Borrar un entregable superado
-- Escribir una cifra sin fecha ni fuente
-- Rellenar huecos con supuestos razonables. Un hueco se marca como hueco
+- Meter en un entregable datos que parecen confidenciales sin haberlo dicho antes
 
 ## Ejemplo completo
 

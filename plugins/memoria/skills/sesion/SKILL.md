@@ -5,7 +5,7 @@ description: Abre y cierra sesiones de trabajo sobre un proyecto. Usala cuando d
 
 # Sesión
 
-Abrir y cerrar una sesión de trabajo sobre un proyecto. Reglas de estructura, cabecera, formato de registros y nombres: la skill `convenciones`.
+Abrir y cerrar una sesión de trabajo sobre un proyecto. Antes de nada se carga la skill `convenciones`: su sección 12 fija qué se lee y en qué orden, y sus 19 prohibiciones aplican a todo lo que sigue.
 
 ## Cuándo
 
@@ -23,19 +23,26 @@ Abrir es solo lectura. No se escribe ningún archivo al abrir.
 
 ## Qué leo antes de responder
 
-Por el camino de lectura de `convenciones`, en este orden:
+Por los niveles de la sección 12 de `convenciones`. Al abrir no se lee `base/`.
 
-1. `metodo.md`, solo su primera línea, para la versión del método de la raíz
-2. `guia.md`, para confirmar el área y quién responde por ella
-3. `base/contexto.md`, `base/glosario.md` y `base/ajustes.md` si existe
-4. `<area>/area.md`, con su bloque `Proyectos`
-5. `<area>/<proyecto>/proyecto.md`
-6. `decisiones.md` del proyecto, las 5 entradas más recientes
-7. `sesiones.md`, las 3 entradas más recientes
-8. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado
-9. Las líneas `Afecta a:` de todos los `decisiones.md` de la raíz, buscando `area/proyecto` del proyecto activo. Solo esas líneas y el encabezado de su entrada, nada más del archivo. Las carpetas restringidas a las que no tengo acceso fallan al leerse y se saltan sin más. Un aviso que salga de una carpeta restringida solo se da si el proyecto activo está dentro de ella
+**Nivel 0**, siempre:
 
-No leo `fuentes/` al abrir. Se lee cuando el trabajo del día lo pida. `base/sistemas.md` se lee si el trabajo toca un sistema.
+1. La primera línea de `metodo.md`, para la versión de la raíz
+2. `guia.md` entero, para el mapa de áreas, quién responde por cada una y las reglas propias de la casa
+3. El bloque `Proyectos` de `<area>/area.md`
+
+**Nivel 1**, del proyecto ya identificado:
+
+4. `<area>/<proyecto>/proyecto.md`
+5. `decisiones.md` del proyecto, las 5 entradas más recientes
+6. `sesiones.md`, las 3 entradas más recientes
+7. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado
+
+**El barrido de avisos**, que es lo único que recorre la raíz entera:
+
+8. Las líneas `Afecta a:` de todos los `decisiones.md` de la raíz, buscando `area/proyecto` del proyecto activo. Es una búsqueda de un patrón de línea, no una lectura: solo se abre el encabezado de la entrada que dé positivo. Las carpetas restringidas a las que no tengo acceso fallan al leerse y se saltan sin más. Un aviso que salga de una carpeta restringida solo se da si el proyecto activo está dentro de ella
+
+No leo `fuentes/`, ni `base/contexto.md`, ni `base/glosario.md`, ni `base/sistemas.md`, ni el resto de `area.md`. Entran cuando el trabajo del día los pida, por sus disparadores de la sección 12.
 
 ## Qué respondo
 
@@ -47,9 +54,9 @@ Tres bloques, en este orden y sin encabezados largos.
 
 - La versión de la primera línea de `metodo.md` es anterior a la del plugin. La raíz se quedó atrás y hay que regenerar `metodo.md`
 - Alguna decisión de otro proyecto de la raíz nombra este proyecto en `Afecta a:`. Se cita la entrada con su fecha, quién decidió y de qué proyecto viene
-- `base/contexto.md` lleva más de 90 días sin actualizarse
+- `base/contexto.md` lleva más de 90 días sin actualizarse, mirando solo su fecha `actualizado`, sin abrirlo
 - Algún entregable tiene en `basado_en` un archivo cuya fecha `actualizado` es posterior a la suya, y por tanto puede estar desfasado
-- Algún entregable lleva más de 30 días en `borrador` o `en-revision`
+- Algún entregable lleva más de 30 días en `borrador`
 
 Si no hay avisos, no se menciona que no los hay.
 
@@ -68,7 +75,7 @@ Si un aviso afecta al foco propuesto, se dice ahí mismo. No se empieza a trabaj
 ```markdown
 ## 2026-08-29
 Trabajamos en: rediseño del flujo de aprobación por monto.
-Avances: mapa del proceso actual terminado y pasado a en-revision.
+Avances: mapa del proceso actual terminado, en borrador esperando a Ana.
 Pendiente: confirmar con Finanzas el tope de 5.000 MXN.
 ```
 
@@ -110,17 +117,12 @@ Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. 
 
 ## Lo que nunca hago
 
-- Escribir algo al abrir sesión
-- Editar una entrada existente de `sesiones.md` o `decisiones.md`, ni para corregir una errata
-- Registrar una decisión que el usuario no confirmó en esta sesión
-- Cambiar el `estado` de un entregable a `vigente`. Eso lo pide el dueño del proyecto de forma explícita
-- Tocar archivos fuera del proyecto activo, salvo la línea de este proyecto en el bloque `Proyectos` de su `area.md`
-- Escribir en `base/`, en `metodo.md` o en la carpeta de otra área
-- Leer `sesiones.md`, `fuentes/` o lo restringido de otra área
-- Mover algo a `restringido/` sin que el usuario lo confirme
-- Escribir en un archivo que lee todo el equipo la ruta o el contenido de algo restringido. Hacia fuera solo van el nombre del área o del proyecto, que ya están listados, y la fila de `enlaces.md`
+Además de las 19 prohibiciones de `convenciones`:
+
+- Escribir algo al abrir sesión. Abrir es solo lectura
+- Leer al abrir más de lo que dice el nivel 0 y el nivel 1
 - Dar como aviso a alguien una decisión que leí en una carpeta restringida a la que su proyecto no pertenece
-- Rellenar un pendiente con una suposición. Si no sé si algo quedó cerrado, pregunto
+- Dar por cerrado un pendiente sin preguntar. Si no sé si algo quedó resuelto, lo pregunto
 
 ---
 
@@ -132,7 +134,7 @@ Dos o tres líneas: qué archivos se escribieron y qué queda para la próxima. 
 
 > El proyecto busca quitar aprobaciones manuales en compras de bajo monto. La última sesión, el 14 de agosto, terminaste las entrevistas con Ana y con el equipo de Finanzas y quedó pendiente decidir el criterio de corte.
 >
-> Tres avisos. Finanzas registró el 20 de agosto en `finanzas/cierre-mensual/decisiones.md` que el cierre pasa al día 3, y marcó este proyecto como afectado: decidió Luis Romero. `base/contexto.md` no se toca desde hace 104 días. Y `entregables/mapa-proceso.md` está en `en-revision` desde hace 41 días esperando a Ana.
+> Tres avisos. Finanzas registró el 20 de agosto en `finanzas/cierre-mensual/decisiones.md` que el cierre pasa al día 3, y marcó este proyecto como afectado: decidió Luis Romero. `base/contexto.md` no se toca desde hace 104 días. Y `entregables/mapa-proceso.md` lleva 41 días en borrador esperando a Ana.
 >
 > Tres focos posibles para hoy:
 >

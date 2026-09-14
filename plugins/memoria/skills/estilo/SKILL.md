@@ -11,7 +11,7 @@ Estilo de todo lo que se escribe, firma o comparte en esta estructura:
 
 Se escribe para alguien con poco tiempo y muchas interrupciones. Tiene que poder leer en diagonal, quedarse con lo que decide y no perderse nada esencial por haberlo hecho así.
 
-Este archivo es la fuente canónica del estilo. Si una plantilla, la del plugin o una de `base/plantillas/`, lo contradice, manda este archivo.
+Este archivo es la fuente canónica del estilo. Si una plantilla del plugin lo contradice, manda este archivo.
 
 ## Cuándo se aplica
 

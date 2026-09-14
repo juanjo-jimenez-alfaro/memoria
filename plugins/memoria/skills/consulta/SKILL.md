@@ -5,7 +5,7 @@ description: Responde preguntas sobre lo que la organizacion ya sabe, leyendo so
 
 # Consulta
 
-Responder una pregunta con lo que ya está escrito en la raíz, diciendo de dónde sale cada cosa. Es la skill que usa alguien de otra área, un programador antes de tocar código, o cualquiera que quiera saber si algo ya existe antes de empezarlo. Reglas de lectura y de qué es público: la skill `convenciones`.
+Responder una pregunta con lo que ya está escrito en la raíz, diciendo de dónde sale cada cosa. Es la skill que usa alguien de otra área, un programador antes de tocar código, o cualquiera que quiera saber si algo ya existe antes de empezarlo. Antes de nada se carga la skill `convenciones`: su sección 12 fija qué se lee y en qué orden, su sección 7 qué es público, y sus 19 prohibiciones aplican a todo lo que sigue.
 
 ## Cuándo
 
@@ -17,16 +17,16 @@ No es abrir sesión. Si la pregunta es sobre el proyecto en el que el usuario va
 
 ## Qué leo antes de responder
 
-Por el camino de lectura de `convenciones`, y me paro en el primer nivel que responde:
+Por los niveles de la sección 12 de `convenciones`, parándome en el primero que responde:
 
-1. `guia.md`: qué áreas hay y quién responde por cada una
-2. `base/glosario.md`, para entender los términos de la pregunta; `base/contexto.md` si la pregunta es sobre la organización; `base/ajustes.md`, si existe
-3. `area.md` de las áreas pertinentes, su bloque `Proyectos`. Casi siempre esto ya dice si existe algo y dónde
-4. Solo si hace falta, del proyecto que toque: `proyecto.md`, `decisiones.md` completo y las cabeceras de `entregables/`
-5. El cuerpo de un entregable `vigente`, solo si la pregunta pide el contenido y no basta con saber que existe
-6. `base/sistemas.md`, si la pregunta es sobre un sistema
+1. `guia.md`: qué áreas hay, quién responde por cada una y las reglas propias de la casa
+2. El bloque `Proyectos` del `area.md` de las áreas pertinentes. Casi siempre esto ya dice si existe algo y dónde
+3. Solo si hace falta, del proyecto que toque: `proyecto.md`, `decisiones.md` completo y las cabeceras de `entregables/`
+4. El cuerpo de un entregable `vigente`, solo si la pregunta pide el contenido y no basta con saber que existe
 
-Un entregable en `borrador` o `en-revision` se menciona si existe, con su estado, pero no se cita su contenido como si fuera verdad de la organización.
+De `base/` no leo nada por defecto. `glosario.md` entra si la pregunta trae una sigla o un nombre interno que no entiendo; `contexto.md`, si la pregunta es sobre la organización; `sistemas.md`, si es sobre un sistema.
+
+Un entregable en `borrador` se menciona si existe, con su estado, pero no se cita su contenido como si fuera verdad de la organización.
 
 Si `guia.md` dice que un área está restringida, hay dos casos. Si tengo acceso, se lee igual que cualquier otra: su superficie pública son sus entregables vigentes y sus decisiones. Si no lo tengo, la lectura falla y ahí se para: se dice que el área existe, que su trabajo no es visible desde aquí y quién es su dueño, y la respuesta se da con lo que sí se puede leer. Lo mismo vale para un proyecto restringido dentro de un área que sí leo, y para `restringido/` dentro de un proyecto.
 
@@ -48,11 +48,12 @@ Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre
 
 ## Lo que nunca hago
 
+Además de las 19 prohibiciones de `convenciones`:
+
 - Escribir o modificar ningún archivo. Consultar es solo lectura
-- Leer `sesiones.md`, `fuentes/` ni lo restringido de otra área. Son taller privado y no responden a nadie de fuera
 - Contar a alguien lo que leí en una carpeta restringida a la que esa persona no tiene acceso, aunque lo resuma o lo diga con otras palabras
 - Deducir lo que hay en un área restringida por los nombres de sus carpetas, o dar por hecho que no hay nada solo porque no puedo abrirla
-- Leer todo. Si `area.md` ya responde, no abro el proyecto; si `proyecto.md` responde, no abro los entregables
+- Leer más de lo que hace falta. Si `guia.md` ya responde, no abro el área; si el bloque `Proyectos` responde, no abro el proyecto
 - Citar el contenido de un entregable que no esté `vigente` como si lo estuviera
 - Responder desde la memoria de la conversación en vez de desde los archivos
 - Dar una respuesta sin la ruta de donde salió
@@ -70,7 +71,7 @@ Si la pregunta es sobre quién lleva algo, la respuesta es la persona con nombre
 >
 > El flujo completo, con los estados que espera el ERP, está en `compras/automatizacion-ordenes/entregables/flujo-aprobacion.md`, vigente desde el 30 de agosto. Es lo que tendrías que citar en tu `decisiones.md` cuando ancles la lógica del conector.
 >
-> Hay además un `mapa-proceso-actual.md` en el mismo proyecto, pero está en revisión: no lo uses como base todavía.
+> Hay además un `mapa-proceso-actual.md` en el mismo proyecto, pero está en borrador: no lo uses como base todavía.
 
 ---
 

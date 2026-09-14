@@ -1,11 +1,11 @@
 ---
 name: revisar
-description: Revisa un entregable, detecta lo que quedo desfasado y publica de en-revision a vigente. Usala con 'revisa X', 'esto esta listo?', 'que esta desactualizado?', 'pasalo a vigente' o 'ya lo aprobo...'.
+description: Revisa un entregable, detecta lo que quedo desfasado y lo publica de borrador a vigente. Usala con 'revisa X', 'esto esta listo?', 'que esta desactualizado?', 'pasalo a vigente' o 'ya lo aprobo...'.
 ---
 
 # Revisar
 
-Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar lo que quedó desfasado y publicar. Reglas de estructura y estados: la skill `convenciones`.
+Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar lo que quedó desfasado y publicar. Antes de nada se carga la skill `convenciones`: sus secciones 5 y 7 fijan estados y superficie pública, y sus 19 prohibiciones aplican a todo lo que sigue.
 
 ## Cuándo
 
@@ -25,7 +25,7 @@ Tres trabajos distintos sobre el mismo material: revisar un entregable, detectar
 2. `decisiones.md` completo del proyecto
 3. Cada archivo listado en `basado_en`, con su fecha `actualizado`
 4. La skill `estilo`
-5. La plantilla que siga el documento: la de `base/plantillas/` si la organización tiene la suya, si no la del plugin, en `plantillas/` dentro de la skill `nuevo`
+5. Si el documento sigue el brief o el comparativo, esa plantilla, que está en `plantillas/` dentro de la skill `nuevo`
 
 ## Las cinco comprobaciones
 
@@ -62,10 +62,10 @@ Se devuelve una tabla ordenada por lo que más gente consume:
 | Entregable | Estado | Días sin tocar | Problema |
 |---|---|---|---|
 | compras/…/flujo-aprobacion.md | vigente | 12 | `decisiones.md` cambió después |
-| compras/…/mapa-proceso.md | en-revision | 41 | Parado esperando al dueño |
+| compras/…/mapa-proceso.md | borrador | 41 | Parado esperando al dueño |
 | compras/…/modelo-datos.md | vigente | 8 | `basado_en` vacía |
 
-Cuatro cosas se marcan siempre: entregables `vigente` con una fuente más reciente que ellos, entregables con más de 30 días en `borrador` o `en-revision`, entregables `vigente` que citan un archivo `reemplazado`, y entregables `vigente` con `basado_en` vacía.
+Cuatro cosas se marcan siempre: entregables `vigente` con una fuente más reciente que ellos, entregables con más de 30 días en `borrador`, entregables `vigente` que citan un archivo `reemplazado`, y entregables `vigente` con `basado_en` vacía.
 
 No se toca ningún archivo durante un barrido.
 
@@ -74,7 +74,7 @@ No se toca ningún archivo durante un barrido.
 En el mismo barrido, tres comprobaciones más sobre cada proyecto. Son de listado de carpeta: se mira qué archivos hay, no qué dicen.
 
 1. **Archivos en `entregables/` sin cabecera** que no estén anotados en `proyecto.md` ni en una entrada de `decisiones.md`. Un binario que produjo el equipo consta en uno de los dos; si no consta en ninguno, o llegó de fuera o nadie respondió por él.
-2. **Carpetas que la estructura no contempla** dentro del proyecto: cualquiera que no sea `entregables/`, `fuentes/` o `restringido/`.
+2. **Carpetas que la estructura no contempla** dentro del proyecto: cualquiera que no sea `entregables/`, `fuentes/` o `restringido/`. Un nivel de agrupación dentro de `entregables/` o de `fuentes/` está permitido y no se reporta.
 3. **Archivos sueltos en la raíz del proyecto**, más allá de `proyecto.md`, `decisiones.md` y `sesiones.md`.
 
 Cada hallazgo se reporta con su ruta y un destino propuesto, casi siempre `fuentes/`. Ninguno bloquea una publicación y ninguno se mueve sin que el usuario lo confirme: la regla es norma y no candado, y hay motivos legítimos para que algo esté fuera de sitio un rato.
@@ -85,14 +85,14 @@ El almacén de datos de una aplicación apuntado a la raíz se dice aparte, en l
 
 # Publicar
 
-Pasar de `en-revision` a `vigente`. Es el único momento en que un documento se vuelve consumible por otras áreas, así que tiene requisitos.
+Pasar de `borrador` a `vigente`. Es el único momento en que un documento se vuelve consumible por otras áreas, así que tiene requisitos.
 
 ## Requisitos
 
 1. La revisión se pasó y no quedan hallazgos bloqueantes
 2. No hay huecos abiertos, o el dueño del proyecto los acepta de forma explícita y quedan escritos en el documento
-3. `basado_en` no está vacía. Si el documento es material adoptado y no hay forma de reconstruir sus fuentes, el dueño del proyecto acepta el hueco de forma explícita y queda escrito en el documento, en una línea bajo el título: de dónde viene y por qué no hay trazabilidad
-4. **El dueño del proyecto lo pide en esta conversación.** Es quien figura en `Quién participa` de `proyecto.md`. No basta con que el trabajo esté acabado
+3. `basado_en` no está vacía. Si el documento es material adoptado y no hay forma de reconstruir sus fuentes, el dueño del proyecto acepta el hueco de forma explícita y queda escrito en el documento, en una línea bajo el título: de quién venía el material, con qué fecha y por qué no hay trazabilidad. Esa línea no nombra rutas ni carpetas del sistema del que se migró
+4. **Lo pide el dueño del proyecto, y se comprueba.** El dueño es quien figura en `Quién participa` de `proyecto.md`, y su cuenta está junto a su nombre en `guia.md`. Se contrasta contra la cuenta desde la que se abrió esta sesión. Si no coinciden, no se publica, y se dice quién tiene que pedirlo. Si la identidad de la cuenta no está disponible, se pregunta quién lo pide y se anota en `sesiones.md` de quién vino la petición
 
 Si falta cualquiera de los cuatro, se dice cuál falta y no se publica.
 
@@ -113,7 +113,9 @@ Se avisa de quién consume este entregable, según el campo `Consumen esto` de `
 
 ## Lo que nunca hago
 
-- Publicar sin que el dueño del proyecto lo pida de forma explícita
+Además de las 19 prohibiciones de `convenciones`:
+
+- Publicar sin comprobar que quien lo pide es el dueño del proyecto
 - Publicar con `basado_en` vacía sin que el dueño acepte el hueco y quede escrito
 - Reescribir un entregable durante una revisión sin aprobación previa
 - Tratar un hallazgo de estilo como bloqueante
@@ -121,7 +123,6 @@ Se avisa de quién consume este entregable, según el campo `Consumen esto` de `
 - Leer el cuerpo de los entregables durante un barrido
 - Revisar y modificar entregables de otra área. Se propone al dueño y ahí termina
 - Cerrar un hueco eligiendo la fuente que parece más fiable
-- Mover a `fuentes/` un archivo detectado en el barrido sin que el usuario lo confirme
 - Tratar como hallazgo bloqueante algo que apareció en el listado de carpeta. Se dice, no se detiene nada
 
 ## Ejemplo completo
@@ -147,4 +148,4 @@ Se avisa de quién consume este entregable, según el campo `Consumen esto` de `
 
 **Respuesta:**
 
-> No lo publico todavía. Ana es la dueña del proyecto según `proyecto.md` y tiene que pedirlo ella en esta conversación, y además sigue abierto el hueco de quién aprueba entre 5.000 y 20.000 MXN. Si Ana acepta publicarlo con el hueco, lo dejo escrito en el documento y entonces sí pasa a vigente.
+> No lo publico. La dueña del proyecto es Ana Pérez según `proyecto.md`, y esta sesión está abierta desde tu cuenta, que en `guia.md` es la de Luis Romero. Tiene que pedirlo ella. Además sigue abierto el hueco de quién aprueba entre 5.000 y 20.000 MXN: si Ana acepta publicarlo con el hueco, lo dejo escrito en el documento y entonces sí pasa a vigente.

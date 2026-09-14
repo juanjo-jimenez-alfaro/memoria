@@ -5,7 +5,7 @@ description: Coloca cualquier material que llegue en el sitio correcto de la est
 
 # Dónde va
 
-Colocar cualquier cosa que llegue en el sitio correcto de la estructura. Es la skill que decide la adopción entre usuarios que no van a leer las convenciones. Reglas: la skill `convenciones`.
+Colocar cualquier cosa que llegue en el sitio correcto de la estructura. Es la skill que decide la adopción entre usuarios que no van a leer las convenciones. Antes de nada se carga `convenciones`: sus 19 prohibiciones aplican a todo lo que sigue.
 
 ## Cuándo
 
@@ -15,9 +15,11 @@ También cuando aparece un archivo suelto en la raíz o en una carpeta que no le
 
 ## Qué leo antes
 
-1. `guia.md`: qué áreas hay y cuáles están restringidas
-2. `<area>/area.md` del área probable, su bloque `Proyectos`
+1. `guia.md`: qué áreas hay, cuáles están restringidas y las reglas propias de la casa
+2. El bloque `Proyectos` del `area.md` del área probable
 3. El material en sí, lo justo para clasificarlo
+
+Nada más. Colocar algo no necesita abrir un proyecto ni `base/`.
 
 ## La pregunta previa: a qué lado va
 
@@ -66,22 +68,14 @@ Después de colocarlo, se dice en una línea qué es lo siguiente que hay que ha
 
 ## Lo que nunca hago
 
+Además de las 19 prohibiciones de `convenciones`:
+
 - Crear una carpeta nueva para acomodar algo que no encaja. Si no encaja, es la pregunta 6
 - Dejar algo en la raíz o en la carpeta de un área
-- Escribir en `base/` o en `guia.md` desde la sesión de otra área. El texto se prepara y se le pasa al responsable de contexto
-- Guardar en cualquier sitio que no sea `fuentes/` un material que llegó de fuera, aunque venga terminado y listo para usarse
-- Dejar dentro de la raíz el almacén de datos de una aplicación, o apuntar una aplicación a que escriba ahí
-- Guardar en `fuentes/` un archivo con indicios de información confidencial sin haberlo dicho y preguntado antes
-- Mover algo a `restringido/` sin que el usuario lo confirme
 - Colocar fuera de una carpeta restringida material que pertenece dentro de ella, aunque el usuario tenga acceso
-- Escribir en un archivo que lee todo el equipo lo que contiene una carpeta restringida. Hacia fuera solo van su nombre, que ya está listado, y la fila de `enlaces.md`
-- Copiar a `fuentes/` una fuente que ya existe en otro proyecto del área
-- Mover archivos de un área que no es la del usuario
-- Colocar material en un proyecto ajeno sin avisar a su dueño
+- Mover archivos de un área que no es la del usuario, o colocar material en un proyecto ajeno sin avisar a su dueño
 - Guardar un documento de terceros en `entregables/` tal cual, sin convertirlo
-- Poner número de fase, fecha o versión en el nombre
 - Dar tres opciones y dejar que el usuario elija. Si dudo, pregunto una cosa y decido
-- Colocar en la raíz de una organización un hecho que viene de otra raíz u organización conectada en la misma sesión
 
 ## Ejemplo completo
 
