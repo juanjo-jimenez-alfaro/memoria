@@ -7,7 +7,7 @@ description: Contrato base del metodo de trabajo: estructura de carpetas, cabece
 
 Contrato base del método. El resto de skills del plugin lo cargan antes de escribir nada y no repiten sus reglas. Si una skill contradice algo de aquí, manda este documento.
 
-Versión del método: **1.9**
+Versión del método: **1.10**
 
 ## 1. Las tres capas de propiedad
 
@@ -230,17 +230,11 @@ Lo que cambia es el índice. En el bloque `Proyectos` de su `area.md` **un proye
 
 Un proyecto cerrado no se borra ni se saca de la raíz. Se sigue citando, sus entregables vigentes se siguen consumiendo y su `decisiones.md` sigue explicando por qué las cosas están como están.
 
-### Cuando un proyecto absorbe a otro
+### Los nombres reservados solo existen en su sitio
 
-Pasa cuando varios proyectos dejan de ser trabajos distintos y pasan a ser el mismo: una relación que se consolida, un frente que se pliega dentro de otro. Lo que se absorbe entra como material del proyecto que recibe, no como un proyecto dentro de un proyecto.
+`proyecto.md`, `decisiones.md`, `sesiones.md` y `area.md` solo existen donde el método los pone. Todo lo que se adopte y los traiga se renombra a lo que de verdad es, porque un archivo llamado `proyecto.md` promete estar vivo y un `decisiones.md` promete ser un registro que solo crece y que nadie edita, y fuera de su sitio ninguna de las dos cosas es cierta.
 
-- Su `proyecto.md` entra al `taller/` como un documento más, renombrado. Deja de ser un archivo vivo: nadie lo reescribe y es una foto de su fecha.
-- Su `decisiones.md` y su `sesiones.md` **se funden** con los del proyecto que recibe, o entre sí si se absorben varios a la vez, copiando las entradas tal cual y añadiendo a cada encabezado de qué venía. Ninguna entrada se edita. Lo que no se hace nunca es dejar cinco bitácoras conviviendo dentro de una carpeta: nadie las abre y compiten con el registro vivo.
-- Sus entregables se colocan por la prueba de arriba: los que pueden salir, a `entregables/`; el resto, al `taller/`.
-- Sus fuentes van a `fuentes/`, salvo las que produjo una sesión, que son taller.
-- **Los nombres reservados no sobreviven.** `proyecto.md`, `decisiones.md`, `sesiones.md` y `area.md` solo existen en su sitio. Al adoptarlos se renombran a lo que de verdad son, porque un archivo llamado `proyecto.md` promete estar vivo y un `decisiones.md` promete ser un registro intocable, y ahí dentro ninguna de las dos cosas es cierta.
-
-Lo absorbido conserva su contenido y sus fechas; lo que se pierde es su maquinaria, y esa es la intención.
+El caso que más lo pide es un proyecto que se pliega dentro de otro, cuando dos trabajos dejan de ser distintos y pasan a ser el mismo. Su encuadre entra al `taller/` como un documento más. Sus registros **se funden** con los del proyecto que recibe, o entre sí si se absorben varios a la vez, copiando las entradas tal cual y añadiendo a cada encabezado de qué venían; ninguna se edita. Lo que no se hace nunca es dejar cinco bitácoras conviviendo dentro de una carpeta: nadie las abre y compiten con el registro vivo. El resto de su material se coloca por las reglas de siempre, y lo absorbido conserva su contenido y sus fechas: lo que se pierde es su maquinaria, y esa es la intención.
 
 ### Estructura de `fuentes/enlaces.md`
 
