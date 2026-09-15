@@ -161,7 +161,9 @@ for dp, dn, fn in os.walk(raiz):
             h("fecha mal formada", r, a.group(1))
         if "/entregables/" in r and "basado_en" not in fm:
             h("entregable sin basado_en", r)
-        if "[[" in txt:
+        # un [[ dentro de codigo, en linea o en bloque, no es un enlace: es hablar de ellos
+        sin_codigo = re.sub(r"`[^`\n]*`", "", re.sub(r"```.*?```", "", txt, flags=re.S))
+        if "[[" in sin_codigo:
             h("enlace wiki", r)
         # solo se marca una ruta absoluta que apunta a un archivo del método;
         # una ruta de máquina citada dentro de un runbook es contenido legítimo
