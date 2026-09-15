@@ -138,9 +138,9 @@ for dp, dn, fn in os.walk(raiz):
         r = rel(p)
         if r in ("guia.md", "metodo.md"):
             continue
-        # fuentes/ es material, no documentos del método: no se edita, así que no se
-        # le pide cabecera ni nombre. Su enlaces.md sí es nuestro.
-        if "/fuentes/" in "/" + r and f != "enlaces.md":
+        # fuentes/ y restringido/ son material, no documentos del método: no se editan,
+        # así que no se les pide cabecera ni nombre. Sus enlaces.md sí son nuestros.
+        if ("/fuentes/" in "/" + r or "/restringido/" in "/" + r) and f != "enlaces.md":
             continue
         if not nombre_ok(f):
             h("nombre de archivo", r)
