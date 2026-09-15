@@ -36,7 +36,7 @@ Por los niveles de la sección 12 de `convenciones`. Al abrir no se lee `base/`.
 4. `<area>/<proyecto>/proyecto.md`
 5. `decisiones.md` del proyecto, las 5 entradas más recientes
 6. `sesiones.md`, las 3 entradas más recientes
-7. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado
+7. `entregables/`, solo las cabeceras de cada archivo: nombre, estado, actualizado. `taller/` no se lee al abrir: entra a demanda, por su disparador de la sección 12
 
 **El barrido de avisos**, que es lo único que recorre la raíz entera:
 
@@ -105,7 +105,7 @@ Si el proyecto activo lo lee todo el equipo y la decisión toca a un área o a u
 
 **5. Cabeceras de lo que se tocó.** Se actualiza `actualizado` en cada archivo modificado y se añade a `basado_en` cualquier fuente nueva que se haya usado.
 
-**6. Lo que entró en `fuentes/`.** Si durante la sesión se guardó algo en `fuentes/` sin haber pasado por la pregunta de si es confidencial, se pregunta ahora: si trae datos personales, facturación, contratos, credenciales o cualquier cosa que no todos deban ver, se propone llevarlo a `restringido/fuentes/` del mismo proyecto y dejar su fila en el `fuentes/enlaces.md` público. El usuario decide; nada se mueve sin que lo confirme.
+**6. Lo que entró en `fuentes/` o en `taller/`.** Si durante la sesión se guardó algo en `fuentes/` sin haber pasado por la pregunta de si es confidencial, se pregunta ahora: si trae datos personales, facturación, contratos, credenciales o cualquier cosa que no todos deban ver, se propone llevarlo a `restringido/` del mismo proyecto y dejar su fila en el `fuentes/enlaces.md` público. El usuario decide; nada se mueve sin que lo confirme.
 
 **7. Rotación.** Si `sesiones.md` supera las 1.500 líneas o cambia el año, se renombra con el año (`sesiones-2026.md`) y se abre uno nuevo. Sin preguntar.
 

@@ -7,7 +7,7 @@ description: Contrato base del metodo de trabajo: estructura de carpetas, cabece
 
 Contrato base del método. El resto de skills del plugin lo cargan antes de escribir nada y no repiten sus reglas. Si una skill contradice algo de aquí, manda este documento.
 
-Versión del método: **1.8**
+Versión del método: **1.9**
 
 ## 1. Las tres capas de propiedad
 
@@ -72,7 +72,9 @@ Se restringe en tres sitios y en ninguno más:
 
 Lo que decide dónde va cada cosa es quién puede leerla, no de qué trata: da igual que sea una cuenta de cliente, recursos humanos, finanzas o legal.
 
-**Un proyecto no se parte.** Sigue siendo uno, con un dueño, un `proyecto.md`, un `decisiones.md` y un `sesiones.md`. Lo que no puede leer todo el equipo va a `restringido/`, que repite dentro las carpetas del proyecto que hagan falta, `entregables/` y `fuentes/`, con su propio `enlaces.md`. Del `enlaces.md` público desaparecen esas filas.
+**Un proyecto no se parte.** Sigue siendo uno, con un dueño, un `proyecto.md`, un `decisiones.md` y un `sesiones.md`. Lo que no puede leer todo el equipo va a `restringido/`, **una carpeta plana** con su propio `enlaces.md`. No repite dentro las carpetas del proyecto: un espejo cuesta más de mantener de lo que ordena, y lo que vive ahí suele ser un puñado de archivos. Si hace falta saber si uno de ellos es un entregable o material de taller, lo dice su cabecera.
+
+En el `fuentes/enlaces.md` público queda la fila que dice que ese material existe y dónde está, nunca lo que dice. Sin ella nadie sabe que hay algo ni a quién pedirlo, que es lo mismo que busca el método al dejar visible el nombre de una carpeta restringida.
 
 **Dónde escala.** En `restringido/` no entran nunca `proyecto.md`, `decisiones.md` ni `sesiones.md`. Si lo que hay que esconder es una decisión, el estado o el objetivo, el proyecto no se puede partir: se restringe entero.
 
@@ -84,11 +86,11 @@ Poner y quitar el acceso limitado solo lo puede hacer quien administra la carpet
 
 ### Material sensible dentro de un proyecto que lee todo el equipo
 
-Un archivo con datos personales, facturación, contratos o credenciales no se guarda en `fuentes/`: se guarda en `restringido/fuentes/` del mismo proyecto, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente al usarlo. No obliga a restringir el proyecto entero.
+Un archivo con datos personales, facturación, contratos o credenciales no se guarda en `fuentes/`: se guarda en `restringido/` del mismo proyecto, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente al usarlo. No obliga a restringir el proyecto entero.
 
 La IA participa en esa decisión. Cuando una skill detecta indicios de información sensible en un material (nombres junto a RFC, CURP o NSS, facturación por cliente, contratos, contraseñas, datos de salud, salarios), lo dice y propone llevarlo a `restringido/`. El usuario decide si lo es o no. Nada se mueve sin que el usuario lo confirme.
 
-Ese material se lee igual que `fuentes/`: es taller privado del proyecto y no se cita en `basado_en` salvo por su fila de `enlaces.md`.
+Ese material se lee igual que `fuentes/`: es privado del proyecto y no se cita en `basado_en` salvo por su fila de `enlaces.md`.
 
 ## 2. Estructura
 
@@ -107,15 +109,14 @@ RAIZ/
       decisiones.md
       sesiones.md
       entregables/
+      taller/
       fuentes/
         enlaces.md      (opcional)
       restringido/      (opcional: lo que no puede leer todo el equipo)
-        entregables/
-        fuentes/
-          enlaces.md
+        enlaces.md
 ```
 
-Tres niveles: área, proyecto, carpeta del proyecto. Un cuarto nivel significa que ahí había dos proyectos, con dos excepciones. Dentro de `entregables/` y de `fuentes/` se permite **un** nivel de agrupación cuando hay material suficiente para que la lista deje de leerse; el nombre de la subcarpeta sigue la convención de nombres y no lleva número de fase. Y `restringido/`, que no es un proyecto nuevo sino la parte del mismo proyecto que no lee todo el equipo, y dentro repite sus carpetas.
+Tres niveles: área, proyecto, carpeta del proyecto. Un cuarto nivel significa que ahí había dos proyectos, con una excepción: dentro de `entregables/`, `taller/` y `fuentes/` se permite **un** nivel de agrupación cuando hay material suficiente para que la lista deje de leerse; el nombre de la subcarpeta sigue la convención de nombres y no lleva número de fase. Antes de crearla vale la pena probar con el asunto por delante del nombre del archivo, que agrupa igual en el listado y no añade nivel. `restringido/` no admite ninguno: es plano.
 
 `guia.md` es de la organización y solo de ella: qué es la carpeta, qué áreas hay con su dueño y su cuenta, quién responde por el contexto, quién administra la carpeta compartida, las reglas propias de la casa y la receta para conectarse. Nada de lo que es igual en cualquier organización entra ahí: eso vive en `metodo.md`, que genera el plugin y nadie edita, y que lleva este contrato, el estilo y el índice de skills para que funcionen también con otro modelo o con quien abra la carpeta sin el plugin.
 
@@ -155,7 +156,7 @@ Dueño: [nombre y apellido]
 [Otras personas y su papel]
 ```
 
-El bloque `Proyectos` es el índice de contexto del área: una línea por proyecto y, debajo, una línea por cada entregable `vigente`. Lo escriben el cierre de sesión y la creación de proyectos, no una persona, y `verificar.sh` avisa si falta algún proyecto o algún entregable vigente. No lo regenera ninguna herramienta: las descripciones de esas líneas son lo que hace útil el índice, y una lista rehecha desde los nombres de archivo dice menos que la que había. Es lo primero que lee cualquier skill antes de abrir un archivo del área.
+El bloque `Proyectos` es el índice de contexto del área: una línea por proyecto y, debajo, una línea por cada entregable `vigente`. Un proyecto cerrado ocupa solo su línea, sin desglose. Lo escriben el cierre de sesión y la creación de proyectos, no una persona, y `verificar.sh` avisa si falta algún proyecto o algún entregable vigente. No lo regenera ninguna herramienta: las descripciones de esas líneas son lo que hace útil el índice, y una lista rehecha desde los nombres de archivo dice menos que la que había. Es lo primero que lee cualquier skill antes de abrir un archivo del área.
 
 `Quién participa` es donde vive el dueño del área. No hay otra clave para él.
 
@@ -167,10 +168,23 @@ El bloque `Proyectos` es el índice de contexto del área: una línea por proyec
 | `decisiones.md` | Registro | Qué se decidió, cuándo, por qué, qué se descartó y a qué afecta |
 | `sesiones.md` | Registro | Qué se avanzó cada día y qué quedó pendiente |
 | `entregables/` | Vivo | El producto del proyecto, en cualquier estado |
+| `taller/` | Vivo | Lo que el equipo escribe para llegar al producto y no es el producto |
 | `fuentes/` | Inmutable | Insumos crudos: exports, PDFs, transcripciones, material sin clasificar |
 | `fuentes/enlaces.md` | Inmutable | Tabla de enlaces externos y de lo que está en `restringido/`. Solo existe si hay filas |
 
-Los tres archivos de la raíz del proyecto y las dos carpetas existen siempre, aunque estén vacías. `sesiones.md` es obligatorio y lo escribe la skill de cierre de sesión, no el usuario.
+Los tres archivos de la raíz del proyecto y las tres carpetas existen siempre, aunque estén vacías. `sesiones.md` es obligatorio y lo escribe la skill de cierre de sesión, no el usuario.
+
+### Qué separa un entregable del taller
+
+Un proyecto produce dos cosas y solo una sale. La prueba para saber cuál es cada archivo cabe en una pregunta: **¿se lo puedo dar a alguien de fuera del proyecto?** Si la respuesta es sí, es un entregable. Si es no, es taller.
+
+`entregables/` es lo que otra área puede consumir cuando esté vigente. `taller/` es todo lo demás que escribió el equipo para llegar hasta ahí: el inventario que hubo que levantar, las notas de una conversación, el análisis intermedio, el diagnóstico del que sale una propuesta, el encuadre de un trabajo que se absorbió. Es de la casa, se escribió en sesión y nadie lo va a leer fuera del proyecto.
+
+La secuencia las ordena sin que haya que pensarlo: **`fuentes/` es lo que entra, `taller/` es donde se trabaja, `entregables/` es lo que sale.**
+
+Sin esa separación, un proyecto con un diagnóstico largo y una propuesta corta acaba con un entregable de verdad y treinta archivos que no lo son en la misma carpeta, y el índice del área y la lectura de nivel 1 dejan de servir. El taller no lleva estado propio ni carpeta de borradores: sus archivos llevan la misma cabecera que cualquier otro, casi siempre en `borrador`.
+
+En el taller **no se abren registros**. Las decisiones y las sesiones del proyecto, incluidas las que ocurren trabajando ahí dentro, van a `decisiones.md` y a `sesiones.md`, que son del proyecto entero. Lo único con forma de registro que puede vivir en el taller es material adoptado de otro sitio, congelado, al que no se le añaden entradas.
 
 No hay carpeta de borradores. Un entregable a medias vive en `entregables/` con `estado: borrador`, y lo que todavía no es nada vive en la conversación hasta que merezca ser un archivo.
 
@@ -208,13 +222,33 @@ Consumen esto: [áreas o personas]
 
 `Dueño`, en `Quién participa`, es el dueño de todo el proyecto: sus entregables, sus decisiones, quién pide publicar. Si un documento concreto tiene otro responsable, se dice en la primera línea del cuerpo de ese documento, no en la cabecera.
 
+### Un proyecto cerrado
+
+Cuando se cumple lo que decía `Terminado significa`, el dueño lo pide y `Estado actual` abre diciendo **«Proyecto terminado el AAAA-MM-DD»**. A partir de ahí el proyecto no evoluciona: sus archivos siguen donde están, con el estado que tengan, y su `Siguientes pasos` dice que no queda ninguno propio.
+
+Lo que cambia es el índice. En el bloque `Proyectos` de su `area.md` **un proyecto cerrado ocupa una línea y no desglosa sus entregables**. El desglose existe para saber sobre qué se puede construir hoy; en un proyecto que ya no evoluciona solo añade líneas que nadie lee, y uno con quince entregables llega a ocupar más del índice que el resto del área junta. Quien necesite el detalle abre su `proyecto.md`, que sigue contándolo entero.
+
+Un proyecto cerrado no se borra ni se saca de la raíz. Se sigue citando, sus entregables vigentes se siguen consumiendo y su `decisiones.md` sigue explicando por qué las cosas están como están.
+
+### Cuando un proyecto absorbe a otro
+
+Pasa cuando varios proyectos dejan de ser trabajos distintos y pasan a ser el mismo: una relación que se consolida, un frente que se pliega dentro de otro. Lo que se absorbe entra como material del proyecto que recibe, no como un proyecto dentro de un proyecto.
+
+- Su `proyecto.md` entra al `taller/` como un documento más, renombrado. Deja de ser un archivo vivo: nadie lo reescribe y es una foto de su fecha.
+- Su `decisiones.md` y su `sesiones.md` **se funden** con los del proyecto que recibe, o entre sí si se absorben varios a la vez, copiando las entradas tal cual y añadiendo a cada encabezado de qué venía. Ninguna entrada se edita. Lo que no se hace nunca es dejar cinco bitácoras conviviendo dentro de una carpeta: nadie las abre y compiten con el registro vivo.
+- Sus entregables se colocan por la prueba de arriba: los que pueden salir, a `entregables/`; el resto, al `taller/`.
+- Sus fuentes van a `fuentes/`, salvo las que produjo una sesión, que son taller.
+- **Los nombres reservados no sobreviven.** `proyecto.md`, `decisiones.md`, `sesiones.md` y `area.md` solo existen en su sitio. Al adoptarlos se renombran a lo que de verdad son, porque un archivo llamado `proyecto.md` promete estar vivo y un `decisiones.md` promete ser un registro intocable, y ahí dentro ninguna de las dos cosas es cierta.
+
+Lo absorbido conserva su contenido y sus fechas; lo que se pierde es su maquinaria, y esa es la intención.
+
 ### Estructura de `fuentes/enlaces.md`
 
 ```markdown
 | Qué es | Enlace | Qué tener presente |
 |---|---|---|
 | Documentación del ERP | https://… | Versión 2024, puede estar desfasada |
-| Nómina del equipo, 2026 | `restringido/fuentes/nomina-2026.xlsx` | Solo el total agregado sale a un entregable |
+| Nómina del equipo, 2026 | `restringido/nomina-2026.xlsx` | Solo el total agregado sale a un entregable |
 ```
 
 ## 4. Vivo o registro, nunca las dos cosas
@@ -306,7 +340,7 @@ La raíz es una carpeta compartida y su nombre se ve en Drive, así que ese sí 
 
 La superficie pública de un proyecto son `entregables/` y `decisiones.md`. Es lo único que otra área puede leer para construir encima, y solo si el entregable está `vigente`. `area.md` y `proyecto.md` también se leen desde fuera, porque son el índice que lleva hasta esa superficie.
 
-`sesiones.md`, `fuentes/` y todo lo que está restringido son taller privado. Nadie de fuera del área los lee ni los cita en `basado_en`.
+`sesiones.md`, `taller/`, `fuentes/` y todo lo que está restringido son taller privado. Nadie de fuera del área los lee ni los cita en `basado_en`. Un entregable sí cita el taller de su propio proyecto, que es de donde salió.
 
 Dentro de la misma área, un entregable puede citar en `basado_en` una fuente de otro proyecto del área, siempre la original y nunca una copia: un export vive en un solo `fuentes/` y los demás lo citan por su ruta. Entre áreas no se citan fuentes, solo entregables vigentes y decisiones.
 
@@ -334,6 +368,9 @@ Cuando un registro pasa de unas 1.500 líneas o cambia el año, se archiva con e
 - Una clave de dueño en la cabecera. El dueño está en `area.md` y `proyecto.md`
 - Un estado intermedio entre `borrador` y `vigente`. Si un borrador está terminado y espera al dueño, lo dice `Estado actual` de `proyecto.md`
 - Una carpeta compartida aparte para lo restringido, ni espejos de la raíz. Se restringe donde está
+- Subcarpetas dentro de `restringido/`. Es plano, con su `enlaces.md`
+- Una carpeta de trabajo intermedio con otro nombre. Lo que se escribió en sesión y no sale del proyecto va a `taller/`
+- Registros propios dentro de `taller/`. Las decisiones y las sesiones son del proyecto entero
 - Una carpeta restringida sin dueño en `area.md` o en `proyecto.md`. Restringir no cambia de quién es
 - Copias de una fuente en dos proyectos. Se cita la original
 - Carpetas numeradas (`01-`, `02-`) ni números de fase en los nombres
@@ -353,7 +390,7 @@ Valen para todas las skills y no se repiten en ninguna. Cada skill añade las su
 3. No registrar una decisión que el usuario no confirmó en esta sesión.
 4. No escribir en `guia.md`, en `base/`, en `metodo.md` ni en la carpeta de otra área. Desde la sesión de otra área se prepara el texto y se le pasa a quien responde.
 5. No tocar archivos fuera del proyecto activo, salvo la línea de ese proyecto en el bloque `Proyectos` de su `area.md`.
-6. No leer `sesiones.md`, `fuentes/` ni lo restringido de otra área. Son taller privado y no responden a nadie de fuera.
+6. No leer `sesiones.md`, `taller/`, `fuentes/` ni lo restringido de otra área. Son taller privado y no responden a nadie de fuera.
 7. No escribir en un archivo que lee todo el equipo la ruta ni el contenido de algo restringido, aunque sea resumido. Hacia fuera solo van el nombre del área o del proyecto, que ya están listados, y la fila de `enlaces.md`.
 8. No guardar en `fuentes/` un material con indicios de información confidencial sin haberlo dicho y preguntado antes, ni mover nada a `restringido/` sin que el usuario lo confirme.
 9. No guardar fuera de `fuentes/` material que llegó de fuera del equipo del proyecto, aunque venga terminado y listo para usarse.
@@ -367,6 +404,8 @@ Valen para todas las skills y no se repiten en ninguna. Cada skill añade las su
 17. No borrar un entregable superado. Pasa a `reemplazado` con `reemplazado_por`, porque alguien puede tenerlo citado.
 18. No llevar a la raíz de una organización ningún hecho que venga de otra raíz conectada en la misma sesión, aunque sea para comparar.
 19. No guardar estado del método en la memoria del modelo. Si un dato importa, va a un `.md` de la carpeta.
+20. No dejar en `entregables/` lo que no puede salir del proyecto. Si no se lo puedo dar a nadie de fuera, va a `taller/`.
+21. No abrir un `decisiones.md` ni un `sesiones.md` dentro de `taller/`. Los registros del proyecto son los de su raíz.
 
 ## 11. Actualización del método
 
@@ -398,6 +437,7 @@ Con eso ya se sabe qué existe, de quién es y dónde está. Todo lo demás se p
 | `area.md` entero | la pregunta es sobre el área y no sobre un proyecto |
 | `decisiones.md` completo | se va a escribir o revisar un entregable |
 | El cuerpo de un entregable | la pregunta pide su contenido y no basta con saber que existe |
+| Un archivo de `taller/` | hace falta cómo se llegó al entregable, y el entregable no basta |
 | Un archivo de `fuentes/` | el trabajo del día lo pide, por su nombre |
 
 Ningún nivel se salta: no se abre el cuerpo de un entregable sin haber visto su cabecera, ni un proyecto sin haber visto el bloque `Proyectos` de su área. Y se para en el primer nivel que responde: si `guia.md` ya dice quién lleva algo, ahí termina la lectura.

@@ -37,11 +37,13 @@ Se para en la primera que dé un sí.
 
 No hay otra puerta. Todo lo que llega de fuera entra por `fuentes/`, aunque venga terminado y el proyecto lo vaya a usar tal cual: en ese caso el entregable es el documento que lo cita, no el archivo de fuera. Y no se guarda además una copia en ningún otro sitio de la raíz.
 
-Antes de guardarlo se mira si trae indicios de información confidencial (la lista está en `convenciones`, sección 1, «Material sensible»). Si los trae, lo digo y propongo llevarlo a `restringido/`; el usuario decide si es confidencial o no. Si lo es, el archivo va a **`restringido/fuentes/` del mismo proyecto**, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
+Antes de guardarlo se mira si trae indicios de información confidencial (la lista está en `convenciones`, sección 1, «Material sensible»). Si los trae, lo digo y propongo llevarlo a `restringido/`; el usuario decide si es confidencial o no. Si lo es, el archivo va a **`restringido/` del mismo proyecto**, y en el `fuentes/enlaces.md` público queda una fila con qué es, dónde está y qué tener presente (por ejemplo, que a los entregables solo sale el agregado). Nada se mueve sin que el usuario lo confirme.
 
 Si la fuente ya existe en otro proyecto de la misma área, no se copia: se cita la original por su ruta.
 
-**3. ¿Lo hizo el equipo del proyecto y otra persona lo va a leer para construir encima?** La pregunta 2 ya paró todo lo que venía de fuera, así que aquí solo queda lo propio. Va a `entregables/`, y entonces no se guarda tal cual: se convierte en un entregable con su cabecera, con la skill `entregable`.
+**3. ¿Lo hizo el equipo del proyecto y se lo puedo dar a alguien de fuera del proyecto?** La pregunta 2 ya paró todo lo que venía de fuera, así que aquí solo queda lo propio. Si la respuesta es sí, va a `entregables/`, y entonces no se guarda tal cual: se convierte en un entregable con su cabecera, con la skill `entregable`.
+
+**3b. ¿Lo hizo el equipo del proyecto pero no sale de él?** El inventario que hubo que levantar, las notas de una conversación, el análisis intermedio, el diagnóstico del que sale una propuesta, el encuadre de un trabajo que se absorbió. Va a `taller/` con su cabecera y su nombre en minúsculas y guiones, casi siempre en `borrador`. No es una fuente, porque lo escribió una sesión, y no es un entregable, porque nadie lo va a consumir desde fuera. La prueba es la de `convenciones`, sección 3: si no se lo puedo dar a nadie de fuera del proyecto, es taller.
 
 **4. ¿Es un compromiso que cambia lo que se va a construir?** No es un archivo, es una entrada en `decisiones.md`. Se propone la entrada y se pide confirmación antes de registrarla.
 
@@ -75,6 +77,8 @@ Además de las 19 prohibiciones de `convenciones`:
 - Colocar fuera de una carpeta restringida material que pertenece dentro de ella, aunque el usuario tenga acceso
 - Mover archivos de un área que no es la del usuario, o colocar material en un proyecto ajeno sin avisar a su dueño
 - Guardar un documento de terceros en `entregables/` tal cual, sin convertirlo
+- Dejar en `entregables/` algo que no sale del proyecto. Si no se lo puedo dar a nadie de fuera, va a `taller/`
+- Guardar en `fuentes/` algo que escribió una sesión. Eso es taller
 - Dar tres opciones y dejar que el usuario elija. Si dudo, pregunto una cosa y decido
 
 ## Ejemplo completo
@@ -93,7 +97,7 @@ Además de las 19 prohibiciones de `convenciones`:
 
 **Respuesta:**
 
-> Trae nombres con salario, así que no lo guardo en `fuentes/`, donde lo lee todo el equipo. Propongo llevarlo a `compras/automatizacion-ordenes/restringido/fuentes/` y dejar en `compras/automatizacion-ordenes/fuentes/enlaces.md` una fila: qué es, su liga, que lo pasó Recursos Humanos el 1 de septiembre y que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
+> Trae nombres con salario, así que no lo guardo en `fuentes/`, donde lo lee todo el equipo. Propongo llevarlo a `compras/automatizacion-ordenes/restringido/` y dejar en `compras/automatizacion-ordenes/fuentes/enlaces.md` una fila: qué es, su liga, que lo pasó Recursos Humanos el 1 de septiembre y que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
 
 **Usuario:** sí
 

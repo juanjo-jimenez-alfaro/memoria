@@ -79,36 +79,46 @@ for area, aruta in areas:
         for req in ("proyecto.md", "decisiones.md", "sesiones.md"):
             if not os.path.exists(os.path.join(pruta, req)):
                 h("proyecto incompleto", rel(pruta), "falta " + req)
-        for d in ("entregables", "fuentes"):
+        for d in ("entregables", "taller", "fuentes"):
             if not os.path.isdir(os.path.join(pruta, d)):
                 h("proyecto incompleto", rel(pruta), "falta " + d + "/")
 
         for x in sorted(os.listdir(pruta)):
             xr = os.path.join(pruta, x)
-            if os.path.isdir(xr) and x not in ("entregables", "fuentes", "restringido") and not x.startswith("."):
+            if os.path.isdir(xr) and x not in ("entregables", "taller", "fuentes", "restringido") and not x.startswith("."):
                 h("carpeta que la estructura no contempla", rel(xr))
             if x.lower() in PROHIBIDAS:
                 h("carpeta prohibida", rel(xr))
             if os.path.isfile(xr) and x.endswith(".md") and x not in ("proyecto.md", "decisiones.md", "sesiones.md"):
                 h("archivo suelto en la raíz del proyecto", rel(xr))
 
-        # un solo nivel de agrupación dentro de entregables/ y fuentes/
-        for sub in ("entregables", "fuentes"):
+        # un solo nivel de agrupación dentro de entregables/, taller/ y fuentes/
+        for sub in ("entregables", "taller", "fuentes"):
             sruta = os.path.join(pruta, sub)
             if not os.path.isdir(sruta):
                 continue
             for g in sorted(os.listdir(sruta)):
                 gr = os.path.join(sruta, g)
                 if os.path.isdir(gr) and not g.startswith("."):
-                    if sub == "entregables" and not nombre_ok(g):
+                    if sub != "fuentes" and not nombre_ok(g):
                         h("nombre de carpeta", rel(gr))
                     for gg in os.listdir(gr):
                         if os.path.isdir(os.path.join(gr, gg)) and not gg.startswith("."):
                             h("un nivel de agrupación de más", rel(os.path.join(gr, gg)))
 
-        # el bloque Proyectos tiene que listar todos los entregables vigentes
+        # restringido/ es plano
+        rruta = os.path.join(pruta, "restringido")
+        if os.path.isdir(rruta):
+            for g in sorted(os.listdir(rruta)):
+                if os.path.isdir(os.path.join(rruta, g)) and not g.startswith("."):
+                    h("subcarpeta dentro de restringido/", rel(os.path.join(rruta, g)), "es plano")
+
+        # el bloque Proyectos tiene que listar todos los entregables vigentes,
+        # salvo en un proyecto cerrado, que ocupa solo su línea
+        pfm, ptxt = cabecera(os.path.join(pruta, "proyecto.md"))
+        cerrado = "Proyecto terminado el" in ptxt
         ed = os.path.join(pruta, "entregables")
-        if os.path.isdir(ed):
+        if os.path.isdir(ed) and not cerrado:
             for f in sorted(os.listdir(ed)):
                 if not f.endswith(".md"):
                     continue

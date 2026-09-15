@@ -74,7 +74,11 @@ No se toca ningún archivo durante un barrido.
 En el mismo barrido, tres comprobaciones más sobre cada proyecto. Son de listado de carpeta: se mira qué archivos hay, no qué dicen.
 
 1. **Archivos en `entregables/` sin cabecera** que no estén anotados en `proyecto.md` ni en una entrada de `decisiones.md`. Un binario que produjo el equipo consta en uno de los dos; si no consta en ninguno, o llegó de fuera o nadie respondió por él.
-2. **Carpetas que la estructura no contempla** dentro del proyecto: cualquiera que no sea `entregables/`, `fuentes/` o `restringido/`. Un nivel de agrupación dentro de `entregables/` o de `fuentes/` está permitido y no se reporta.
+2. **Carpetas que la estructura no contempla** dentro del proyecto: cualquiera que no sea `entregables/`, `taller/`, `fuentes/` o `restringido/`. Un nivel de agrupación dentro de las tres primeras está permitido y no se reporta; dentro de `restringido/` no, porque es plano.
+
+3. **Entregables que no salen del proyecto.** Un archivo en `entregables/` que no se le puede dar a nadie de fuera es taller: un inventario interno, unas notas de conversación, el análisis del que salió otro documento. Se listan con `taller/` como destino propuesto. Es lo que evita que `entregables/` acabe con un entregable de verdad y treinta que no lo son.
+
+4. **Registros dentro de `taller/`.** Un `decisiones.md` o un `sesiones.md` ahí dentro solo es legítimo si es material adoptado y congelado; si alguien le está añadiendo entradas, el registro vivo del proyecto es el de su raíz.
 3. **Archivos sueltos en la raíz del proyecto**, más allá de `proyecto.md`, `decisiones.md` y `sesiones.md`.
 
 Cada hallazgo se reporta con su ruta y un destino propuesto, casi siempre `fuentes/`. Ninguno bloquea una publicación y ninguno se mueve sin que el usuario lo confirme: la regla es norma y no candado, y hay motivos legítimos para que algo esté fuera de sitio un rato.

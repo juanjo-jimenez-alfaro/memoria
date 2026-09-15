@@ -252,9 +252,9 @@ Avances: encuadre definido con Ana Pérez.
 Pendiente: reunir los exports del ERP.
 ```
 
-**5. Las dos carpetas** `entregables/` y `fuentes/`, vacías.
+**5. Las tres carpetas** `entregables/`, `taller/` y `fuentes/`, vacías.
 
-**6. El material existente** se mueve a `fuentes/` con nombres legibles, si el usuario lo tiene a mano. Si no, queda como siguiente paso. Los enlaces van a `fuentes/enlaces.md`, una fila por enlace; ese archivo solo se crea si hay filas. Antes de guardar cada archivo se mira si trae indicios de información confidencial (la lista está en `convenciones`, sección 1, «Material sensible»); si los trae, se dice y se propone llevarlo a `restringido/fuentes/` con su fila en el `enlaces.md` público. El usuario decide.
+**6. El material existente** se mueve a `fuentes/` con nombres legibles, si el usuario lo tiene a mano. Si no, queda como siguiente paso. Los enlaces van a `fuentes/enlaces.md`, una fila por enlace; ese archivo solo se crea si hay filas. Antes de guardar cada archivo se mira si trae indicios de información confidencial (la lista está en `convenciones`, sección 1, «Material sensible»); si los trae, se dice y se propone llevarlo a `restringido/` con su fila en el `enlaces.md` público. El usuario decide.
 
 **7. La línea del proyecto en el bloque `Proyectos` de `area.md`**: `` `nombre-del-proyecto/` — qué es ``, sin entregables debajo porque todavía no hay ninguno vigente. Es lo único que se toca de `area.md`.
 
@@ -302,7 +302,7 @@ Además de las 19 prohibiciones de `convenciones`:
 
 > Creado `compras/automatizacion-ordenes/` con el paquete completo, con Ana Pérez como dueña, y su línea en `compras/area.md`. El enlace del ERP ya está en `fuentes/enlaces.md`.
 >
-> El Excel de sueldos trae nombres con salario, así que no lo guardo en `fuentes/`. Si lo confirmas, va a `restringido/fuentes/` de este proyecto y dejo su fila en `enlaces.md` con la nota de que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
+> El Excel de sueldos trae nombres con salario, así que no lo guardo en `fuentes/`. Si lo confirmas, va a `restringido/` de este proyecto y dejo su fila en `enlaces.md` con la nota de que a los entregables solo sale el total agregado. ¿Lo tratamos como confidencial?
 
 **Usuario:** sí
 
